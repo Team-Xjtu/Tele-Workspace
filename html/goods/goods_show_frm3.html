@@ -1,0 +1,543 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+     <script src="../../script/jquery-1.11.3.min.js"></script>
+     <script src="../../script/bootstrap.min.js"></script>
+    <script src="../../script/underscore.js"></script>
+    <style type="text/css">
+    .aui-content,
+    .aui-content-padded {
+        background: #ffffff;
+
+    }
+    .display-none{display:none}
+    .thumb {
+        position: relative;
+        max-height: 280px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+    .thumb > img {
+        width: 100%;
+    }
+    .price-info {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgba(255,153,0,0.6);
+        height: 55px;
+        
+    }
+    .price {
+        margin-left: 15px;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 55px;
+    }
+    .price strong {
+        font-size: 26px;
+        margin: 0 5px;
+        font-weight: 400;
+    }
+    .price-info .aui-pull-right {
+        height: 55px;
+        width: 35%;
+        background: rgba(255,204,0,0.6);
+        padding-top: 10px;
+        text-align: center;
+    }
+    .price-info .aui-pull-right p {
+        color: #ff6600;
+        font-size: 12px;
+        margin-bottom: 0px;
+    }
+    .goods-basic-info {
+        padding: 10px;
+        overflow: hidden;
+    }
+    .goods-title {
+        margin-bottom: 5px;
+    }
+    .aui-tab-nav li.active {
+        color: #ff9900;
+        border-bottom: 2px #ff9900 solid;
+    }
+    .info {
+        padding: 10px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+    .info img {
+        width: 100%;
+    }
+    .info p {
+        color: #666;
+    }
+    .aui-btn{margin:5px;font-size:12px;padding:4px 6px;}
+    .aui-guige{display: -webkit-box;padding:6px;}
+    .aui-avatar{ border-radius: 50%; }
+    .aui-list-view i.aui-iconfont {
+	    padding: 0px;
+	    top:-2px;
+	    border-radius:0px;
+	    margin:0;
+	    color: #e74c3c;
+	    font-size: 14px;
+	}
+	.aui-list-view-cell {
+    position: relative;
+    padding: 12px 2px;
+    overflow: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-touch-callout: none;
+}
+.aui-label{display: inline-block}
+    </style>
+</head>
+<body>
+    <section class="aui-content thumb">
+        <img src="../../image/pic3.jpg">
+        <div class="price-info">
+            <span class="price">￥<strong>88.88</strong>元</span>
+            <div class="aui-pull-right">
+                <p style="text-decoration:line-through">原价：66.66 元</p>
+                <p>2016件已售</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="aui-content goods-basic-info">
+        <div class="goods-title">梦的国度---商品ID3</div>
+        <h5 class="goods-title">华为P7移动版保护壳</h5>
+        <p>
+            <label class="aui-label aui-label-danger">快递包邮</label> 
+            <!--<label class="aui-label aui-label-success">你猜</label>-->
+        </p>
+    </section>
+    <div class="aui-content aui-col-xs-12 aui-guige">
+       	<p class="aui-col-xs-4 aui-text-center" style="padding:8px 5px;">选择打印类型</p>
+       	<div class="aui-col-xs-9">
+			<button class="aui-btn aui-btn-success aui-btn-outlined">热转印</button>
+			<button class="aui-btn aui-btn-success aui-btn-outlined">水帖</button>
+			<button class="aui-btn aui-btn-success aui-btn-outlined">浮雕打印</button>
+			<button class="aui-btn aui-btn-success aui-btn-outlined">平面打印</button>
+			<!--<button class="aui-btn aui-btn-success aui-btn-outlined">200g/盒</button>
+			<button class="aui-btn aui-btn-success aui-btn-outlined">200g/盒</button>
+			<button class="aui-btn aui-btn-success aui-btn-outlined">200g/盒</button>-->
+		</div>
+    </div>
+    <section class="aui-tab">
+        <ul class="aui-tab-nav" id="demo1">
+            <li class="active">产品详情</li>
+            <li>用户评价(199)</li>
+        </ul>
+    </section>
+    <!--这个是商品描述-->
+    <section class="aui-content info con-pl ">
+        <p>商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述沙拉汁不够的，可联系客服购买~新鲜非洲冰草3斤装顺丰包邮，偏远地区除外。亲们：现在发货会加冰袋的哦 保证新鲜的哦。</p>
+        <img class="aui-img-object aui-pull-left" src="../../image/pic2.jpg" data-echo="../../image/pic2.jpg">
+   
+    </section>
+    
+    
+    
+    <!--这个是评价-->
+    <section class="aui-content info con-pl display-none">
+        
+            <div class="row" id="quanbushuoshuo" >
+				
+	 		</div>
+            <p class="aui-text-center aui-padded-10" tapmode onclick="openWinto('comment_list_goods_head','comment_list_goods_head')">查看更多</p>
+        
+    </section>
+    
+     
+    
+    
+    
+    
+    <div >
+    <div style="display: none" id="panduan"></div>
+    <div class="container" height="1600" style="display: none;">
+        <div class="row">
+            <div class="col-lg-6" >
+                <form>
+                    <textarea  id="shuoshuo" cols="90" rows="6" placeholder="请把字数限制在200字以内！每小时限发3条"></textarea>
+                    <div align="right" ><a class="aui-btn aui-btn-ff9800 aui-btn-block"  id="fabiao" role="button" style="text-decoration: none;color: white;">发表</a></div>
+                </form>
+                <div class="alert alert-danger" id="cuowukuang3"role="alert">字数超过限制！</div>
+                <div class="alert alert-danger" id="cuowukuang4"role="alert">不能为空！</div>
+                <div class="alert alert-success"id="chenggong1" role="alert">发表成功</div>
+                <div class="alert alert-danger" id="cuowukuang5"role="alert">发表失败，请联系管理员！</div>
+                <div class="alert alert-danger" id="cuowukuang6"role="alert"></div>
+            </div>
+            <div class="col-lg-2" style="display: none">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        您当前所在话题区为：
+                        <span class="caret" ></span>
+                        <span id="spselect">日常心情</span>
+
+
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a onclick="huati(this)" href="javascript:void(0)" name="日常心情">日常心情</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)" name="体育运动">体育运动</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="爱情风铃">爱情风铃</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="学习圣地">学习圣地</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)" name="文艺广场">文艺广场</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="游戏天地">游戏天地</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="旅游世界">旅游世界</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="事业工作">事业工作</a></li>
+                        <!--<li role="separator" class="divider"></li>-->
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+        </div>
+
+    </div>
+
+<div class="container">
+    <!-- 分页条-->
+    
+
+   
+
+    <!-- Example row of columns -->
+    
+</div> <!-- /container -->
+	 	
+	 	
+	 	
+	
+	
+	    
+    
+    
+</body>
+
+
+
+
+<script type="text/template"id="moban">
+    
+    <div class="grid2" style="margin-top: 0; ">
+        <div class="thumbnail" style="border-top:none;border-bottom:10px; margin-top: 1px;">
+             <h2 id="yhm"><img style="border-radius: 70%;width: 20px;height: 20px;" src="http://123.206.98.49:3001/avatar/{{=avatar}}" alt=""/>{{=username}}</h2>
+            <section class="aui-content"></section>
+            <div class="caption">
+                <p class="neirong" style="height: 50px">{{=content}}</p>
+
+                <p>{{=date}}</p>
+                <section class="aui-content"></section>
+                 <section class="aui-content"></section>
+                <button  onclick="dianzan(this.name,this)" name="{{=_id}}" style="display: none">赞
+                    <span style="{{=yanse}}" id="span1">{{=zan.length-2}}</span>
+                </button>
+                
+           <span {{=flag}}>
+          <a   href="javascript:void(0)" onclick="shanchushuoshuo(this)" name="{{=_id}}" style="color:#000000">
+              <button   type="button" style="display: none">
+                  	删除
+              </button>
+          </a>
+               <!--<div style="display: none">{{=_id}}</div>-->
+            </span>
+            
+             
+            </div>
+        </div>
+        <hr/>
+        <!--<p><a class="btn btn-default btn-sm" href="#" role="button">查看个人</a></p>-->
+    </div>
+
+</script>
+
+<script type="text/javascript">
+    //    var $quanbushuoshuo = $("#quanbushuoshuo");
+    function huati(a)
+    {
+        document.querySelector("#spselect").innerHTML= a.name;
+        getpage(0);
+    }
+    function getuserindex(a)
+    {
+        window.location.href="./userindex.html?username="+a.name.toString();
+    }
+    function getpage(page) {
+//          var $quanbushuoshuo = $("#quanbushuoshuo");
+        $("#quanbushuoshuo").html("");
+//          var compiled = _.template($("#moban").html());
+
+        $.ajax({
+                    "url": "http://123.206.98.49:3001/getallshuoshuo?page=" + page+"&huati="+document.querySelector("#spselect").innerHTML,
+                    "type": "get",
+                    "success": function (result2) {
+//                          alert(result.length);
+                        if(result2=="-1"){
+                            return;
+                        }
+                        iterator(0);
+
+                        function iterator(i) {
+                            if (i == result2.length) {
+
+                                return;
+                            }
+
+                            $.get("http://123.206.98.49:3001/getuserinfo?username=" + result2[i].username, function (result3) {
+                                result2[i].avatar = result3.avatar;
+                                var user=document.querySelector("#panduan").innerHTML;
+                                if(result2[i].username!=user) {
+                                    result2[i].flag='hidden';
+                                }else{
+                                    result2[i].flag='';
+                                }
+                                //组装模板
+                                var htmlstring = compiled(result2[i]);
+								if(i<3){
+									$("#quanbushuoshuo").append($(htmlstring));
+									
+								}
+                                
+//                              alert(i);
+                                iterator(i + 1);
+                            });
+                        }
+                    }
+                }
+        );
+
+    }
+    function shanchushuoshuo(a){
+        $.get("http://123.206.98.49:3001/shanchushuoshuo?id="+ a.name,function(result){
+            if(result=="1")
+            {
+
+                getpage(parseInt($(".pagination li.active")));
+            }
+        });
+    }
+    var compiled = _.template($("#moban").html());
+    $.get("http://123.206.98.49:3001/getinfo",function(result){
+//        alert(result);
+        var dataObj=eval("("+result+")");
+//        alert(dataObj.avatar);
+//      document.querySelector("#touxiang").src="/avatar/"+dataObj.avatar;
+//        alert(document.querySelector("#touxiang").src);
+//      document.querySelector("#xingming").innerHTML="欢迎您，"+dataObj.username;
+        document.querySelector("#panduan").innerHTML=dataObj.username;
+
+    //分页条的Ajax
+    $.get("http://123.206.98.49:3001/getshuoshuoamount?huati="+document.querySelector("#spselect").innerHTML, function (result1) {
+//            alert(result);
+        if(result1=="-1"){
+            return;
+        }
+        var amount = parseInt(result1);
+        //总页数
+        pageamount = Math.ceil(amount / 10);
+//            alert(amount);
+        for (var i = 1; i <=pageamount; i++) {
+            $(".pagination").append("<li><a href='javascript:void(0);'>" + i + "</a></li>");
+        }
+        $(".pagination li:first").addClass("active");
+        //监听
+        $(".pagination li").click(function () {
+            var page = parseInt($(this).index());
+//                alert(page);
+            $(this).addClass("active").siblings().removeClass("active");
+            getpage(page);
+//                $(this).addClass("active").siblings().removeClass("active");
+        });
+    })
+    getpage(0);
+
+    })
+
+</script>
+
+<script>
+
+    function changeyzm(a){
+        a.src="http://123.206.98.49:3001/scyanzhengma";
+    }
+    function dianzan(a,b){
+        $.get("http://123.206.98.49:3001/dianzan?id="+a,function(result){
+//            alert(b.childNodes[0].innerHTML);
+//                 alert(result);
+            b.querySelector("#span1").innerHTML=result.dianzanshu-2;
+//            b.querySelector("#span1").css("color","orange");
+            if(result.xinzeng=="1"){
+                $(b.querySelector("#span1")).css("color","orange");
+//            getpage(0);
+            }
+            else{
+                $(b.querySelector("#span1")).css("color","");
+            }
+        });
+
+    };
+    $("#fabiao").click(function(){
+        if( $("#shuoshuo").val().length>200){
+            $("#cuowukuang3").fadeIn();
+        }
+        else if($("#shuoshuo").val().length==0){
+            $("#cuowukuang4").fadeIn();
+        }
+        else {
+            $.post("http://123.206.98.49:3001/postshuoshuo", {"content": $("#shuoshuo").val(),"huati":document.querySelector("#spselect").innerHTML}, function (result) {
+                if(result=="1"){
+
+                    $("#chenggong1").fadeIn();
+                    setTimeout("$('#chenggong1').fadeOut()",3000);
+//                 var htmlstring = compiled({"username":$("#yhm").});
+//
+//                 $("#quanbushuoshuo").append($(htmlstring));
+                    getpage(0);
+
+                    $(".pagination li:first").addClass("active");
+                    $(".pagination li:first").addClass("active").siblings().removeClass("active");
+                }
+                else if(result=="-1"||result=="-2"||result=="-3"){
+                    $("#cuowukuang5").fadeIn();
+                    setTimeout("$('#cuowukuang5').fadeOut()",3000);
+                }
+                else {
+                    document.querySelector("#cuowukuang6").innerHTML="发表失败，一个小时限发3条！请"+result+"分钟后再试！";
+                    $("#cuowukuang6").fadeIn();
+                    setTimeout("$('#cuowukuang6').fadeOut()",3000);
+                }
+            });
+
+        } });
+    $("input").focus(function(){
+        $("#cuowukuang").fadeOut();
+        $("#chenggong").fadeOut();
+        $("#cuowukuang1").fadeOut();
+        $("#cuowukuang2").fadeOut();
+        $("#cuowukuang3").fadeOut();
+        $("#cuowukuang4").fadeOut();
+        $("#cuowukuang5").fadeOut();
+        $("#chenggong1").fadeOut();
+    });
+    $("#shuoshuo").focus(function(){
+        $("#cuowukuang").fadeOut();
+        $("#chenggong").fadeOut();
+        $("#cuowukuang1").fadeOut();
+        $("#cuowukuang2").fadeOut();
+        $("#cuowukuang3").fadeOut();
+        $("#cuowukuang4").fadeOut();
+        $("#cuowukuang5").fadeOut();
+
+    });
+    $("#submit").click(function(){
+
+        if($("#username").val()==""){
+            $("#cuowukuang1").fadeIn();
+        }
+        else if($("#password").val()==""){
+            $("#cuowukuang2").fadeIn();
+        }
+        else {
+            $.post("http://123.206.98.49:3001/dologin", {
+                "username": $("#username").val(),
+                "password": $("#password").val(),
+                "yanzhengma":$("#yanzhengma").val().toString()
+            }, function (result) {
+                //alert(result);
+                if (result == "-1") {
+
+                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("用户名不存在");
+
+
+                }
+                if (result == "-3") {
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("服务器错误");
+                    document.querySelector("#yanzhengmaimg").src="/scyanzhengma";
+                }
+                if (result == "-2") {
+                    document.querySelector("#yanzhengmaimg").src="/scyanzhengma";
+                    $("#cuowukuang").fadeIn();
+
+                    $("#cuowukuang").html("密码错误");
+
+                }
+                if (result == "-4") {
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("验证码错误");
+
+
+                    document.querySelector("#yanzhengmaimg").src="/scyanzhengma";
+
+
+                }
+                if (result == "1") {
+
+
+                    $("#chenggong").fadeIn();
+                    $("#chenggong").html("登录成功");
+
+                    setTimeout("window.location.href='/'", 1000);
+
+                }
+
+
+            });
+        } });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/echo.min.js"></script>
+<script type="text/javascript" src="../../script/zepto.min.js"></script>
+<script type="text/javascript">
+	echo.init({
+			offset : 100,
+			throttle : 250,
+			unload : false,
+			callback : function(element, op) {
+			}
+		});
+		Zepto(function() {
+			$(".aui-tab-nav").on("tap", "li", function() {			
+				 $('.aui-tab-nav li').removeClass('active');
+				 $(this).addClass('active');
+				 var $ul = $('.con-pl');                 
+                 var $t = $(this).index();
+                 $ul.css('display','none');
+				 $ul.eq($t).css('display','block');					
+			});
+		});
+    apiready = function(){
+		api.parseTapmode();
+    }
+</script>
+</html>

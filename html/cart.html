@@ -1,0 +1,547 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			.aui-checkbox {
+				width: 20px;
+				height: 20px;
+				position: relative;
+				margin: 8px 15px;
+				background: #ffffff;
+				border: solid 1px #dddddd;
+				border-radius: 4px;
+				display: table;
+				float: left;
+				-webkit-appearance: none;
+				transition: background-color ease 0.1s;
+			}
+			.aui-counter-box {
+				width: 100%;
+				padding: 0;
+				line-height: 26px;
+			}
+			.aui-list-view .aui-img-object {
+				max-width: 70px;
+				height: 70px;
+				line-height: 70px;
+			}
+			.aui-list-view-cell:last-child:after {
+				left: 0;
+			}
+			.aui-list-view-cell:after {
+				left: 15px;
+			}
+			.aui-list-view-cell:active {
+				background: #fff;
+			}
+			.aui-nav .aui-bar-tab {
+				background: #34495E;
+			}
+			.aui-nav .aui-bar-tab li .aui-iconfont, .aui-nav .aui-bar-tab li p {
+				color: #fff;
+			}
+			.aui-nav .aui-bar-tab li.active .aui-iconfont, .aui-nav .aui-bar-tab li.active p {
+				color: #14bd7c;
+			}
+			.aui-nav {
+				background: #ff9900;
+				font-size: 18px;
+				color: #fff;
+				text-align: center;
+			}
+			.aui-nav  div {
+				height: 55px;
+			}
+			.aui-nav .buy {
+				line-height: 55px;
+			}
+			.blue {
+				background: #fff;
+			}
+			.blue .aui-iconfont, .blue p {
+				color: #999;
+			}
+			.buy {
+				background: #FF9800;
+			}
+			.aui-input-row:first-child:after {
+				border-top: 0px solid #c8c7cc;
+			}
+			.aui-input-row .aui-input-addon {
+				width: auto;
+			}
+			.aui-input-row:last-child:after {
+				border-bottom: 0px solid #000;
+			}
+			.heji {
+				font-size: 14px;
+				vertical-align: middle;
+				white-space: nowrap;
+				line-height: 55px;
+			}
+		</style>
+		
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/animate.css">
+		<link rel="stylesheet" href="../css/jd_cart.css">
+		<link rel="icon" href="../../favicon.ico">
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<!--<link href="../css/jumbotron.css" rel="stylesheet">-->
+		
+		<style type="text/css">
+			input[type=radio], input[type=checkbox] {
+				display: inline-block;
+				vertical-align: middle;
+				width: 20px;
+				height: 20px;
+				margin-left: 5px;
+				-webkit-appearance: none;
+				background-color: transparent;
+				border: 0;
+				outline: 0 !important;
+				line-height: 20px;
+				color: #d8d8d8;
+			}
+			input[type=checkbox]:after {
+				content: "";
+				display: block;
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				line-height: 14px;
+				font-size: 16px;
+				color: #fff;
+				border: 2px solid #ddd;
+				background-color: #fff;
+				box-sizing: border-box;
+			}
+			input[type=checkbox]:checked:after {
+				border: 4px solid #ddd;
+				background-color: orange;
+			}
+		</style>
+		<script src="../script/jquery-1.11.3.min.js"></script>
+		<script src="../script/bootstrap.min.js"></script>
+		<script src="../script/underscore.js"></script>
+	</head>
+	<body>
+		<form action="" method="get">
+			<div  id="quanbushuoshuo">
+				<script type="text/template" id="moban">
+				<li class="aui-list-view-cell aui-img aui-counter-list">
+					<!--<div class="panel panel-default">-->
+					<div  class="sums">
+					<div style="float: left;margin-top:20px;" id="hahaha" >
+					<label onclick="dianji(this)">
+					<input class="checkboxs" name="mydiy" type="checkbox" id="mydiy" value="" /> 
+					</label>
+					<div style="display: none" id="danjia">{{=danjia}}</div>
+					</div>
+					<div style="float: left;margin-left: 5px">
+					<img class="aui-img-object aui-pull-left" id="img_biaoshi" onclick="go_Diy(this)" style="width:100px;height: 100px" src={{=img}} alt="">
+					</div>
+				<div class="aui-img-body">
+					<div class="aui-text-default aui-ellipsis-1">
+							{{=diyname}} 
+					</div>
+					<div class="aui-carfont aui-ellipsis-1">{{=beizhu}}
+					</div>
+				<div class="aui-counter-box">
+					<div class="aui-pull-left aui-text-danger" id="danjia">
+						&yen;{{=danjia}}
+						</div>
+					<div class="aui-counter aui-pull-right">
+						<div class="aui-counter-minus" onclick="jianyi(this)"></div>
+						<input class="aui-counter-input"  type="text" onfocus="jicun(this)" onblur="panduan(this)" value='1' name="hhaha" id="shuru"/>
+						<div class="aui-counter-plus" id="jiayi" onclick="jiayi(this)"></div>
+					</div>
+					<div id="biaoshi" style="display: none">{{=img}}</div>
+					<div id="changjingxinxi" style="display: none">{{=changjingxinxi}}</div>
+					<div style="margin-left: 10px">
+					<div class="delete_box f_right" onclick="shanchu()" >
+					<a href="javascript:void(0)"><span class="delete_up"></span></a>
+					<a href="javascript:void(0)"> <span class="delete_down"></span></a>
+					</div>
+					</div>
+				
+					</div>
+				</div>
+					</div>
+					</li>
+					</div>
+				</script>
+			</div>
+			<!--<img id="img_biaoshi2" src="123.03">-->
+			</div>
+		</form>
+		
+		<script>
+		
+		
+			function shengchengdingdan() {
+				var shangpins = new Array();
+				var objs = document.querySelectorAll(".checkboxs");
+				var objs1 = document.querySelectorAll(".sums");
+				for (var i = 0; i < objs.length; i++) {
+					if (objs[i].checked == true) {
+						var img = objs1[i].querySelector("#biaoshi").innerHTML.toString();
+						var shuliang = objs1[i].querySelector("#shuru").value;
+//						var diybiaoshi= objs1[i].querySelector("#shuru").value;
+						//alert(img);
+						shangpins.push({
+							"img" : img,
+							"shuliang" : shuliang,
+							"diybiaoshi": "20177418112353452186"
+						});
+					}
+				}
+				var shangpins1 = JSON.stringify(shangpins);
+				//alert("cart shangpins"+shangpins1);
+				if (parseInt(document.querySelector("#zongjia").innerHTML) > 0) {
+					$.post("http://123.206.98.49:3001/createdingdan", {
+						"shangpins" : shangpins1,
+						"zongjia" : document.querySelector("#zongjia").innerHTML
+					}, function(result) {
+						//alert("cart xx"+result);
+//						window.location.href = "/views/dingdanindex.html";
+					})
+				}
+			}
+
+			var temp = 1;
+			function jicun(a) {
+				temp = a.value;
+			}
+
+			var compiled = _.template($("#moban").html());
+			function jianyi(a) {
+				var b = $(a).parent().parent().parent().parent().parent().children()[0];
+				var c = b.querySelector("input");
+				if (c.checked == true) {
+					var shuliangobj = a.nextElementSibling;
+					var shuliang = $(shuliangobj).val();
+					if (parseInt(shuliang) > 1) {
+						shuliang = parseInt(shuliang) - 1;
+						var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
+						var danjia = parseInt(b.querySelector("#danjia").innerHTML);
+						document.querySelector("#zongjia").innerHTML = muqianzongjia - danjia;
+						$(shuliangobj).val(shuliang);
+					}
+				} else {
+					var shuliangobj = a.nextElementSibling;
+					var shuliang = $(shuliangobj).val();
+					if (parseInt(shuliang) > 1) {
+						shuliang = parseInt(shuliang) - 1;
+						$(shuliangobj).val(shuliang);
+						$(c).attr("checked", true);
+						var thisshuliang = shuliang;
+						var danjia = parseInt(b.querySelector("#danjia").innerHTML);
+						var thiszongjia = thisshuliang * danjia;
+						var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
+						document.querySelector("#zongjia").innerHTML = muqianzongjia + thiszongjia;
+					}
+				}
+			}
+
+			function jiayi(a) {
+				var b = $(a).parent().parent().parent().parent().parent().children()[0];
+				var c = b.querySelector("input");
+				if (c.checked == true) {
+					var shuliang;
+					var shuliangobj = a.previousElementSibling;
+					if ($(shuliangobj).val() == "") {
+						shuliang = 0;
+						shuliang = shuliang + 1;
+					} else {
+						shuliang = $(shuliangobj).val();
+						shuliang = parseInt(shuliang) + 1;
+					}
+					$(shuliangobj).val(shuliang);
+					var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
+					var danjia = parseInt(b.querySelector("#danjia").innerHTML);
+					document.querySelector("#zongjia").innerHTML = muqianzongjia + danjia;
+				} else {
+					var shuliang;
+					var shuliangobj = a.previousElementSibling;
+					if ($(shuliangobj).val() == "") {
+						shuliang = 0;
+						shuliang = shuliang + 1;
+					} else {
+						shuliang = $(shuliangobj).val();
+						shuliang = parseInt(shuliang) + 1;
+					}
+					$(shuliangobj).val(shuliang);
+					c.checked = true;
+					var thisshuliang = shuliang;
+					var danjia = parseInt(b.querySelector("#danjia").innerHTML);
+					var thiszongjia = thisshuliang * danjia;
+					var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
+					document.querySelector("#zongjia").innerHTML = muqianzongjia + thiszongjia;
+				}
+			}
+
+
+			var getgouwucheInfo;
+			$.get("http://123.206.98.49:3001/getgouwuche", function(result) {
+				if (result == "-1") {
+					alert("出错了");
+					return;
+				}
+				getgouwucheInfo=result;
+				
+				if (result.length > 1) {
+					//                alert("haha");
+					for (var i = 1; i < result.length; i++) {
+						var htmlstring = compiled(result[i]);
+						//alert(htmlstring);
+						//alert(htmlstring);
+						$("#quanbushuoshuo").append($(htmlstring));
+					}
+				}
+			});
+			function dianji(a) {
+				if (a.querySelector("input").checked == true) {
+					var b = $(a).parent().next().next().children()[2];
+					var c = b.querySelector("#shuru");
+					var thisshuliang = parseInt($(c).val());
+		
+					var danjia = parseInt(a.nextElementSibling.innerHTML);
+					var thiszongjia = 1 * danjia;
+					var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
+					muqianzongjia = muqianzongjia + thiszongjia;
+					//        var danjiaobj=a.nextElementSibling;
+					//        alert(danjiaobj);
+					//        var danjia= parseInt($(danjiaobj).html());
+					//        alert(danjia);
+					//        alert($(danjiaobj).innerHTML);
+					//        alert($(danjiaobj).val());
+					//        var zongjia=muqianzongjia+inputsh
+					// uliang*danjia;
+					//            alert(document.querySelector("#zongjia"));
+					document.querySelector("#zongjia").innerHTML = muqianzongjia;
+				} else {
+					var inputshuliang = a.querySelector("#shuru");
+					var b = $(a).parent().next().next().children()[2];
+					var c = b.querySelector("#shuru");
+					var thisshuliang = parseInt($(c).val());
+					var danjia = parseInt(a.nextElementSibling.innerHTML);
+					var thiszongjia = thisshuliang * danjia;
+					var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
+					document.querySelector("#zongjia").innerHTML = muqianzongjia - thiszongjia;
+				}
+			}
+
+			function quanxuan(a) {
+				var objs = document.querySelectorAll(".checkboxs");
+				var objs1 = document.querySelectorAll(".sums");
+				if (a.checked == true) {
+					var sum = 0
+					for (var i = 0; i < objs.length; i++) {
+						objs[i].checked = true;
+						sum = sum + parseInt(objs1[i].querySelector("#danjia").innerHTML) * parseInt(objs1[i].querySelector("#shuru").value);
+					}
+					document.querySelector("#zongjia").innerHTML = sum;
+				} else {
+					for (var i = 0; i < objs.length; i++) {
+						$(objs[i]).removeAttr("checked");
+					}
+					document.querySelector("#zongjia").innerHTML = 0;
+				}
+			}
+
+			function panduan(a) {
+				if (parseInt(a.value) < 1) {
+					alert("数量不能小于1");
+					a.value = temp;
+				} else if (isNaN(a.value) || a.value == "") {
+					alert("请输入数字");
+					a.value = temp;
+				} else {
+					var b = $(a).parent().parent().parent().parent().parent().children()[0];
+					var danjia = parseInt(b.querySelector("#danjia").innerHTML);
+					var c = b.querySelector("input");
+					if (c.checked == true) {
+						var nowshuliang = parseInt(a.value);
+						var shuliangcha = nowshuliang - temp;
+						var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
+						document.querySelector("#zongjia").innerHTML = muqianzongjia + shuliangcha * danjia;
+					} else {
+						c.checked = true;
+						var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
+						var nowshuliang = parseInt(a.value);
+						document.querySelector("#zongjia").innerHTML = muqianzongjia + nowshuliang * danjia;
+					}
+				}
+			}
+		</script>
+		<script src="../script/cartjs.js"></script>
+		<div style="height: 50px;"></div>
+		<footer class="aui-nav" id="aui-footer">
+			<div class="aui-col-xs-12">
+				<div class="aui-col-xs-4 blue" id="collection-btn" tapmode="">
+					<div class="aui-input-row">
+						<input onclick="quanxuan(this)" type="checkbox" type="radio" name="demo">
+						<label class="aui-input-addon">全选</label>
+					</div>
+				</div>
+				<div class="aui-col-xs-4 blue aui-text-danger heji" id="collection-btn" tapmode="">
+					总价：<span id="zongjia" style="color:red">0</span>元
+				</div>
+				<div class="aui-col-xs-4 buy" id="main" tapmode="" onclick="goOrder()">
+					立即下单
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/jquery-1.11.3.min.js"></script>
+
+	
+
+    
+    <script src="../javascript/jquery.min.js"></script>
+    <script src="../javascript/three.js"></script>
+    <script src="../javascript/SceneLoader.js"></script>
+    <script src="../javascript/SceneExporter.js"></script>
+ 
+    <script src="../javascript/OrbitControls.js"></script>
+    <script src="../javascript/FontLoader.js"></script>
+
+
+    <script src="../imagejs/utilitie.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../imagejs/canvasEl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../imagejs/canvasIm.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    
+    <script src="../js/hammer.js"></script>
+
+    
+   <!-- <script src="../js/Scence.js"></script>-->
+    
+    <script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script src="../threejs/three.js"></script>
+	<script src="../threejs/OrbitControls.js"></script>
+	<script type="text/javascript" src="../threejs/initSence.js"></script>
+	<!--<script type="text/javascript" src="../threejs/initSence.js"></script>-->
+	<script>
+	function go_Diy(a){
+	//var b = $(a).parent().next().next().children()[3].querySelector("#biaoshi").innerHTML.toString();;
+		var b = $(a).parent().next().children()[2];
+		var biaoshi = b.querySelector("#biaoshi").innerHTML.toString();
+		var changjingxinxi = b.querySelector("#changjingxinxi").innerHTML;
+		//alert("going to diy +"+b+changjingxinxi);
+	
+		api.setFrameGroupIndex({
+	        name: 'footer_tab_index',
+	        index: 1
+        });
+        $api.setStorage('biaoshi',biaoshi);
+        $api.setStorage('changjingxinxi',changjingxinxi);
+       // alert("user"+JSON.stringify($api.getStorage('user')));
+        //load(getgouwucheInfo[1].changjingxinxi,getgouwucheInfo[1].img);
+        
+        //load();
+        //createThree("../models/Iphone5.js","content",biaoshi);
+         api.execScript({
+            name: 'sort',
+           // frameName: 'web_frm',
+            script: 'createThree("../models/Iphone5.js","content","");'
+        });
+        
+//      api.openWin({
+//				name : 'goods_show_win',
+//				url : '../indexDiy.html',
+//				pageParam : {
+//					url0 : "ss",
+//				}
+//			});
+       // alert("user"+JSON.stringify($api.getStorage('user')));
+//		api.openFrame({
+//          name: 'share_body',
+//          url: '../indexDiy.html',
+//          pageParam : {
+//					url0 : getgouwucheInfo[1],
+//				}
+//          
+//      });
+	}	
+
+		
+
+//
+//  apiready = function(){
+//		api.parseTapmode();
+//		url0 = api.pageParam.url0;
+//		price = api.pageParam.price;
+//		name = api.pageParam.name;
+//		type = api.pageParam.type;
+//		jieshao = api.pageParam.jieshao;
+//		urlarray = api.pageParam.urlarray;
+	
+		function goOrder(){
+			shengchengdingdan();
+			api.openWin({
+	            name: 'dingdan',
+	            url: './goods/order_detail_head.html'
+            });
+		
+		}
+	
+		$(document).ready(function() {
+			$("#add1").click(function() {
+				//alert("商品数量加1");
+				$("#quantity1").val(Number($("#quantity1").val()) + 1);
+			});
+			$("#subtract1").click(function() {
+				//alert("商品数量减1");
+				$("#quantity1").val($("#quantity1").val() - 1);
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			api.setRefreshHeaderInfo({
+                    visible: true,
+                    loadingImg: 'widget://image/coupon_bg_yellow.png',
+                    bgColor: '#ccc',
+                    textColor: '#fff',
+                    textDown: '下拉刷新...',
+                    textUp: '松开刷新...',
+                    showTime: true
+                }, function(ret, err) {
+                
+                $.get("http://123.206.98.49:3001/getgouwuche", function(result) {
+				if (result == "-1") {
+					alert("出错了");
+					return;
+				}
+				getgouwucheInfo=result;
+				 $api.html($api.byId('quanbushuoshuo'),"" );
+				if (result.length > 1) {
+					//                alert("haha");
+					for (var i = 1; i < result.length; i++) {
+						var htmlstring = compiled(result[i]);
+						//alert(htmlstring);
+						//alert(htmlstring);
+						$("#quanbushuoshuo").append($(htmlstring));
+					}
+				}
+			});
+                    api.refreshHeaderLoadDone();
+				});
+		}
+	</script>
+</html>

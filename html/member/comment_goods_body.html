@@ -1,0 +1,426 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<style type="text/css"> 
+		*{margin:0;padding:0;list-style-type:none;}
+		/* star */
+		#star{position:relative;width:100%;height:40px;background:#fff;line-height:40px;padding:7px;}		
+		#star ul,#star span{float:left;display:inline;height:24px;line-height:24px;}
+		#star ul{margin:2px 10px 0 10px;}
+		#star li{float:left;width:20px;cursor:pointer;text-indent:-9999px;background:url(../../image/star.png) no-repeat;}
+		#star strong{color:#f60;padding-left:10px; font-weight: 100}
+		#star li.on{background-position:0 -28px;}
+		#star p{position:absolute;top:20px;width:159px;height:60px;display:none;background:url(../../image/pingk.gif) no-repeat;padding:7px 10px 0;}
+		#star p em{color:#f60;display:block;font-style:normal;}
+		textarea.ask-text{
+			width: 100%;
+			border: none;
+			height: 120px;
+			font-size: 14px;
+			margin-bottom: 0;
+		}
+		.aui-btn-ff9800{background:#ff9800;color:#fff;border:0;}
+		</style>
+		
+		
+		
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="../../css/jumbotron.css" rel="stylesheet">-->
+    <style type="text/css">
+        /*body{*/
+        /*margin-top: 120px;*/
+        /*}*/
+
+        #quanbushuoshuo {
+            height: 500px;
+        }
+        .grid2{
+        	border:0px;
+            /*border-top: 1px solid #808080;*/
+
+           /* height:236px;*/
+
+        }
+        .neirong{
+
+
+            height:100px;
+
+        }
+
+        textarea{
+            /*border-top: 1px solid #808080;border-right: 1px solid #D4D0C8;border-bottom: 1px solid #D4D0C8;border-left: 1px solid #808080;*/
+        }
+        #cuowukuang{
+            display: none;
+        }
+        #cuowukuang1{
+            display: none;
+        }
+        #cuowukuang2{
+            display: none;
+        }
+        #cuowukuang3{
+            display: none;
+        }
+        #cuowukuang4{
+            display: none;
+        }
+        #cuowukuang5{
+            display: none;
+        }
+        #cuowukuang6{
+            display: none;
+        }
+        #chenggong{
+            display: none;
+        }
+        #chenggong1{
+            display: none;
+        }
+    </style>
+    <script src="../../script/jquery-1.11.3.min.js"></script>
+    <script src="../../script/bootstrap.min.js"></script>
+    <script src="../../script/underscore.js"></script>
+		
+		
+	</head>
+	<body>
+		<!--<div style="height: 1px;"></div>-->
+	 	<div style="display: none" id="panduan"></div>
+<div >
+    <div class="container" height="1600">
+        <div class="row">
+            <div class="col-lg-6" >
+                <form>
+                    <textarea  id="shuoshuo" cols="90" rows="6" placeholder="请把字数限制在200字以内！每小时限发3条"></textarea>
+                    <div align="right" ><a class="aui-btn aui-btn-ff9800 aui-btn-block"  id="fabiao" role="button" style="text-decoration: none;color: white;">发表</a></div>
+                </form>
+                <div class="alert alert-danger" id="cuowukuang3"role="alert">字数超过限制！</div>
+                <div class="alert alert-danger" id="cuowukuang4"role="alert">不能为空！</div>
+                <div class="alert alert-success"id="chenggong1" role="alert">发表成功</div>
+                <div class="alert alert-danger" id="cuowukuang5"role="alert">发表失败，请联系管理员！</div>
+                <div class="alert alert-danger" id="cuowukuang6"role="alert"></div>
+            </div>
+            <div class="col-lg-2" style="display: none">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        您当前所在话题区为：
+                        <span class="caret" ></span>
+                        <span id="spselect">日常心情</span>
+
+
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a onclick="huati(this)" href="javascript:void(0)" name="日常心情">日常心情</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)" name="体育运动">体育运动</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="爱情风铃">爱情风铃</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="学习圣地">学习圣地</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)" name="文艺广场">文艺广场</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="游戏天地">游戏天地</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="旅游世界">旅游世界</a></li>
+                        <li><a onclick="huati(this)" href="javascript:void(0)"name="事业工作">事业工作</a></li>
+                        <!--<li role="separator" class="divider"></li>-->
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+        </div>
+
+    </div>
+
+<div class="container">
+    <!-- 分页条-->
+    
+
+    <script >
+
+    </script>
+
+    <!-- Example row of columns -->
+    <div class="row" id="quanbushuoshuo" style="display: none;">
+
+    </div>
+    
+</div> <!-- /container -->
+	 	
+	 	
+	 	
+	</body>
+	
+	
+	<script type="text/template"id="moban">
+    <div class="grid2" style="margin-top: 0;">
+        <div class="thumbnail" style="border-top:none;border-bottom:10px; margin-top: 1px;">
+            <h2 id="yhm"><img style="border-radius: 70%" width="46" src="http://123.206.98.49:3001/avatar/{{=avatar}}" alt=""/></h2>
+            <div class="caption">
+                <p class="neirong">{{=content}}</p>
+
+                <p>{{=date}}</p>
+                <button  onclick="dianzan(this.name,this)" name="{{=_id}}" >赞
+                    <span style="{{=yanse}}" id="span1">{{=zan.length-2}}</span>
+                </button>
+                
+           <span {{=flag}}>
+          <a   href="javascript:void(0)" onclick="shanchushuoshuo(this)" name="{{=_id}}" style="color:#000000">
+              <button   type="button" >
+                  	删除
+              </button>
+          </a>
+               <!--<div style="display: none">{{=_id}}</div>-->
+            </span>
+            
+             
+            </div>
+        </div>
+        <hr />
+        <!--<p><a class="btn btn-default btn-sm" href="#" role="button">查看个人</a></p>-->
+    </div>
+
+</script>
+
+<script type="text/javascript">
+    //    var $quanbushuoshuo = $("#quanbushuoshuo");
+    function huati(a)
+    {
+        document.querySelector("#spselect").innerHTML= a.name;
+        getpage(0);
+    }
+    function getuserindex(a)
+    {
+        window.location.href="./userindex.html?username="+a.name.toString();
+    }
+    function getpage(page) {
+//          var $quanbushuoshuo = $("#quanbushuoshuo");
+        $("#quanbushuoshuo").html("");
+//          var compiled = _.template($("#moban").html());
+
+        $.ajax({
+                    "url": "http://123.206.98.49:3001/getallshuoshuo?page=" + page+"&huati="+document.querySelector("#spselect").innerHTML,
+                    "type": "get",
+                    "success": function (result2) {
+//                          alert(result.length);
+                        if(result2=="-1"){
+                            return;
+                        }
+                        iterator(0);
+
+                        function iterator(i) {
+                            if (i == result2.length) {
+
+                                return;
+                            }
+
+                            $.get("http://123.206.98.49:3001/getuserinfo?username=" + result2[i].username, function (result3) {
+                                result2[i].avatar = result3.avatar;
+                                var user=document.querySelector("#panduan").innerHTML;
+                                if(result2[i].username!=user) {
+                                    result2[i].flag='hidden';
+                                }else{
+                                    result2[i].flag='';
+                                }
+                                //组装模板
+                                var htmlstring = compiled(result2[i]);
+
+                                $("#quanbushuoshuo").append($(htmlstring));
+                                iterator(i + 1);
+                            });
+                        }
+                    }
+                }
+        );
+
+    }
+    function shanchushuoshuo(a){
+        $.get("http://123.206.98.49:3001/shanchushuoshuo?id="+ a.name,function(result){
+            if(result=="1")
+            {
+
+                getpage(parseInt($(".pagination li.active")));
+            }
+        });
+    }
+    var compiled = _.template($("#moban").html());
+    $.get("http://123.206.98.49:3001/getinfo",function(result){
+//        alert(result);
+        var dataObj=eval("("+result+")");
+//        alert(dataObj.avatar);
+//      document.querySelector("#touxiang").src="/avatar/"+dataObj.avatar;
+//        alert(document.querySelector("#touxiang").src);
+//      document.querySelector("#xingming").innerHTML="欢迎您，"+dataObj.username;
+        document.querySelector("#panduan").innerHTML=dataObj.username;
+
+    //分页条的Ajax
+    $.get("http://123.206.98.49:3001/getshuoshuoamount?huati="+document.querySelector("#spselect").innerHTML, function (result1) {
+//            alert(result);
+        if(result1=="-1"){
+            return;
+        }
+        var amount = parseInt(result1);
+        //总页数
+        pageamount = Math.ceil(amount / 10);
+//            alert(amount);
+        for (var i = 1; i <=pageamount; i++) {
+            $(".pagination").append("<li><a href='javascript:void(0);'>" + i + "</a></li>");
+        }
+        $(".pagination li:first").addClass("active");
+        //监听
+        $(".pagination li").click(function () {
+            var page = parseInt($(this).index());
+//                alert(page);
+            $(this).addClass("active").siblings().removeClass("active");
+            getpage(page);
+//                $(this).addClass("active").siblings().removeClass("active");
+        });
+    })
+    getpage(0);
+
+    })
+
+</script>
+
+<script>
+
+    function changeyzm(a){
+        a.src="http://123.206.98.49:3001/scyanzhengma";
+    }
+    function dianzan(a,b){
+        $.get("http://123.206.98.49:3001/dianzan?id="+a,function(result){
+//            alert(b.childNodes[0].innerHTML);
+//                 alert(result);
+            b.querySelector("#span1").innerHTML=result.dianzanshu-2;
+//            b.querySelector("#span1").css("color","orange");
+            if(result.xinzeng=="1"){
+                $(b.querySelector("#span1")).css("color","orange");
+//            getpage(0);
+            }
+            else{
+                $(b.querySelector("#span1")).css("color","");
+            }
+        });
+
+    };
+    $("#fabiao").click(function(){
+        if( $("#shuoshuo").val().length>200){
+            $("#cuowukuang3").fadeIn();
+        }
+        else if($("#shuoshuo").val().length==0){
+            $("#cuowukuang4").fadeIn();
+        }
+        else {
+            $.post("http://123.206.98.49:3001/postshuoshuo", {"content": $("#shuoshuo").val(),"huati":document.querySelector("#spselect").innerHTML}, function (result) {
+                if(result=="1"){
+
+                    $("#chenggong1").fadeIn();
+                    setTimeout("$('#chenggong1').fadeOut()",3000);
+//                 var htmlstring = compiled({"username":$("#yhm").});
+//
+//                 $("#quanbushuoshuo").append($(htmlstring));
+                    getpage(0);
+
+                    $(".pagination li:first").addClass("active");
+                    $(".pagination li:first").addClass("active").siblings().removeClass("active");
+                }
+                else if(result=="-1"||result=="-2"||result=="-3"){
+                    $("#cuowukuang5").fadeIn();
+                    setTimeout("$('#cuowukuang5').fadeOut()",3000);
+                }
+                else {
+                    document.querySelector("#cuowukuang6").innerHTML="发表失败，一个小时限发3条！请"+result+"分钟后再试！";
+                    $("#cuowukuang6").fadeIn();
+                    setTimeout("$('#cuowukuang6').fadeOut()",3000);
+                }
+            });
+
+        } });
+    $("input").focus(function(){
+        $("#cuowukuang").fadeOut();
+        $("#chenggong").fadeOut();
+        $("#cuowukuang1").fadeOut();
+        $("#cuowukuang2").fadeOut();
+        $("#cuowukuang3").fadeOut();
+        $("#cuowukuang4").fadeOut();
+        $("#cuowukuang5").fadeOut();
+        $("#chenggong1").fadeOut();
+    });
+    $("#shuoshuo").focus(function(){
+        $("#cuowukuang").fadeOut();
+        $("#chenggong").fadeOut();
+        $("#cuowukuang1").fadeOut();
+        $("#cuowukuang2").fadeOut();
+        $("#cuowukuang3").fadeOut();
+        $("#cuowukuang4").fadeOut();
+        $("#cuowukuang5").fadeOut();
+
+    });
+    $("#submit").click(function(){
+
+        if($("#username").val()==""){
+            $("#cuowukuang1").fadeIn();
+        }
+        else if($("#password").val()==""){
+            $("#cuowukuang2").fadeIn();
+        }
+        else {
+            $.post("http://123.206.98.49:3001/dologin", {
+                "username": $("#username").val(),
+                "password": $("#password").val(),
+                "yanzhengma":$("#yanzhengma").val().toString()
+            }, function (result) {
+                //alert(result);
+                if (result == "-1") {
+
+                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("用户名不存在");
+
+
+                }
+                if (result == "-3") {
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("服务器错误");
+                    document.querySelector("#yanzhengmaimg").src="/scyanzhengma";
+                }
+                if (result == "-2") {
+                    document.querySelector("#yanzhengmaimg").src="/scyanzhengma";
+                    $("#cuowukuang").fadeIn();
+
+                    $("#cuowukuang").html("密码错误");
+
+                }
+                if (result == "-4") {
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("验证码错误");
+
+
+                    document.querySelector("#yanzhengmaimg").src="/scyanzhengma";
+
+
+                }
+                if (result == "1") {
+
+
+                    $("#chenggong").fadeIn();
+                    $("#chenggong").html("登录成功");
+
+                    setTimeout("window.location.href='/'", 1000);
+
+                }
+
+
+            });
+        } });
+
+
+</script>
+</html>

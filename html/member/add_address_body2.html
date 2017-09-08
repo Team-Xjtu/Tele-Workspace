@@ -1,0 +1,198 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" /><link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<style type="text/css">
+			.aui-content{margin-top:15px;}
+			.aui-input-row .aui-input {
+			    font-size: 14px;
+			    margin: 0;
+			    display: table-cell;
+			    position: relative;
+			    float: left;
+			    width: 100%;
+			    border: none;
+			    border-radius: 0;
+			    text-align: right;
+			}
+			.aui-input-row .aui-input-addon {
+			    font-size: 14px;
+			    font-weight: 400;
+			    line-height: 1;
+			    color: #333;
+			    text-align: center;
+			    display: table-cell;
+			    width: 1%;
+			    white-space: nowrap;
+			    vertical-align: middle;
+			    padding: 5px 5px 5px 15px;
+			}
+			.aui-input-row:first-child:after {
+			    left: 15px;
+			}
+			.aui-input-row:last-child:after {
+				left:0;
+			    border-bottom: 1px solid #E2E2E2;
+			}
+			.aui-input-row:after {
+				left: 15px;
+			}
+			li:after {
+			    right: -100%;
+			    bottom: -100%;
+			    -webkit-transform: scale(0.5);
+			}
+			.aui-btn{padding:5px 30px;}
+		</style>
+		
+		
+		 <meta charset="UTF-8">
+	    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+	    <!--<link href="../../css/jumbotron.css" rel="stylesheet">-->
+	    <script src="../../script/jquery-1.11.3.min.js"></script>
+	    <script src="../../script/bootstrap.min.js"></script>
+	    <script src="../../script/underscore.js"></script>
+	    <script class="resources library" src="../../script/area.js" type="text/javascript"></script>
+		
+		
+	</head>
+	<body>
+		<div class="aui-content">
+	        <div class="aui-noborder">       
+		        <div class="aui-form">
+		            <div class="aui-input-row">
+		                <span class="aui-input-addon">收货人</span>
+		                <input type="text" class="aui-input" placeholder="收货人姓名" id="name">
+		            </div>		
+		            <div class="aui-input-row">
+		                <span class="aui-input-addon">联系电话</span>
+		                <input type="text" class="aui-input" placeholder="联系电话" id="dianhua">
+		            </div>
+		            <div class="aui-input-row">
+		                <span class="aui-input-addon">地区选择</span>
+		                <input type="text" placeholder="地区选择" class="aui-input">
+		            </div>
+		            
+					       <span >
+					                    <select id="pro" name="pro" ></select>  
+					                    <select id="city" name="city" ></select>  
+					                    <select id="area" name="area"></select>
+					        </span>
+					          
+					 		<script type="text/javascript">_init_area("","","");</script>
+					   
+		            <div class="aui-input-row">
+		                <span class="aui-input-addon">详细地址</span>
+		                <input type="text" class="aui-input" placeholder="详细地址" id="jutidizhi">
+		            </div>
+		            <div class="aui-input-row" style="padding: 10px 0;">
+		                <span class="aui-input-addon">设为默认地址</span>
+		                <input type="checkbox" class="aui-switch aui-pull-right" checked="">
+		            </div>
+		            <div class="aui-col-xs-12 aui-text-center aui-padded-15">
+		            	<div class="aui-col-xs-12"><button id="baocun" class="aui-btn aui-btn-warning">保存</button></div>
+		            </div>
+		        </div>
+		    </div>
+	    </div>
+	    
+
+
+    
+    <div style=" display: none;" class="alert alert-danger" id="cuowukuang"role="alert"></div>
+    <div style=" display: none;" class="alert alert-success"id="chenggong" role="alert">保存成功</div>
+	    
+	    
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			
+		}
+		
+		var flag = $api.getStorage('addressFlag');
+			alert(flag);
+			if(flag==1){
+				alert("jinru");
+				$("#baocun").html("保存并使用");
+				
+			}
+		
+	</script>
+	
+	
+	<script>
+    $("input").focus(function(){
+        $('#cuowukuang').fadeOut();
+    });
+    $("#baocun").click(function(){
+		
+		
+        
+        if($("#pro").val()=="省份"){
+            $("#cuowukuang").html("请选择省份");
+            $('#cuowukuang').fadeIn();
+            setTimeout("$('#cuowukuang').fadeOut()",3000);
+           
+        }
+        else if($("#city").val()=="地级市"){
+            $("#cuowukuang").html("请选择地级市");
+            $('#cuowukuang').fadeIn();
+            setTimeout("$('#cuowukuang').fadeOut()",3000);
+            $("#area").show();
+        }
+        else if($("#area").val()=="市、县级市"){
+            $("#cuowukuang").html("请选择市、县级市");
+            $('#cuowukuang').fadeIn();
+            setTimeout("$('#cuowukuang').fadeOut()",3000);
+        }
+        else if($("#jutidizhi").val().length<5){
+            $("#cuowukuang").html("具体地址字符数不能小于5");
+            $('#cuowukuang').fadeIn();
+            setTimeout("$('#cuowukuang').fadeOut()",3000);
+        }
+        else if($("#jutidizhi").val().length>30){
+            $("#cuowukuang").html("具体地址字符数不能大于30");
+            $('#cuowukuang').fadeIn();
+            setTimeout("$('#cuowukuang').fadeOut()",3000);
+        }
+        else{
+        $.post("http://123.206.98.49:3001/adddizhi", {"name":$("#name").val(),"dianhua":$("#dianhua").val(),"pro": $("#pro option:selected" ).val(),"city":$("#city option:selected" ).val(),"area":$("#area option:selected" ).val(),"jutidizhi":$("#jutidizhi").val()},function(result){
+        if(result=="-1"){
+            $("#cuowukuang").html("保存失败");
+            $('#cuowukuang').fadeIn();
+            setTimeout("$('#cuowukuang').fadeOut()",3000);
+        }
+        else{
+            $('#chenggong').fadeIn();
+			
+			var flag = $api.getStorage('addressFlag');
+			if(flag==1){
+				$api.setStorage('addressFlag',0);
+				api.openWin({
+	            name: 'order_detail_head.html',
+	            url: '../goods/order_detail_head.html'
+            });
+				
+			}
+			
+            api.openWin({
+	            name: 'address_head',
+	            url: './address_head.html'
+            });
+        }
+    })}});
+</script>
+	
+	
+	
+</html>

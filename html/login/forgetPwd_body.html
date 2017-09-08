@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="icon" href="../../favicon.ico">
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="../../css/jumbotron.css" rel="stylesheet">
+		<script src="../../script/jquery-1.11.3.min.js"></script>
+		<script src="../../script/bootstrap.min.js"></script>
+		<script src="../../script/underscore.js"></script>
+		<style type="text/css">
+			html, body {
+				background: rgba(0,0,0,0);
+			}
+			body {
+			}
+			
+    			#sendVerify span{font-size:14px;}
+			.top-area {
+			}
+			.logo {
+				height: 30px;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				display: box;
+				box-orient: horizontal;
+				box-pack: center;
+				box-align: center;
+			}
+			.login-area {
+				text-align: center;
+			}
+			.login-area img {
+				width: 75px;
+				height: 75px;
+				border-radius: 8px;
+				-webkit-border-radius: 8px;
+			}
+			.login-area p {
+				padding: 5px 0 0 0;
+				font-size: 15px;
+				color: #fff;
+			}
+			.form {
+				padding: 0 30px;
+			}
+			.form-row {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-flex-flow: row;
+				flex-flow: row;
+				width: 100%;
+				padding: 12px;
+				position:relative;
+			}
+			.form-row:after {
+				content: "";
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				right: 0px;
+				border-bottom: 1px solid #e0e0e0;
+				-webkit-transform: scaleY(.5);
+				-webkit-transform-origin: 0 0;
+			}
+			.form-row span {
+				display: block;
+				width: 50px;
+				color: #959595;
+			}
+			.form-row span {
+				font-size: 22px;
+			}
+			.form-row .input-box {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+				padding-top: 2px;
+			}
+			.form-row .input-box input {
+				background: rgba(0,0,0,0);
+				border: none;
+				outline: none;
+				color: #999;
+				padding: 4px;
+				margin: 0;
+			}
+			.form-btn {
+				padding: 30px 30px 15px 30px;
+			}
+			.aui-btn-ff9800 {
+				background: #ff9800 !important;
+				color: #f9f9f9 !important;
+				border: none;
+				outline: none;
+			}
+			.form-btn button:active {
+				background: rgba(255,152,0,0.8) !important;
+			}
+			.getcode {
+				color: #ff9800;
+				line-height: 33px;
+				font-size:14px;
+			}
+			.showpwd {
+				color: #fff;
+				line-height: 33px;
+				font-size: 20px;
+			}
+			.form-o {
+				padding: 0 30px;
+			}
+			.form-o span {
+				float: left;
+				color: #f9f9f9;
+				font-size: 13px;
+			}
+		</style>
+	</head>
+	<body>		
+		
+		<div class="jumbotron"style="height: 1000px">
+			<div class="container" >
+				<div class="form-group">
+					<span  style="color: red" id="nameMessage"></span><span class="tishi" style="color:#808080" id="nameMessage1"></span>
+					<input class="input-box" onfocus="xiugai('nameMessage1')" onblur="testusername('nameMessage')" type="text" class="form-control" id="username" name="nameMessage"placeholder="用户名" >
+				</div>
+				<div class="form-group">
+					<span  style="color: red" id="emailMessage"></span><span class="tishi" style="color:#808080" id="emailMessage1"></span>
+					<input class="input-box" type="text"onfocus="xiugai('emailMessage1')" onblur="testemail('emailMessage')" class="form-control" id="email"placeholder="邮箱" >
+				</div>
+				<button  id="submit" onclick="submit()" class="aui-btn aui-btn-ff9800 aui-btn-block"   onclick="H.$toast('修改成功！');setTimeout(function(){H.$closeCurrentWin();},1500);">
+					邮箱找回密码
+				</button>
+				<div style="display: none" class="alert alert-success"id="chenggong" role="alert"></div>
+				<div style="display: none"  class="alert alert-danger" id="cuowukuang"role="alert"></div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/zepto.min.js"></script>
+	<script type="text/javascript">
+	var isinerval,times;
+    apiready = function () {
+        api.parseTapmode();
+    }
+	function showPassword(){
+        $api.attr($api.byId('password'),'type','text');
+        $api.removeCls($api.byId('showpass-btn'),'aui-icon-attention');
+        $api.addCls($api.byId('showpass-btn'),'aui-icon-attentionfill');
+        $api.attr($api.byId('showpass-btn'),'onclick','hidePassword();');
+        api.parseTapmode();
+    }
+    function hidePassword(){
+        $api.attr($api.byId('password'),'type','password');
+        $api.removeCls($api.byId('showpass-btn'),'aui-icon-attentionfill');
+        $api.addCls($api.byId('showpass-btn'),'aui-icon-attention');
+        $api.attr($api.byId('showpass-btn'),'onclick','showPassword();');
+        api.parseTapmode();
+    }
+    function getVerify() {
+        var sendVerify = $api.byId('sendVerify');
+        var status = $api.attr(sendVerify,'status');
+        if(status!=1){
+            return;
+        }
+        $api.removeAttr(sendVerify,'onclick');
+        api.parseTapmode();
+        $api.html(sendVerify,'<span id="GetVerify" style="color:#fff;">120</span>');
+        times = 119;
+        isinerval = setInterval("CountDown()", 1000);
+        setTimeout(function(){
+            $api.val($api.byId("code"),'888888');
+        },500)
+        
+    }
+    function CountDown() {
+        if (times < 1) {
+            var sendVerify = $api.byId('sendVerify');
+            $api.attr(sendVerify,'onclick','get_verify()');
+            $api.attr(sendVerify,'status','1');
+            api.parseTapmode();
+            $api.html(sendVerify,'重新获取');
+            clearInterval(isinerval);
+            return;
+        }
+        var getVerify = $api.byId('GetVerify');
+        $api.html(getVerify,''+times+'');
+        times--;
+    }
+    
+    
+    
+    
+    var flag=[0,0];
+    $.get("http://123.206.98.49:3001/getinfo",function(result) {
+//        alert(result);
+        var dataObj = eval("(" + result + ")");
+//        alert(dataObj.avatar);
+
+//        alert(document.querySelector("#touxiang").src);
+//      document.querySelector("#xingming").innerHTML = "欢迎您，" + dataObj.username;
+
+    });
+    function testusername(a){
+        document.querySelector("#nameMessage1").innerHTML="";
+        var reg=/^[a-zA-Z]\w{5,15}$/;
+        if(!reg.test($("#username").val())){
+            document.querySelector("#"+a).innerHTML="用户名长度在6到16个字符且为数字和字符的组合，不能以数字开头";
+            flag[0]=0;
+        }else{
+            flag[0]=1;
+        }
+        if(flag[0]==1){
+            $.get("http://123.206.98.49:3001/testusername?username="+$("#username").val(),function(result){
+                if(result!="-1"){
+                    document.querySelector("#nameMessage").innerHTML="未注册的用户名";
+                    flag[0]=0;
+                }
+                else{
+                    flag[0]=1;
+                }
+            });}}
+    function xiugai(a) {
+        document.querySelector(".tishi").innerHTML = "";
+        if (a == "nameMessage1") {
+            document.querySelector("#nameMessage").innerHTML = "";
+            document.querySelector("#" + a).innerHTML = "请输入要找回密码的用户名";
+        }
+        if (a == "emailMessage1") {
+            document.querySelector("#emailMessage").innerHTML = "";
+            document.querySelector("#" + a).innerHTML = "请输入您的密保邮箱";
+        }
+    }
+    function testemail()
+    {
+        document.querySelector("#emailMessage1").innerHTML="";
+        var email=$("#email").val();
+        if(email=="")
+        {
+            document.querySelector("#emailMessage").innerHTML="邮箱不能为空";
+            flag[1]=0;
+        }
+
+        else
+        {
+            reg=/^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/gi;
+            if(!reg.test(email))
+            {document.querySelector("#emailMessage").innerHTML="请输入正确的邮箱格式";
+                flag[1]=0;
+            }
+            else{
+                flag[1]=1;
+            }
+        }
+        if(flag[1]==1&&flag[0]==1){
+            $.get("http://123.206.98.49:3001/testemail?username="+$("#username").val()+"&email="+$("#email").val(),function(result){
+                if(result=="-1"){
+                    document.querySelector("#emailMessage").innerHTML="邮箱与用户名不匹配";
+                    flag[1]=0;
+                }
+                else{
+                    flag[1]=1;
+                }
+            });}
+//        else{
+//            document.querySelector("#emailMessage").innerHTML="邮箱与用户名不匹配";
+//        }
+        }
+    function submit(){
+
+        if(flag[0]==1&&flag[1]==1){
+            $.get("http://123.206.98.49:3001/mimazhaohui?username="+$("#username").val()+"&email="+$("#email").val(),function(result){
+                //alert(result);
+                if(result=="-1"){
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("服务器错误");
+                    setTimeout("$('#cuowukuang').fadeOut()", 2500);
+                }
+                if(result=="-2"){
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("此用户名未注册");
+                    setTimeout("$('#cuowukuang').fadeOut()", 2500);
+                }
+                if(result=="-3"){
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("用户名和邮箱不匹配");
+                    setTimeout("$('#cuowukuang').fadeOut()", 2500);
+                }
+                if(result=="1"){
+                    $("#chenggong").fadeIn();
+                    $("#chenggong").html("密码找回成功，请登录邮箱查看");
+                    setTimeout("$('#chenggong').fadeOut()", 5000);
+                    
+                    
+//                  api.openWin({
+//							name : 'login_head',
+//							url : './login_head.html',
+//							bounces : false,
+//							opaque : false,
+//							delay:3000
+//					
+//						});
+//						api.openFrame({
+//							name : 'login_body',
+//							url : './login_body.html',
+//							bounces : false,
+//							opaque : false,
+//							delay:3000
+//						});
+
+                    
+                    
+                }
+
+
+            });}
+
+    }
+    
+    
+    
+	</script>
+</html>

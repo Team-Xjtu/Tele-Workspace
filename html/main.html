@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
+		<script type="text/javascript" src="../script/jquery-1.11.3.min.js"></script>
+		<style type="text/css">
+			.bg-dark {
+				background: #333333 !important;
+			}
+			.aui-slide-node img {
+				width: 100%;
+				height: 100%;
+			}
+			.o2o {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-flex-flow: row;
+				flex-flow: row;
+				width: 100%;
+				background: #ffff;
+				margin-bottom: 5px;
+			}
+			.o2o-item {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+				height: 150px;
+				text-align: center;
+				line-height: 0;
+				color: #fff;
+				font-size: 20px;
+			}
+			.o2o-item:nth-child(1) {
+				margin-right: 3px;
+				background: url(../image/hd.png) no-repeat left top;
+				background-size: cover;
+				-webkit-background-size: cover;
+			}
+			.o2o-item:nth-child(2) {
+				margin-left: 2px
+			}
+			.item-item {
+				height: 73px;
+				width: 100%;
+				text-align: center;
+				color: #fff;
+				font-size: 20px;
+				line-height: 0;
+			}
+			.item-item:nth-child(1) {
+				margin-bottom: 5px;
+				height: 72px;
+				background: url(../image/jc.png) no-repeat left top;
+				background-size: cover;
+				-webkit-background-size: cover;
+			}
+			.item-item:nth-child(2) {
+				background: url(../image/sc.png) no-repeat left top;
+				background-size: cover;
+				-webkit-background-size: cover;
+			}
+			.topmenu {
+				background: #e74c3c;
+				overflow: hidden;
+				padding: 10px 0;
+				margin-bottom: 0;
+			}
+			.topmenu .aui-iconfont, .topmenu p {
+				color: #ffffff;
+			}
+			.topmenu .aui-iconfont {
+				font-size: 1.6em;
+			}
+			.slider img {
+				width: 100%;
+				height: 120px;
+				display: inherit;
+			}
+			.aui-content.box {
+				background: #fff;
+			}
+			.box {
+				/*padding-top: 15px;*/
+			}
+			.box-title {
+				margin: 15px 10px 5px 10px;
+				/*margin-bottom: 5px;*/
+				height: 20px;
+				line-height: 20px;
+				border-left: 5px solid #ff9900;
+				color: #666;
+				font-weight: 700;
+				padding-left: 10px;
+			}
+			.box .aui-list-view {
+				margin-bottom: 0;
+			}
+			.aui-list-view i.aui-iconfont {
+				margin-right: 0;
+			}
+			.aui-ellipsis-1 {
+				padding-right: 1px !important;
+				display: -webkit-box;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				word-wrap: break-word;
+				white-space: normal !important;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+			}
+			.aui-ellipsis-2 {
+				padding-right: 5px !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="aui-slide">
+			<div class="aui-slide-wrap" >
+				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+					<img src="../image/banner.jpg" />
+				</div>
+				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+					<img src="../image/banner2.jpg" />
+				</div>
+				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+					<img src="../image/banner3.jpg" />
+				</div>
+			</div>
+			<div class="aui-slide-page-wrap">
+				<!--分页容器-->
+			</div>
+		</div>
+		<div class="aui-content active-area">
+			<ul></ul>
+		</div>
+		<div class="aui-content" style="margin-bottom: 5px;">
+			<p class="aui-padded-10 aui-bg-ffffff aui-text-black">
+				<label class="active-ars"></label>人气推荐
+			</p>
+			<ul id="nice-articles">
+				<li>
+					<img src="../image/pic.jpg" id="recommend1_pic" alt="" title="" class="article-img" />
+					<div class="article-info" id="d1" tapmode onclick="openGoods2(this.id);">
+						<div class="aui-ellipsis-1" id="recommend1" style="margin-bottom: 8px;">
+							华为P7保护壳-偷井盖
+						</div>
+						<p class="aui-padded-5-0">
+							手机壳个性定制<em class="aui-pull-right aui-money" id="recommend1_price">￥49.00</em>
+						</p>
+						<span>
+							<div class="ui-label-s">
+								类型
+							</div > <font id="recommend1_type">浮雕</font></span>
+					</div>
+				</li>
+				<li>
+					<img src="../image/pic2.jpg"  id="recommend2_pic" alt="" title="" class="article-img" />
+					<div class="article-info" id="d2" tapmode onclick="openGoods2(this.id);">
+						<div class="aui-ellipsis-1" id="recommend2"  style="margin-bottom: 8px;">
+							华为P7保护壳-你是爷们
+						</div>
+						<p class="aui-padded-5-0">
+							手机壳个性定制<em class="aui-pull-right aui-money" id="recommend2_price">￥49.00</em>
+						</p>
+						<span>
+							<div class="ui-label-s">
+								类型
+							</div > <font id="recommend2_type">浮雕</font></span>
+					</div>
+				</li>
+				<li>
+					<img src="../image/pic3.jpg" id="recommend3_pic" alt="" title="" class="article-img" />
+					<div class="article-info" id="d3" tapmode onclick="openGoods2(this.id);">
+						<div class="aui-ellipsis-1" style="margin-bottom: 8px;" id="recommend3">
+							华为P7保护壳-梦的国度
+						</div>
+						<p class="aui-padded-5-0">
+							手机壳个性定制<em class="aui-pull-right aui-money" id="recommend3_price">￥49.00</em>
+						</p>
+						<span>
+							<div class="ui-label-s">
+								类型
+							</div > <font id="recommend3_type">浮雕</font></span>
+					</div>
+				</li>
+				<li>
+					<img src="../image/pic4.jpg" id="recommend4_pic" alt="" title="" class="article-img" />
+					<div class="article-info" id="d4" tapmode onclick="openGoods2(this.id);">
+						<div class="aui-ellipsis-1" style="margin-bottom: 8px;" id="recommend4">
+							华为P7保护壳-萌死你
+						</div>
+						<p class="aui-padded-5-0">
+							手机壳个性定制<em class="aui-pull-right aui-money" id="recommend4_price">￥49.00</em>
+						</p>
+						<span>
+							<div class="ui-label-s">
+								类型
+							</div> <font id="recommend4_type">浮雕</font></span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="aui-content box">
+			<p class="aui-padded-10 aui-bg-ffffff aui-text-black">
+				<label class="active-ars"></label>热卖商品
+			</p>
+			<ul class="aui-list-view aui-grid-view">
+				<li class="aui-list-view-cell aui-img aui-col-xs-6" id="d5" tapmode onclick="openGoods2(this.id);">
+					<img class="aui-img-object" src="../image/pic4.jpg" id="recommend5_pic">
+					<div class="aui-img-body aui-text-left">
+						<span class="aui-ellipsis-1" id="recommend5">华为P7手机壳-萌死你</span>
+						<span class="aui-hot-ft14">
+							<div class="ui-label-s">
+								DIY
+							</div> <font id="recommend5_type">浮雕</font></span>
+						<p>
+							<span class="goods-price aui-money" id="recommend5_price">￥38.88元</span>
+						</p>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-6" id="d6" tapmode onclick="openGoods2(this.id);">
+					<img class="aui-img-object" src="../image/pic5.jpg" id="recommend6_pic">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1" id="recommend6">华为P7手机壳-蓝色星云</span>
+						<span  class="aui-hot-ft14">
+							<div class="ui-label-s">
+								DIY
+							</div> <font id="recommend6_type">浮雕</font></span>
+						<p>
+							<span class="goods-price aui-money" id="recommend6_price">￥38.88元</span>
+						</p>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-6" id="d7" tapmode onclick="openGoods2(this.id);">
+					<img class="aui-img-object" src="../image/pic6.jpg" id="recommend7_pic">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1" id="recommend7">华为P7手机壳-葵花黄鸭</span>
+						<span  class="aui-hot-ft14">
+							<div class="ui-label-s">
+								DIY
+							</div><font id="recommend7_type">浮雕</font></span>
+						<p>
+							<span class="goods-price aui-money" id="recommend7_price">￥38.88元</span>
+						</p>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-6" id="d8" tapmode onclick="openGoods2(this.id);">
+					<img class="aui-img-object" src="../image/pic7.jpg" id="recommend8_pic">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1" id="recommend8">华为P7手机壳-经典非凡</span>
+						<span  class="aui-hot-ft14">
+							<div class="ui-label-s">
+								DIY
+							</div > <font id="recommend8_type">浮雕</font></span>
+						<p>
+							<span class="goods-price aui-money" id="recommend8">￥38.88元</span>
+						</p>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-6" id="d9" tapmode onclick="openGoods2(this.id);">
+					<img class="aui-img-object" src="../image/pic8.jpg" id="recommend9_pic">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1" id="recommend9">华为P7手机壳-划出感觉</span>
+						<span  class="aui-hot-ft14">
+							<div class="ui-label-s">
+								DIY
+							</div><font id="recommend9_type">浮雕</font></span>
+						<p>
+							<span class="goods-price aui-money" id="recommend9_price">￥38.88元</span>
+						</p>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-6" id="d10" tapmode onclick="openGoods2(this.id);">
+					<img class="aui-img-object" src="../image/pic9.jpg" id="recommend10_pic">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1" id="recommend10">华为P7手机壳-花的束缚</span>
+						<span  class="aui-hot-ft14">
+							<div class="ui-label-s">
+								DIY
+							</div> <font id="recommend10_type">浮雕</font></span>
+						<p>
+							<span class="goods-price aui-money" id="recommend10_price">￥38.88元</span>
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/json.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/aui-slide.js"></script>
+	<script type="text/javascript">
+		var id = new Array();
+		var shangpinname = new Array();
+		var shangpindanjia = new Array();
+		var shangpinjieshao = new Array();
+		var shangpintype = new Array();
+		var patharray = new Array();
+		var tuijianji = new Array();
+//		function openGoods2(id) {
+//			var index = Number(id.substring(1,id.length))-1;
+//			alert("index:"+index);
+//			alert("length:" + patharray.length);
+//			var url0 = "http://123.206.98.49:3001" + patharray[index].split("\"")[1];
+//			var price = shangpindanjia[index].substring(1,shangpindanjia[index].length-1);
+//			var name = shangpinname[index].substring(1,shangpinname[index].length-1);
+//			var type = shangpintype[index].substring(1,shangpintype[index].length-1);
+//			var jieshao = shangpinjieshao[index].substring(1,shangpinjieshao[index].length-1);
+//			api.openWin({
+//				name : 'goods_show_win',
+//				url : './goods/goods_show_win.html',
+//				pageParam : {
+//					url0 : url0,
+//					price:price,
+//					name:name,
+//					type:type,
+//					jieshao:jieshao
+//				}
+//			});
+//		};
+		
+
+		var slide = new auiSlide({
+			container : document.getElementById("aui-slide"),
+			// "width":300,
+			"height" : 180,
+			"speed" : 300,
+			"autoPlay" : 3000, //自动播放
+			"pageShow" : true,
+			"pageStyle" : 'dot',
+			"loop" : true,
+			'dotPosition' : 'center'
+		});
+		echo.init({
+			offset : 100,
+			throttle : 250,
+			unload : false,
+			callback : function(element, op) {
+			}
+		});
+		Zepto(function() {
+			$(".demo-list").on("tap", "li", function() {
+				var funcName = $(this).attr("data-funcName");
+				if (funcName) {
+					//H.$openWin(funcName, funcName + '.html');
+				} else {
+					//H.$alert("苦逼程序猿，正在疯狂加班中……");
+				}
+			});
+			$("#nice-articles").on("tap", "li", function() {
+				//H.$openWin('case_view_head', 'case_view_head.html');
+			});
+		});
+		function test() {
+			for(var i=0;i<tuijianji.length;i++){
+				var indexlevel = tuijianji[i].split("\"")[1];
+				var url = "http://123.206.98.49:3001" + patharray[i].split("\"")[1];
+				$('#recommend'+ indexlevel).html(shangpinname[i].substring(1,shangpinname[i].length-1));
+				$('#recommend' + indexlevel + '_price').html("¥" + shangpindanjia[i].substring(1,shangpindanjia[i].length-1));
+				$('#recommend' + indexlevel + '_type').html(shangpintype[i].substring(1,shangpintype[i].length-1));
+				$('#recommend' + indexlevel + '_pic').attr("src",url);
+			}
+			
+			
+
+			
+			
+			var id0data = new Array();
+			id0data.push(id);
+			id0data.push(shangpinname);
+			id0data.push(shangpindanjia);
+			id0data.push(shangpinjieshao);
+			id0data.push(shangpintype);
+			id0data.push(patharray);
+			$api.setStorage('id0',id[0]);
+			$api.setStorage(id[0],id0data);
+		}
+		
+		
+		var urlarray = new Array();
+		function openGoods2(id) {
+			urlarray.splice(0,urlarray.length);
+			var index = Number(id.substring(1,id.length))-1;
+//			alert("推荐：" + (index+1));
+			for(var i=tuijianji.length-1;i>=0;i--){
+				
+				var flag = Number(tuijianji[i].substring(1,tuijianji[i].length-1));
+//				alert("商品推荐及顺序："+ flag);
+//				tuijianji[i] = Number(tuijianji[i].substring(1,tuijianji[i].length-1));
+				if(flag==(index+1)){
+					index = i;
+					break;
+				}
+			}
+			for(var i=0;2*i+1<patharray[index].split("\"").length;i++){
+				urlarray.push(patharray[index].split("\"")[2*i+1]);
+			}
+//			alert(urlarray.length);
+//			alert(patharray[index].split("\"").length);
+//			alert(tuijianji.lastIndexof(""+index+""));
+			var url0 = "http://123.206.98.49:3001" + patharray[index].split("\"")[1];
+			var price = shangpindanjia[index].substring(1,shangpindanjia[index].length-1);
+			var name = shangpinname[index].substring(1,shangpinname[index].length-1);
+			var type = shangpintype[index].substring(1,shangpintype[index].length-1);
+			var jieshao = shangpinjieshao[index].substring(1,shangpinjieshao[index].length-1);
+//			alert(url0 + "---" + price  + "---" + name + "---" + type + "---" + jieshao);
+			$api.setStorage('urlarray',urlarray);
+			api.openWin({
+				name : 'goods_show_win',
+				url : './goods/goods_show_win.html',
+				pageParam : {
+					url0 : url0,
+					price:price,
+					name:name,
+					type:type,
+					jieshao:jieshao,
+					urlarray:urlarray
+				}
+			});
+		};
+		
+		
+		
+
+		function randomSwitchBtn(obj, name, index) {
+			var jsfun = "randomSwitchBtn(this,'分类',1);";
+			api.execScript({
+				name : 'root',
+				script : jsfun
+			});
+		}
+
+		function detail() {
+		}
+		$.getJSON("http://123.206.98.49:3001/getshangpins", function(data) {
+				$.each(data.result, function(idx, item) {
+//					alert(idx);
+					var idString = "" + JSON.stringify(item._id);
+					var nameString = JSON.stringify(item.shangpinname);
+					var danjiaString = JSON.stringify(item.shangpindanjia);
+					var jieshaoString = JSON.stringify(item.shangpinjieshao);
+					var typeString = JSON.stringify(item.shangpintype);
+					var pathString = JSON.stringify(item.patharray);
+					var tuijianjiString = JSON.stringify(item.tuijianji);
+//					alert(typeof tuijianjiString);
+//					id.push(idString);
+					shangpinname.push(nameString);
+					shangpindanjia.push(danjiaString);
+					shangpinjieshao.push(jieshaoString);
+					shangpintype.push(typeString);
+					patharray.push(pathString);
+					tuijianji.push(tuijianjiString);
+					
+				})
+				test();
+				
+			});
+			
+		apiready = function() {
+			api.parseTapmode();
+			
+				$api.setStorage('width',api.frameWidth);
+				
+//				api.setRefreshHeaderInfo({
+////			    loadingImg: 'widget://image/sc.png',	
+//			    bgColor: '#ccc',
+//			    textColor: '#fff',
+//			    textDown: '下拉刷新...',
+//			    textUp: '松开刷新...'
+//			}, function(ret, err) {
+//			    //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+//			    document.location.reload();
+//				api.refreshHeaderLoadDone();
+//			});
+			
+			
+			
+		};
+	</script>
+</html>

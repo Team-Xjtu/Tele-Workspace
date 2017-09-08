@@ -1,0 +1,501 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    	<!--<link href="../../css/jumbotron.css" rel="stylesheet">-->
+		<style type="text/css">
+	
+			html, body {
+				background: rgba(0,0,0,0);
+			}
+			body {
+			}
+			.top-area {
+			}
+			.logo {
+				height: 170px;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				display: box;
+				box-orient: horizontal;
+				box-pack: center;
+				box-align: center;
+			}
+			.login-area {
+				text-align: center;
+			}
+			.login-area img {
+				width: 75px;
+				height: 75px;
+				border-radius: 8px;
+				-webkit-border-radius: 8px;
+			}
+			.login-area p {
+				padding: 5px 0 0 0;
+				font-size: 16px;
+				color: #999;
+			}
+			.form {
+				padding: 0 30px;
+			}
+			.form-row {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-flex-flow: row;
+				flex-flow: row;
+				width: 100%;
+				padding: 15px;
+				position: relative;
+			}
+			.form-row:after {
+				content: "";
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				right: 0px;
+				border-bottom: 1px solid #e0e0e0;
+				-webkit-transform: scaleY(.5);
+				-webkit-transform-origin: 0 0;
+			}
+			.form-row span {
+				display: block;
+				width: 50px;
+				color: #959595;
+			}
+			.form-row span {
+				font-size: 22px;
+			}
+			.form-row .input-box {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+				padding-top: 2px;
+			}
+			.form-row .input-box input {
+				background: rgba(0,0,0,0);
+				border: none;
+				outline: none;
+				color:#999;
+				padding: 4px;
+				margin: 0;
+			}
+			.form-btn {
+				padding: 30px 30px 15px 30px;
+			}
+			.aui-btn-ff9800 {
+				background: #FF9800 !important;
+				color: #fff !important;
+				border: none;
+				outline: none;
+			}
+			.form-btn button:active {
+				background: rgba(255,152,0,0.8) !important;
+			}
+			.form-o {
+				padding: 0 30px;
+			}
+			.form-o span {
+				float: left;
+				color: #FF9800;
+			}
+			.form-o span:last-child {
+				float: right;
+			}
+			.form-otherlogin {
+				clear: both;
+				padding: 0 30px;
+				height: 150px;
+			}
+			.sdk-list {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-flex-flow: row;
+				flex-flow: row;
+			}
+			.sdk-list  p {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+			}
+
+			.sdk-list p span i {
+				font-size: 50px;
+			}
+			.sdk-list p:nth-child(2) {
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				display: box;
+				box-orient: horizontal;
+				box-pack: center;
+			}
+			.float-left {
+				float: left;
+			}
+			.float-right {
+				float: right;
+			}
+			.sdk-txt {
+				color: #a6b5c0;
+				text-align: center;
+				padding: 5px 0 5px 0;
+			}
+			#quanbushuoshuo {
+            height: 500px;
+        }
+        .grid{
+            margin-top: 20px;
+            /*border-top: 1px solid #808080;*/
+
+            height:236px;
+
+        }
+       
+
+        textarea{
+            border-top: 1px solid #808080;border-right: 1px solid #D4D0C8;border-bottom: 1px solid #D4D0C8;border-left: 1px solid #808080;
+        }
+        #cuowukuang{
+            display: none;
+        }
+        #cuowukuang1{
+            display: none;
+        }
+        #cuowukuang2{
+            display: none;
+        }
+        #cuowukuang3{
+            display: none;
+        }
+        #cuowukuang4{
+            display: none;
+        }
+        #cuowukuang5{
+            display: none;
+        }
+        #cuowukuang6{
+            display: none;
+        }
+        #chenggong{
+            display: none;
+        }
+        #chenggong1{
+            display: none;
+        }
+		</style>
+	<script src="../../script/jquery-1.11.3.min.js"></script>
+    <script src="../../script/bootstrap.min.js"></script>
+    <script src="../../script/underscore.js"></script>
+	</head>
+	<body>
+		<div class="top-area">
+			<div class="logo">
+				<div class="login-area">
+					<img src="../../image/person.jpg" alt="" title="" />
+					<!--<p>
+						点点例
+					</p>-->
+				</div>
+			</div>
+			
+			<div class="container" height="600">
+				<div class="row">
+					<div class="col-lg-6">
+						<form>
+							<div class="form-group">
+								<input class="input-box" type="text" class="form-control" id="username" value="zhuce1" placeholder="请输入用户名" >
+							</div>
+							<div class="form-group">
+								<input class="input-box" type="password" class="form-control" id="password" value="111111" placeholder="请输入密码" >
+							</div>
+							<div>
+								<div class="form-group" >
+									<span id="yzmspan">
+										<input  class="input-box" type="text"  id="yanzhengma" placeholder="验证码"/>
+										<a href="javascript:void(0)"><img id="yanzhengmaimg" onclick="changeyzm(this)" style="height:30px;width:86px"src="http://123.206.98.49:3001/scyanzhengma"/></a> </span>
+								</div>
+							</div>
+						</form>
+						<button   class="aui-btn aui-btn-ff9800 aui-btn-block" tapmode onclick="submit()">
+							登录
+						</button>
+						<br>
+						<div class="form-o">
+								<span tapmode onclick="openWinto('reg_head','reg_head');" style="font-size: 20px">注册账号</span>
+								<span tapmode  onclick="openWinto('forgetPwd_head','forgetPwd_head');" style="font-size: 20px">忘记密码？</span>
+							</div>
+						<div class="alert alert-danger" id="cuowukuang"role="alert">
+							用户名被占用
+						</div>
+						<div class="alert alert-success"id="chenggong" role="alert">
+							成功
+						</div>
+						<div class="alert alert-danger" id="cuowukuang1"role="alert">
+							账户不能为空
+						</div>
+						<div class="alert alert-danger" id="cuowukuang2"role="alert">
+							密码不能为空
+						</div>
+					</div>
+				</div>
+		
+		
+			
+			
+		
+		<!--<div class="form-otherlogin">
+			<p class="sdk-txt">
+				其他方式登录
+			</p>
+			<div class="sdk-list">
+				<p>
+					<span class="float-left" onclick=""><i class="iconfont icon-qq"></i></span>
+				</p>
+				<p>
+					<span><i class="iconfont icon-weixin" onclick=""></i></span>
+				</p>
+				<p>
+					<span class="float-right" onclick=""><i class="iconfont icon-weibo"></i></span>
+				</p>
+			</div>
+		</div>-->
+		
+		
+		
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		login = function(){
+			$api.setStorage('user','1');
+		}
+		Zepto(function($) {
+			var bodyH = $("body").height();
+			$(".top-area").css("height", (bodyH - 150) + "px");
+			$("#login-btn").on("tap", function() {
+				//点击登录codding...
+				
+//				H.$setPrefs(function(ret, err) {
+//					H.$execScript('index', 'launch', 'closeFrame();');
+//					H.$closeCurrentToWin("index");
+//				}, 'user_info', {
+//					name : '点点多',
+//					id : 1
+//				});
+			});
+		});
+		var deviceid;
+		apiready = function() {
+			api.parseTapmode();
+			var islogin = $api.getStorage('LoginState');
+			 deviceid = api.deviceId;
+			var username = $api.getStorage('username');
+			
+			if(islogin == 1){
+//			alert(deviceid);
+//			alert(username);
+				$.get("http://123.206.98.49:3001/autologin?username="+username+"&uuid="+deviceid,function(result){
+					if(result=="1"){
+						api.openWin({
+							name : 'index',
+							url : '../../index.html',
+							
+						});
+					}
+				});
+				
+			}
+		};
+		
+		
+		function changeyzm(a){
+       a.src="http://123.206.98.49:3001/scyanzhengma";
+   }
+    function dianzan(a,b){
+        $.get("/dianzan?id="+a,function(result){
+//            alert(b.childNodes[0].innerHTML);
+//                 alert(result);
+              b.querySelector("#span1").innerHTML=result.dianzanshu-2;
+//            b.querySelector("#span1").css("color","orange");
+            if(result.xinzeng=="1"){
+            $(b.querySelector("#span1")).css("color","orange");
+//            getpage(0);
+            }
+            else{
+                $(b.querySelector("#span1")).css("color","");
+            }
+        });
+
+    };
+    $("#fabiao").click(function(){
+        if( $("#shuoshuo").val().length>200){
+            $("#cuowukuang3").fadeIn();
+        }
+        else if($("#shuoshuo").val().length==0){
+            $("#cuowukuang4").fadeIn();
+        }
+        else {
+            $.post("http://123.206.98.49:3001/postshuoshuo", {"content": $("#shuoshuo").val(),"huati":document.querySelector("#spselect").innerHTML}, function (result) {
+             if(result=="1"){
+
+                 $("#chenggong1").fadeIn();
+                 setTimeout("$('#chenggong1').fadeOut()",3000);
+//                 var htmlstring = compiled({"username":$("#yhm").});
+//
+//                 $("#quanbushuoshuo").append($(htmlstring));
+                    getpage(0);
+                 $(".pagination li:first").addClass("active");
+                 $(".pagination li:first").addClass("active").siblings().removeClass("active");
+             }
+             else if(result=="-1"||result=="-2"||result=="-3"){
+                 $("#cuowukuang5").fadeIn();
+                 setTimeout("$('#cuowukuang5').fadeOut()",3000);
+             }
+                else {
+                 document.querySelector("#cuowukuang6").innerHTML="发表失败，一个小时限发3条！请"+result+"分钟后再试！";
+                 $("#cuowukuang6").fadeIn();
+                 setTimeout("$('#cuowukuang6').fadeOut()",3000);
+             }
+            });
+
+        } });
+    $("input").focus(function(){
+        $("#cuowukuang").fadeOut();
+        $("#chenggong").fadeOut();
+        $("#cuowukuang1").fadeOut();
+        $("#cuowukuang2").fadeOut();
+        $("#cuowukuang3").fadeOut();
+        $("#cuowukuang4").fadeOut();
+        $("#cuowukuang5").fadeOut();
+        $("#chenggong1").fadeOut();
+    });
+    $("#shuoshuo").focus(function(){
+        $("#cuowukuang").fadeOut();
+        $("#chenggong").fadeOut();
+        $("#cuowukuang1").fadeOut();
+        $("#cuowukuang2").fadeOut();
+        $("#cuowukuang3").fadeOut();
+        $("#cuowukuang4").fadeOut();
+        $("#cuowukuang5").fadeOut();
+
+    });
+    function submit(){
+		
+        if($("#username").val()==""){
+            $("#cuowukuang1").fadeIn();
+        }
+        else if($("#password").val()==""){
+            $("#cuowukuang2").fadeIn();
+        }
+        else {
+            $.post("http://123.206.98.49:3001/dologin", {
+                "username": $("#username").val(),
+                "password": $("#password").val(),
+                "yanzhengma":$("#yanzhengma").val().toString(),
+                "uuid":deviceid
+                
+            }, function (result) {
+                //alert(result);
+                if (result == "-1") {
+
+                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("用户名不存在");
+
+
+                }
+                if (result == "-3") {
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("服务器错误");
+                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                }
+                if (result == "-2") {
+                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                    $("#cuowukuang").fadeIn();
+
+                    $("#cuowukuang").html("密码错误");
+
+                }
+                if (result == "-4") {
+                    $("#cuowukuang").fadeIn();
+                    $("#cuowukuang").html("验证码错误");
+
+
+                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+
+
+                }
+                if (result == "1") {
+
+
+					var LoginState = 1;
+					var username2 = $("#username").val()
+					$api.setStorage('LoginState',LoginState);
+					$api.setStorage('user',username2);	
+					$api.setStorage('username',$("#username").val());
+					$api.setStorage('username2',username2);
+//					var deviceID = api.deviceId;
+//					alert(deviceID);
+					 
+					alert("登录成功");	
+						api.openWin({
+							name : 'index',
+							url : '../../index.html',
+							
+						});
+//						
+
+
+//					api.openFrameGroup({
+//					    name : 'footer_tab_index',
+//				scrollEnabled : false,
+//				
+//				index : 0,
+//				preload : 0,
+//				frames : [{
+//					name : 'main',
+//					url : '../main.html'
+//				}, {
+//					name : 'sort',
+//					url : '../sort.html',
+//					vScrollBarEnabled: false,					
+//				}, {
+//					name : 'footer_tab_3',
+//					url : '../cart.html'
+//				}, {
+//					name : 'footer_tab_4',
+//					url : '../member/my_goods_body.html'
+//				}, {
+//					name : 'member_body',
+//					url : '../member/member_body.html'
+//				}]
+//			}, function(ret, err) {
+//				   
+//					    
+//					});
+//
+
+
+
+
+						}
+
+						});
+						} };
+
+	</script>
+</html>

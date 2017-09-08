@@ -1,0 +1,435 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/jumbotron.css" rel="stylesheet">
+		<script src="../script/jquery-1.11.3.min.js"></script>
+		<script src="../script/bootstrap.min.js"></script>
+		<style type="text/css">
+			html, body {
+				background: rgba(0,0,0,0);
+			}
+			body {
+			}
+			.top-area {
+			}
+			#cuowukuang {
+				display: none;
+			}
+			#chenggong {
+				display: none;
+			}
+			#sendVerify span {
+				font-size: 14px;
+			}
+			.logo {
+				height: 30px;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				display: box;
+				box-orient: horizontal;
+				box-pack: center;
+				box-align: center;
+			}
+			.login-area {
+				text-align: center;
+				white-space: nowrap;
+			}
+			.login-area img {
+				width: 75px;
+				height: 75px;
+				border-radius: 8px;
+				-webkit-border-radius: 8px;
+			}
+			.login-area p {
+				padding: 5px 0 0 0;
+				font-size: 15px;
+				color: #fff;
+			}
+			.form {
+				padding: 0 30px;
+			}
+			.form-row {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-flex-flow: row;
+				flex-flow: row;
+				width: 100%;
+				padding: 15px;
+				position: relative;
+			}
+			.form-row:after {
+				content: "";
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				right: 0px;
+				border-bottom: 1px solid #e0e0e0;
+				-webkit-transform: scaleY(.5);
+				-webkit-transform-origin: 0 0;
+			}
+			.form-row span {
+				display: block;
+				width: 50px;
+				color: #959595;
+			}
+			.form-row span {
+				font-size: 22px;
+			}
+			.form-row .input-box {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+				padding-top: 2px;
+			}
+			.form-row .input-box input {
+				background: rgba(0,0,0,0);
+				border: none;
+				outline: none;
+				color: #999;
+				padding: 4px;
+				margin: 0;
+			}
+			.form-btn {
+				padding: 30px 30px 15px 30px;
+			}
+			.aui-btn-ff9800 {
+				background: #ff9800 !important;
+				color: #f9f9f9 !important;
+				border: none;
+				outline: none;
+			}
+			.form-btn button:active {
+				background: rgba(255,152,0,0.8) !important;
+			}
+			.getcode {
+				color: #fff;
+				line-height: 33px;
+			}
+			.showpwd {
+				color: #fff;
+				line-height: 33px;
+				font-size: 20px;
+			}
+			.form-o {
+				padding: 0 30px;
+			}
+			.form-o span {
+				float: left;
+				color: #999;
+				font-size: 13px;
+			}
+			
+		</style>
+	</head>
+	<!--<body>
+		<div class="top-area">
+			<div class="logo"></div>
+			<div class="form">
+				<div class="form-area">
+					<div class="form-row">
+						<span class="aui-iconfont aui-icon-mobilefill">&nbsp;|</span>
+						<div class="input-box">
+							<input type="number" name="phone" value="" id="username" placeholder="请输入手机号" />
+						</div>
+						<div class="aui-input-addon">
+							<div class="aui-btn aui-btn-default" id="sendVerify" status="1" tapmode onclick="getVerify()">
+								获取验证码
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<span class="aui-iconfont aui-icon-safe">&nbsp;|</span>
+						<div class="input-box">
+							<input type="number" name="code" id="code" value="" id="password" placeholder="请输入验证码" />
+						</div>
+					</div>
+					<div class="form-row">
+						<span class="iconfont icon-mima">&nbsp;|</span>
+						<div class="input-box">
+							<input type="password" name="phone" value="" id="email" placeholder="请输入密码" />
+						</div>
+						<p class="iconfont icon-yey2 showpwd"></p>
+					</div>
+				</div>
+			</div>
+			<div class="form-btn">
+				<button class="aui-btn aui-btn-ff9800 aui-btn-block" id="login-btn" tapmode onclick="regist()">
+					立即注册
+				</button>
+			</div>
+			
+		</div>-->
+	
+		<!--<div class="form-row">
+			<span class="aui-iconfont aui-icon-mobilefill">&nbsp;|</span>
+			<div class="input-box">
+				<input type="number" name="phone" value="" id="username" placeholder="请输入手机号" />
+			</div>
+			<div class="aui-input-addon">
+				<div class="aui-btn aui-btn-default" id="sendVerify" status="1" tapmode onclick="getVerify()">
+					获取验证码
+				</div>
+			</div>
+		</div>-->
+	<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <form>
+            <div class="form-group">
+                <span  style="color: red" id="nameMessage"></span><span class="tishi" style="color:#808080" id="nameMessage1"></span>
+                <input class="input-box" onfocus="xiugai('nameMessage1')" onblur="testusername('nameMessage')" type="text" class="form-control" id="username" name="nameMessage"placeholder="设置用户名" >
+            </div>
+            <div class="form-group">
+                <span  style="color: red" id="emailMessage"></span><span class="tishi" style="color:#808080" id="emailMessage1"></span>
+                <input class="input-box" type="text"onfocus="xiugai('emailMessage1')" onblur="testemail('emailMessage')" class="form-control" id="email"placeholder="输入邮箱" >
+            </div>
+            <div class="form-group">
+                <span style="color: red" id="mima1Message"></span><span class="tishi" style="color:#808080" id="mima1Message1"></span>
+                <input class="input-box" type="password" onfocus="xiugai('mima1Message1')" onblur="testmima1('mima1Message')" class="form-control" id="password" placeholder="至少6位">
+            </div>
+            <div class="form-group">
+                <span style="color: red" id="mima2Message"></span><span class="tishi" style="color:#808080" id="mima2Message1"></span>
+                <input class="input-box" type="password"onfocus="xiugai('mima2Message1')" onblur="testmima2('mima2Message')" class="form-control" id="password2" placeholder="至少6位">
+            </div>
+
+            
+
+        </form>
+        <div class="form-btn">
+        	<button  id="submit" onclick="submit()" class="aui-btn aui-btn-ff9800 aui-btn-block" tapmode>注册</button>
+        </div>
+        <div class="alert alert-success"id="chenggong" role="alert">成功</div>
+    </div>
+
+</div> <!-- /container -->
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		var isinerval, times;
+		apiready = function() {
+			api.parseTapmode();
+		}
+		function regist() {
+			alert("registing");
+			$.post("http://123.206.98.49:3001/doregist", {
+				"username" : $("#username").val(),
+				"password" : $("#password").val(),
+				"email" : $("#email").val()
+			}, function(result) {
+				alert(result);
+				if (result == "-2") {
+					$("#cuowukuang").fadeIn();
+					$("#cuowukuang").html("服务器错误");
+				}
+				if (result == "1") {
+					$("#chenggong").fadeIn();
+					$("#chenggong").html("注册成功,3秒后返回主页");
+					alert("suc");
+				}
+			});
+		}
+
+		function showPassword() {
+			$api.attr($api.byId('password'), 'type', 'text');
+			$api.removeCls($api.byId('showpass-btn'), 'aui-icon-attention');
+			$api.addCls($api.byId('showpass-btn'), 'aui-icon-attentionfill');
+			$api.attr($api.byId('showpass-btn'), 'onclick', 'hidePassword();');
+			api.parseTapmode();
+		}
+
+		function hidePassword() {
+			$api.attr($api.byId('password'), 'type', 'password');
+			$api.removeCls($api.byId('showpass-btn'), 'aui-icon-attentionfill');
+			$api.addCls($api.byId('showpass-btn'), 'aui-icon-attention');
+			$api.attr($api.byId('showpass-btn'), 'onclick', 'showPassword();');
+			api.parseTapmode();
+		}
+
+		function getVerify() {
+			var sendVerify = $api.byId('sendVerify');
+			var status = $api.attr(sendVerify, 'status');
+			if (status != 1) {
+				return;
+			}
+			$api.removeAttr(sendVerify, 'onclick');
+			api.parseTapmode();
+			$api.html(sendVerify, '<span id="GetVerify" style="color:#fff;">120</span>');
+			times = 119;
+			isinerval = setInterval("CountDown()", 1000);
+			setTimeout(function() {
+				$api.val($api.byId("code"), '888888');
+			}, 500)
+		}
+
+		function CountDown() {
+			if (times < 1) {
+				var sendVerify = $api.byId('sendVerify');
+				$api.attr(sendVerify, 'onclick', 'get_verify()');
+				$api.attr(sendVerify, 'status', '1');
+				api.parseTapmode();
+				$api.html(sendVerify, '重新获取');
+				clearInterval(isinerval);
+				return;
+			}
+			var getVerify = $api.byId('GetVerify');
+			$api.html(getVerify, '' + times + '');
+			times--;
+		}
+		
+		var flag=[0,0,0,0];
+
+    function testusername(a){
+        document.querySelector("#nameMessage1").innerHTML="";
+        if($("#username").val()!=""){
+
+            var reg=/^[a-zA-Z]\w{5,15}$/;
+            if(!reg.test($("#username").val())){
+                document.querySelector("#"+a).innerHTML="用户名长度在6到16个字符且为数字和字符的组合，不能以数字开头";
+                flag[0]=0;
+            }else{
+                flag[0]=1;
+            }
+        if(flag[0]==1){
+        $.get("/testusername?username="+$("#username").val(),function(result){
+            if(result=="-1"){
+                document.querySelector("#nameMessage").innerHTML="用户名已存在";
+                 flag[0]=0;
+            }
+            else{
+                flag[0]=1;
+            }
+        });}}}
+        function xiugai(a){
+            document.querySelector(".tishi").innerHTML="";
+            if(a=="nameMessage1"){
+                document.querySelector("#nameMessage").innerHTML="";
+                document.querySelector("#"+a).innerHTML="长度在6到16个字符，数字和字母组合且不能以数字开头";
+               }
+            if(a=="emailMessage1"){
+                document.querySelector("#emailMessage").innerHTML="";
+                document.querySelector("#"+a).innerHTML="将作为您的密保邮箱";
+            }
+            if(a=="mima1Message1"){
+                document.querySelector("#mima1Message").innerHTML="";
+                document.querySelector("#"+a).innerHTML="密码长度6-16，字母或者数字";
+            }
+            if(a=="mima2Message1"){
+                document.querySelector("#mima2Message").innerHTML="";
+//              document.querySelector("#"+a).innerHTML="确认密码";
+            }
+            }
+
+
+    function testemail()
+    {
+        document.querySelector("#emailMessage1").innerHTML="";
+        if($("#email").val()!=""){
+
+        var email=$("#email").val();
+        if(email=="")
+        {
+            document.querySelector("#emailMessage").innerHTML="邮箱不能为空";
+            flag[1]=0;
+        }
+
+        else
+        {
+            reg=/^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/gi;
+            if(!reg.test(email))
+            {document.querySelector("#emailMessage").innerHTML="请输入正确的邮箱格式";
+                flag[1]=0;
+            }
+            else{
+                flag[1]=1;
+            }
+        }
+    }}
+    var mima1;
+    function testmima1(){
+        document.querySelector("#mima1Message1").innerHTML="";
+        if($("#password").val()!=""){
+
+        mima1=$("#password").val();
+        reg=/^[a-zA-Z0-9]{5,15}$/;
+        if(!reg.test(mima1)){
+            document.querySelector("#mima1Message").innerHTML="密码长度在6到16个字符，数字或者字母";
+            flag[2]=0;
+
+        }else
+        {
+            flag[2]=1;
+        }
+    }}
+    function testmima2(){
+        document.querySelector("#mima2Message1").innerHTML="";
+        if($("#password2").val()!=""){
+
+        var mima2=$("#password2").val();
+
+        if(mima1!=mima2){
+            document.querySelector("#mima2Message").innerHTML="两次密码不一致";
+            flag[3]=0;
+        }else
+        {
+            flag[3]=1;
+        }
+    }}
+
+    function submit(){
+
+      if(flag[0]==1&&flag[1]==1&&flag[2]==1&&flag[3]==1){
+        $.post("http://123.206.98.49:3001/doregist",{
+                "username":$("#username").val(),
+                "password":$("#password").val(),
+                "email":$("#email").val()
+        },function(result){
+            //alert(result);
+            if(result=="-2"){
+                $("#cuowukuang").fadeIn();
+                $("#cuowukuang").html("服务器错误");
+            }
+            if(result=="1"){
+               alert("注册成功");
+               api.closeToWin({
+	                name: 'root',
+	                animation:{
+							    type:"none",                //动画类型（详见动画类型常量）
+							    subType:"from_right",       //动画子类型（详见动画子类型常量）
+							    duration:300                //动画过渡时间，默认300毫秒
+							   }
+                });
+//             api.openWin({
+//							name : 'reg_head',
+//							url : './reg_head.html',
+//							bounces : false,
+//							opaque : false,
+//							delay:3000
+//						});
+//						api.openFrame({
+//							name : 'reg_body',
+//							url : './reg_body.html',
+//							bounces : false,
+//							opaque : false,
+//							delay:3000
+//						});
+            }
+
+
+        });}
+
+    }
+		
+	</script>
+</html>
