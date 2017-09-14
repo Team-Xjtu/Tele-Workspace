@@ -7,6 +7,7 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="./css/aui.css" />
 		<link rel="stylesheet" type="text/css" href="./css/common.css" />
+		<!--<link rel="stylesheet" href="css/main.css">-->
 	<style>
 		#aui-footer .aui-iconfont {
 			font-size: 25px;
@@ -63,30 +64,29 @@
 	<body>
 		<header class="aui-bar aui-bar-nav aui-bar-warning header" id="index-header">
 			<div class="aui-bar-navs">
-				
 			        手机壳定制
-			    
-				</div>
+			</div>
 		</header>
-		
-		
-		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="sort-header" style="padding-top:25px;">		    
+
+		<header class="aui-bar  aui-bar-nav aui-bar-warning header display-none" id="sort-header">
+			<!--<a id="edit-return" class="left" title="返回" href="home.html">返回</a>-->
+			<!--<h1 id="header-title">手机模型</h1>-->
+			<!--<a id="edit-submit" class="right" title="提交">提交</a>-->
 		    <div class="aui-title">DIY</div>
 		    <a class="aui-pull-right">
 		        <span class="aui-iconfont aui-icon-search"></span>
 		    </a>
 		</header>
-		
-		
-		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="cart-header" style="padding-top:25px;">		
+
+		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="cart-header">
 			<div class="aui-title">购物车</div>	
 			<a class=" aui-pull-right" tapmode onclick="">编辑</a>
 		</header>
-		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="order-header" style="padding-top:25px;">
+		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="order-header">
 			<div class="aui-title">我的订单</div>	
 			<a class=" aui-pull-right" tapmode onclick="">&nbsp;</a>
 		</header>
-		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="member-header" style="padding-top:25px;">			
+		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="member-header">
 			<div class="aui-title">个人中心</div>	
 			<a class="aui-iconfont aui-icon-settings aui-pull-right" tapmode onclick="openWinto('ucenter_setting_head','./html/member/ucenter_setting_head')"></a>
 		</header>
@@ -183,11 +183,11 @@
 					url : './html/main.html'
 				}, {
 					name : 'sort',
-					url : './indexDiy.html',
+					url : './home.html',
 					vScrollBarEnabled: false
 				}, {
 					name : 'footer_tab_3',
-					url : './html/cart.html'
+					url : './html/gouwuche.html'
 				}, {
 					name : 'footer_tab_4',
 					url : './html/member/my_goods_body.html'
@@ -223,8 +223,6 @@
 			//$api.fixStatusBar(headerDOM);	
 			//alert(headerId);
 			$("#" + headerDOM).removeClass("display-none").siblings(".header").addClass("display-none");
-
-			
 		}
 	</script>
 </html>

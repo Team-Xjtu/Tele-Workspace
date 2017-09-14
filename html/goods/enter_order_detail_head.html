@@ -33,6 +33,53 @@
 		.demo{font-size:15px;color: #333;background:#fff;}
 		.buy{background:#FF9800;color:#fff;}
 		</style>
+		<script type="text/javascript" src="../../script/api.js"></script>
+		<script type="text/javascript" src="../../script/common.js"></script>
+		<script type="text/javascript" src="../../script/zepto.min.js"></script>
+		<script type="text/javascript">
+			var url0;
+			var price;
+			var name;
+			var type;
+			var jieshao;
+			var shangpinhao;
+			var urlarray;
+			apiready = function() {
+				api.parseTapmode();
+				url0 = api.pageParam.url0;
+				price = api.pageParam.price;
+				name = api.pageParam.name;
+				type = api.pageParam.type;
+				jieshao = api.pageParam.jieshao;
+				urlarray = api.pageParam.urlarray;
+				shangpinhao = api.pageParam.shangpinhao;
+				var header = $api.byId('aui-header');
+				$api.fixStatusBar(header);
+				var headerPos = $api.offset(header);
+				var body_h = $api.offset($api.dom('body')).h;
+				var footer_h = $api.offset($api.byId('aui-footer')).h;
+				api.openFrame({
+					name: 'enter_order_detail_body',
+					url: 'enter_order_detail_body.html',
+					rect: {
+						x: 0,
+						y: headerPos.h,
+						w: 'auto',
+						h: body_h - headerPos.h - footer_h
+					},
+					pageParam : {
+						shangpinhao:shangpinhao,
+						url0 :url0,
+						price:price,
+						name:name,
+						type:type,
+						jieshao:jieshao,
+						urlarray:urlarray
+					}
+				});
+			}
+
+		</script>
 	</head>
 	<body>
 		<header class="aui-bar aui-bar-nav aui-bar-warning" id='aui-header'>
@@ -43,33 +90,9 @@
 		</header>		
 		<footer class="aui-nav" id="aui-footer">
 			<div class="aui-col-xs-12 aui-text-center aui-nnav">
-				<div class="aui-col-xs-8 demo">共<span class="aui-text-danger">1</span>件,总金额: <span class="aui-text-danger">￥88.00</span></div>
+				<div class="aui-col-xs-8 demo">共<span class="aui-text-danger">1</span>件,总金额: <span class="aui-text-danger">{{=price}}</span></div>
 				<div class="aui-col-xs-4 buy" tapmode onclick="openWinto('payment_head','payment_head');">提交订单</div>
 			</div>
 		</footer>
 	</body>
-	<script type="text/javascript" src="../../script/api.js"></script>
-	<script type="text/javascript" src="../../script/common.js"></script>
-	<script type="text/javascript" src="../../script/zepto.min.js"></script>
-	<script type="text/javascript">
-	apiready = function() {
-			api.parseTapmode();
-			var header = $api.byId('aui-header');
-	        $api.fixStatusBar(header); 
-	        var headerPos = $api.offset(header);
-    		var body_h = $api.offset($api.dom('body')).h;
-    		var footer_h = $api.offset($api.byId('aui-footer')).h;
-	        api.openFrame({
-	            name: 'enter_order_detail_body',
-	            url: 'enter_order_detail_body.html',
-	            rect: {
-	                x: 0,
-	                y: headerPos.h,
-	                w: 'auto',
-	                h: body_h - headerPos.h - footer_h
-	            }
-	        });
-		}
-	
-	</script>
 </html>

@@ -31,15 +31,15 @@
 		</style>
 	</head>
 	<body>	
-		<div class="step1" style="margin-top:10px" tapmode onclick="openWinto('address_head','../member/address_head')">		
-			<!--<div>收货地址</div>	-->
-			<b class="s1-borderT"></b>				
-			<div>
-				<div style="font-size: 16px;">周杰伦 <span class="" style="margin-left: 25px;">18663767656</span></div>
-				<div>山东省济南市历下区华强电子世界B栋2308</div>
-			</div>
-			<b class="s1-borderB"></b>
-			<span class="s-point"></span>
+		<div class="step1" style="margin-top:10px" tapmode onclick="openWinto('address_head','../member/address_head')">
+			<div>收货地址</div>
+			<!--<b class="s1-borderT"></b>				-->
+			<!--<div>-->
+				<!--<div style="font-size: 16px;">周杰伦 <span class="" style="margin-left: 25px;">18663767656</span></div>-->
+				<!--<div>山东省济南市历下区华强电子世界B栋2308</div>-->
+			<!--</div>-->
+			<!--<b class="s1-borderB"></b>-->
+			<!--<span class="s-point"></span>-->
 		</div>
 		
 		<div class="aui-content">
@@ -118,6 +118,7 @@
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../../script/echo.min.js"></script>
 	<script type="text/javascript">
+		var shangpinhao;
 		echo.init({
 			offset : 100,
 			throttle : 250,
@@ -127,6 +128,8 @@
 		});
 		apiready = function() {
 			api.parseTapmode();
+			shangpinhao = api.pageParam.shangpinhao;
+			console.log("enter_order_detail_body shangpinhao:"+shangpinhao);
 		};
 	</script>
 </html>

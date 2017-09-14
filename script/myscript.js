@@ -10,15 +10,14 @@ function getBase64Image(img) {
         return dataURL;
 }
 
-function sendDiyMsg(base64Data,sence){
+function sendDiyMsg(base64Data, sence, jieshao, shangpinhao, name){
 	var form_data = new FormData();
     form_data.append("jiepingpic", base64Data);
     form_data.append("changjingxinxi", sence);
-    form_data.append("beizhu", "备注test");
-    form_data.append("shangpinhao", "20177418112353452186");
-    form_data.append("diyname", "DIY 2");
-    //alert(base64Data);
-	$.ajax({
+    form_data.append("beizhu", jieshao);
+    form_data.append("shangpinhao", shangpinhao);
+    form_data.append("diyname", name);
+    $.ajax({
 		type: "POST", // 上传文件要用POST
         url: "http://123.206.98.49:3001/adddiy",
 		dataType : "json",
@@ -26,6 +25,11 @@ function sendDiyMsg(base64Data,sence){
 		processData: false,  // 注意：不要 process data
 		contentType: false,  // 注意：不设置 contentType
 		data: form_data,
-		success:function(datas) {alert("保存成功!!");}//JSON.stringify(datas)
-    }).fail(function(msg){alert("保存失败!"+JSON.stringify(msg));}); //alert("fails!"+JSON.stringify(msg))
+		success: function(datas) {
+            alert("保存成功!");
+            //openOrderdetail();
+        }//JSON.stringify(datas)
+    }).fail(function(msg){
+            alert("保存失败!"+JSON.stringify(msg));
+    }); //alert("fails!"+JSON.stringify(msg))
 }

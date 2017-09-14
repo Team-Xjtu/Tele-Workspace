@@ -27,30 +27,28 @@
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script type="text/javascript">
 	apiready = function() {
-			api.parseTapmode();
-			var header = $api.byId('aui-header');
-	        $api.fixStatusBar(header); 
-	        var headerPos = $api.offset(header);
-        		var body_h = $api.offset($api.dom('body')).h;
-//      		alert(api.pageParam.orderIndex);
-	        api.openFrame({
-	            name: 'address_body',
-	            url: 'address_body.html',
-	            reload:true,
-	            rect: {
-	                x: 0,
-	                y: headerPos.h,
-	                w: 'auto',
-	                h: 'auto'
-	            },
-	            pageParam:{
-	            
-	            orderIndex:api.pageParam.orderIndex
-	            
-	            }
-	        });
-	        
-		}
+		api.parseTapmode();
+		var header = $api.byId('aui-header');
+		$api.fixStatusBar(header);
+		var headerPos = $api.offset(header);
+		var body_h = $api.offset($api.dom('body')).h;
+		var LoginState=$api.getStorage('LoginState');
+		if(LoginState!=1) alert("请先登录！");
+		api.openFrame({
+			name: 'address_body',
+			url: 'address_body.html',
+			reload:true,
+			rect: {
+				x: 0,
+				y: headerPos.h,
+				w: 'auto',
+				h: 'auto'
+			},
+			pageParam:{
+				
+			}
+		});
+	}
 	
 	</script>
 </html>

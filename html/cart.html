@@ -135,75 +135,82 @@
 		<form action="" method="get">
 			<div  id="quanbushuoshuo">
 				<script type="text/template" id="moban">
-				<li class="aui-list-view-cell aui-img aui-counter-list">
-					<!--<div class="panel panel-default">-->
-					<div  class="sums">
-					<div style="float: left;margin-top:20px;" id="hahaha" >
-					<label onclick="dianji(this)">
-					<input class="checkboxs" name="mydiy" type="checkbox" id="mydiy" value="" /> 
-					</label>
-					<div style="display: none" id="danjia">{{=danjia}}</div>
-					</div>
-					<div style="float: left;margin-left: 5px">
-					<img class="aui-img-object aui-pull-left" id="img_biaoshi" onclick="go_Diy(this)" style="width:100px;height: 100px" src={{=img}} alt="">
-					</div>
-				<div class="aui-img-body">
-					<div class="aui-text-default aui-ellipsis-1">
-							{{=diyname}} 
-					</div>
-					<div class="aui-carfont aui-ellipsis-1">{{=beizhu}}
-					</div>
-				<div class="aui-counter-box">
-					<div class="aui-pull-left aui-text-danger" id="danjia">
-						&yen;{{=danjia}}
+					<li class="aui-list-view-cell aui-img aui-counter-list">
+						<div  class="sums">
+							<div style="float: left;margin-top:20px;">
+								<label onclick="dianji(this)">
+									<input class="checkboxs" name="mydiy" type="checkbox" value="" />
+								</label>
+							</div>
+							<div style="float: left;margin-left: 5px">
+								<img class="aui-img-object aui-pull-left" id="img_biaoshi{{=diybiaoshi}}" onclick="go_Diy(this)" style="width:100px;height: 100px" src={{=img}} alt="">
+							</div>
+							<div class="aui-img-body">
+								<div class="aui-text-default aui-ellipsis-1">
+									{{=diyname}}
+								</div>
+								<div class="aui-carfont aui-ellipsis-1">{{=beizhu}}</div>
+								<div class="aui-counter-box">
+									<div class="aui-pull-left aui-text-danger" id="danjia{{=diybiaoshi}}">
+										&yen;{{=danjia}}
+									</div>
+									<div class="aui-counter aui-pull-right">
+										<div class="aui-counter-minus" onclick="jianyi(this,{{=diybiaoshi}})"></div>
+										<input class="aui-counter-input"  type="text" onfocus="jicun(this)" onblur="panduan(this)" value='1' name="hhaha" id="shuru{{=diybiaoshi}}"/>
+										<div class="aui-counter-plus" onclick="jiayi(this)"></div>
+									</div>
+									<div id="biaoshi{{=diybiaoshi}}" style="display: none">{{=img}}</div>
+									<div id="changjingxinxi{{=diybiaoshi}}" style="display: none">{{=changjingxinxi}}</div>
+									<div id="diybiaoshi{{=diybiaoshi}}">{{=diybiaoshi}}</div>
+									<div style="margin-left: 10px">
+										<div class="delete_box f_right" onclick="shanchu()" >
+											<a href="javascript:void(0)"><span class="delete_up"></span></a>
+											<a href="javascript:void(0)"><span class="delete_down"></span></a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-					<div class="aui-counter aui-pull-right">
-						<div class="aui-counter-minus" onclick="jianyi(this)"></div>
-						<input class="aui-counter-input"  type="text" onfocus="jicun(this)" onblur="panduan(this)" value='1' name="hhaha" id="shuru"/>
-						<div class="aui-counter-plus" id="jiayi" onclick="jiayi(this)"></div>
-					</div>
-					<div id="biaoshi" style="display: none">{{=img}}</div>
-					<div id="changjingxinxi" style="display: none">{{=changjingxinxi}}</div>
-					<div style="margin-left: 10px">
-					<div class="delete_box f_right" onclick="shanchu()" >
-					<a href="javascript:void(0)"><span class="delete_up"></span></a>
-					<a href="javascript:void(0)"> <span class="delete_down"></span></a>
-					</div>
-					</div>
-				
-					</div>
-				</div>
-					</div>
 					</li>
-					</div>
 				</script>
 			</div>
 			<!--<img id="img_biaoshi2" src="123.03">-->
-			</div>
 		</form>
-		
 		<script>
-		
-		
+			var resultDiybiaoshi = [];
+			var getgouwucheInfo;
+			$.get("http://123.206.98.49:3001/getgouwuche", function(result) {
+				if (result == "-1") {
+					alert("出错了");
+					return;
+				}
+				getgouwucheInfo = result;
+				if (result.length > 1) {
+					for (var i = 1; i < result.length; i++) {
+						resultDiybiaoshi.push(result[i].diybiaoshi);
+						var htmlstring = compiled(result[i]);
+						$("#quanbushuoshuo").append($(htmlstring));
+					}
+				}
+			});
 			function shengchengdingdan() {
 				var shangpins = new Array();
 				var objs = document.querySelectorAll(".checkboxs");
 				var objs1 = document.querySelectorAll(".sums");
 				for (var i = 0; i < objs.length; i++) {
 					if (objs[i].checked == true) {
-						var img = objs1[i].querySelector("#biaoshi").innerHTML.toString();
-						var shuliang = objs1[i].querySelector("#shuru").value;
-//						var diybiaoshi= objs1[i].querySelector("#shuru").value;
-						//alert(img);
+						var diyId = resultDiybiaoshi[i].toString();
+						var img = objs1[i].querySelector("#shuru" + diyId).innerHTML.toString();
+						var shuliang = objs1[i].querySelector("#shuru" + diyId).value;
+						var diybiaoshi= objs1[i].querySelector("#diybiaoshi" + diyId).innerHTML.toString();
 						shangpins.push({
 							"img" : img,
 							"shuliang" : shuliang,
-							"diybiaoshi": "20177418112353452186"
+							"diybiaoshi": diybiaoshi
 						});
 					}
 				}
 				var shangpins1 = JSON.stringify(shangpins);
-				//alert("cart shangpins"+shangpins1);
 				if (parseInt(document.querySelector("#zongjia").innerHTML) > 0) {
 					$.post("http://123.206.98.49:3001/createdingdan", {
 						"shangpins" : shangpins1,
@@ -221,16 +228,17 @@
 			}
 
 			var compiled = _.template($("#moban").html());
-			function jianyi(a) {
+			function jianyi(a,id) {
 				var b = $(a).parent().parent().parent().parent().parent().children()[0];
 				var c = b.querySelector("input");
 				if (c.checked == true) {
 					var shuliangobj = a.nextElementSibling;
 					var shuliang = $(shuliangobj).val();
+					console.log("shuliang:"+shuliang);
 					if (parseInt(shuliang) > 1) {
 						shuliang = parseInt(shuliang) - 1;
 						var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
-						var danjia = parseInt(b.querySelector("#danjia").innerHTML);
+						var danjia = parseInt(b.querySelector("#danjia"+id).innerHTML);
 						document.querySelector("#zongjia").innerHTML = muqianzongjia - danjia;
 						$(shuliangobj).val(shuliang);
 					}
@@ -242,7 +250,7 @@
 						$(shuliangobj).val(shuliang);
 						$(c).attr("checked", true);
 						var thisshuliang = shuliang;
-						var danjia = parseInt(b.querySelector("#danjia").innerHTML);
+						var danjia = parseInt(b.querySelector("#danjia"+id).innerHTML);
 						var thiszongjia = thisshuliang * danjia;
 						var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
 						document.querySelector("#zongjia").innerHTML = muqianzongjia + thiszongjia;
@@ -286,26 +294,6 @@
 					document.querySelector("#zongjia").innerHTML = muqianzongjia + thiszongjia;
 				}
 			}
-
-
-			var getgouwucheInfo;
-			$.get("http://123.206.98.49:3001/getgouwuche", function(result) {
-				if (result == "-1") {
-					alert("出错了");
-					return;
-				}
-				getgouwucheInfo=result;
-				
-				if (result.length > 1) {
-					//                alert("haha");
-					for (var i = 1; i < result.length; i++) {
-						var htmlstring = compiled(result[i]);
-						//alert(htmlstring);
-						//alert(htmlstring);
-						$("#quanbushuoshuo").append($(htmlstring));
-					}
-				}
-			});
 			function dianji(a) {
 				if (a.querySelector("input").checked == true) {
 					var b = $(a).parent().next().next().children()[2];

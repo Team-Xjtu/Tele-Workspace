@@ -85,7 +85,7 @@
 					                    <select id="area" name="area"></select>
 					        </span>
 					          
-					 		<script type="text/javascript">_init_area("","","");</script>
+					 		<!--<script type="text/javascript">_init_area("","","");</script>-->
 					   
 		            <div class="aui-input-row">
 		                <span class="aui-input-addon">详细地址</span>
@@ -114,11 +114,7 @@
 	<script type="text/javascript" src="../../script/common.js"></script>
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script type="text/javascript">
-		
-		
-		
-		
-		
+
 		apiready = function() {
 			api.parseTapmode();
 			var flag = $api.getStorage('addressFlag');
@@ -126,7 +122,6 @@
 			if(flag==1){
 //				alert("jinru");
 				$("#baocun").html("保存并使用");
-				
 			}
 			
 		}
@@ -138,10 +133,8 @@
 	
 	
 	function SelectArea(){
-	
-	
 		var UIActionSelector = api.require('UIActionSelector');
-UIActionSelector.open({
+		UIActionSelector.open({
     datas: 'widget://res/city.json',
     layout: {
         row: 5,
@@ -221,7 +214,14 @@ UIActionSelector.open({
         }
         else{
 //      $("#name").val("");
-        $.post("http://123.206.98.49:3001/adddizhi", {"name":$("#name").val(),"dianhua":$("#dianhua").val(),"pro": $("#SelectArea" ).val(),"city":" ","area":" ","jutidizhi":$("#jutidizhi").val()},function(result){
+        $.post("http://123.206.98.49:3001/adddizhi", {
+			"name":$("#name").val(),
+			"dianhua":$("#dianhua").val(),
+			"pro": $("#SelectArea" ).val(),
+			"city":" ",
+			"area":" ",
+			"jutidizhi":$("#jutidizhi").val()
+		},function(result){
         if(result=="-1"){
             $("#cuowukuang").html("保存失败");
             $('#cuowukuang').fadeIn();
@@ -229,7 +229,6 @@ UIActionSelector.open({
         }
         else{
             $('#chenggong').fadeIn();
-			
 			var flag = $api.getStorage('addressFlag');
 			if(flag==1){
 				$api.setStorage('addressFlag',0);
@@ -237,18 +236,14 @@ UIActionSelector.open({
 	            name: 'order_detail_head.html',
 	            url: '../goods/order_detail_head.html'
             });
-				
 			}else{
-				
 				api.openWin({
 	            name: 'address_head',
 	            url: './address_head.html'
             });
 			
 			}
-			
-			
-            
+
         }
     })}});
 </script>

@@ -301,13 +301,13 @@
 	<script type="text/javascript" src="../script/echo.min.js"></script>
 	<script type="text/javascript" src="../script/aui-slide.js"></script>
 	<script type="text/javascript">
-		var id = new Array();
-		var shangpinname = new Array();
-		var shangpindanjia = new Array();
-		var shangpinjieshao = new Array();
-		var shangpintype = new Array();
-		var patharray = new Array();
-		var tuijianji = new Array();
+		var shangpinhao = [];
+		var shangpinname = [];
+		var shangpindanjia = [];
+		var shangpinjieshao = [];
+		var shangpintype = [];
+		var patharray = [];
+		var tuijianji = [];
 //		function openGoods2(id) {
 //			var index = Number(id.substring(1,id.length))-1;
 //			alert("index:"+index);
@@ -329,7 +329,7 @@
 //				}
 //			});
 //		};
-		
+
 
 		var slide = new auiSlide({
 			container : document.getElementById("aui-slide"),
@@ -371,30 +371,25 @@
 				$('#recommend' + indexlevel + '_type').html(shangpintype[i].substring(1,shangpintype[i].length-1));
 				$('#recommend' + indexlevel + '_pic').attr("src",url);
 			}
-			
-			
-
-			
-			
-			var id0data = new Array();
-			id0data.push(id);
-			id0data.push(shangpinname);
-			id0data.push(shangpindanjia);
-			id0data.push(shangpinjieshao);
-			id0data.push(shangpintype);
-			id0data.push(patharray);
-			$api.setStorage('id0',id[0]);
-			$api.setStorage(id[0],id0data);
+//			var id0data = new Array();
+//			id0data.push(shangpinhao);
+//			id0data.push(shangpinname);
+//			id0data.push(shangpindanjia);
+//			id0data.push(shangpinjieshao);
+//			id0data.push(shangpintype);
+//			id0data.push(patharray);
+//			$api.setStorage('id0',shangpinhao[0]);
+//			$api.setStorage(shangpinhao[0],id0data);
 		}
-		
-		
+
+
 		var urlarray = new Array();
 		function openGoods2(id) {
 			urlarray.splice(0,urlarray.length);
 			var index = Number(id.substring(1,id.length))-1;
 //			alert("推荐：" + (index+1));
 			for(var i=tuijianji.length-1;i>=0;i--){
-				
+
 				var flag = Number(tuijianji[i].substring(1,tuijianji[i].length-1));
 //				alert("商品推荐及顺序："+ flag);
 //				tuijianji[i] = Number(tuijianji[i].substring(1,tuijianji[i].length-1));
@@ -414,12 +409,14 @@
 			var name = shangpinname[index].substring(1,shangpinname[index].length-1);
 			var type = shangpintype[index].substring(1,shangpintype[index].length-1);
 			var jieshao = shangpinjieshao[index].substring(1,shangpinjieshao[index].length-1);
-//			alert(url0 + "---" + price  + "---" + name + "---" + type + "---" + jieshao);
+			var id = shangpinhao[index].substring(1,shangpinhao[index].length-1);
+			//console.log(url0 + "---" + price  + "---" + name + "---" + type + "---" + jieshao + "---" + id);
 			$api.setStorage('urlarray',urlarray);
 			api.openWin({
 				name : 'goods_show_win',
 				url : './goods/goods_show_win.html',
 				pageParam : {
+					shangpinhao:id,
 					url0 : url0,
 					price:price,
 					name:name,
@@ -429,9 +426,9 @@
 				}
 			});
 		};
-		
-		
-		
+
+
+
 
 		function randomSwitchBtn(obj, name, index) {
 			var jsfun = "randomSwitchBtn(this,'分类',1);";
@@ -446,25 +443,23 @@
 		$.getJSON("http://123.206.98.49:3001/getshangpins", function(data) {
 				$.each(data.result, function(idx, item) {
 //					alert(idx);
-					var idString = "" + JSON.stringify(item._id);
+					var idString = JSON.stringify(item.shangpinhao);
 					var nameString = JSON.stringify(item.shangpinname);
 					var danjiaString = JSON.stringify(item.shangpindanjia);
 					var jieshaoString = JSON.stringify(item.shangpinjieshao);
 					var typeString = JSON.stringify(item.shangpintype);
 					var pathString = JSON.stringify(item.patharray);
 					var tuijianjiString = JSON.stringify(item.tuijianji);
-//					alert(typeof tuijianjiString);
-//					id.push(idString);
+					shangpinhao.push(idString);
 					shangpinname.push(nameString);
 					shangpindanjia.push(danjiaString);
 					shangpinjieshao.push(jieshaoString);
 					shangpintype.push(typeString);
 					patharray.push(pathString);
 					tuijianji.push(tuijianjiString);
-					
-				})
+
+				});
 				test();
-				
 			});
 			
 		apiready = function() {
