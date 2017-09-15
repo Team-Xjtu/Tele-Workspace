@@ -143,7 +143,7 @@
 								</label>
 							</div>
 							<div style="float: left;margin-left: 5px">
-								<img class="aui-img-object aui-pull-left" id="img_biaoshi{{=diybiaoshi}}" onclick="go_Diy(this)" style="width:100px;height: 100px" src={{=img}} alt="">
+								<img class="aui-img-object aui-pull-left" id="img_biaoshi" onclick="go_Diy(this)" style="width:100px;height: 100px" src={{=img}} alt="">
 							</div>
 							<div class="aui-img-body">
 								<div class="aui-text-default aui-ellipsis-1">
@@ -155,13 +155,13 @@
 										&yen;{{=danjia}}
 									</div>
 									<div class="aui-counter aui-pull-right">
-										<div class="aui-counter-minus" onclick="jianyi(this,{{=diybiaoshi}})"></div>
+										<div class="aui-counter-minus" onclick="jianyi(this)"></div>
 										<input class="aui-counter-input"  type="text" onfocus="jicun(this)" onblur="panduan(this)" value='1' name="hhaha" id="shuru{{=diybiaoshi}}"/>
 										<div class="aui-counter-plus" onclick="jiayi(this)"></div>
 									</div>
 									<div id="biaoshi{{=diybiaoshi}}" style="display: none">{{=img}}</div>
 									<div id="changjingxinxi{{=diybiaoshi}}" style="display: none">{{=changjingxinxi}}</div>
-									<div id="diybiaoshi{{=diybiaoshi}}">{{=diybiaoshi}}</div>
+									<div id="diybiaoshi{{=diybiaoshi}}" style="display: none">{{=diybiaoshi}}</div>
 									<div style="margin-left: 10px">
 										<div class="delete_box f_right" onclick="shanchu()" >
 											<a href="javascript:void(0)"><span class="delete_up"></span></a>
@@ -228,7 +228,7 @@
 			}
 
 			var compiled = _.template($("#moban").html());
-			function jianyi(a,id) {
+			function jianyi(a) {
 				var b = $(a).parent().parent().parent().parent().parent().children()[0];
 				var c = b.querySelector("input");
 				if (c.checked == true) {
@@ -238,7 +238,7 @@
 					if (parseInt(shuliang) > 1) {
 						shuliang = parseInt(shuliang) - 1;
 						var muqianzongjia = parseInt(document.querySelector("#zongjia").innerHTML);
-						var danjia = parseInt(b.querySelector("#danjia"+id).innerHTML);
+						var danjia = parseInt(b.querySelector("#danjia").innerHTML);
 						document.querySelector("#zongjia").innerHTML = muqianzongjia - danjia;
 						$(shuliangobj).val(shuliang);
 					}
@@ -484,7 +484,6 @@
 	            name: 'dingdan',
 	            url: './goods/order_detail_head.html'
             });
-		
 		}
 	
 		$(document).ready(function() {

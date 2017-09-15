@@ -32,65 +32,12 @@
 			<b class="s1-borderB"></b>
 			<span class="s-point"></span>
 		</div>
-		
-		<div class="aui-content">
-			<ul class="aui-list-view" id="order">
-				<!--<li class="aui-list-view-cell aui-img aui-counter-list" >
-	                <img class="aui-img-object aui-pull-left" src="../../image/pic.jpg" >
-	                <div class="aui-img-body">
-	                    <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">12个/盒</div>
-	                        <div class="aui-text-default aui-pull-right">
-	                            x 1
-	                        </div>
-	                    </div>	                    
-	                </div>               
-	           	</li>
-	           	
-	           	<li class="aui-list-view-cell aui-img aui-counter-list" >
-	                <img class="aui-img-object aui-pull-left" src="../../image/pic.jpg" >
-	                <div class="aui-img-body">
-	                    <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">12个/盒</div>
-	                        <div class="aui-text-default aui-pull-right">
-	                            x 1
-	                        </div>
-	                    </div>	                    
-	                </div>               
-	           	</li>-->
-	           	
-	           	
-	        </ul>
-		</div>
-		
-		<!--<div class="aui-content">
-	        <ul class="aui-list-view aui-in">-->
-	            <!--<li class="aui-list-view-cell">
-	                支付金额
-	                <div class="aui-pull-right aui-text-danger" id="zongjia">￥49.90</div>
-	            </li>-->
-	          <!--  <li class="aui-list-view-cell">
-	                支付方式
-	                <div class="aui-pull-right">货到付款</div>
-	            </li>-->
-	           <!-- <li class="aui-list-view-cell">
-	          	      支付状态
-	                <div class="aui-pull-right">未支付</div>
-	            </li>
-	            <li class="aui-list-view-cell">
-	                下单时间
-	                <div class="aui-pull-right">2016-03-29 17:50:14</div>
-	            </li>-->
-	      <!--  </ul>
-	    </div>-->
-	    
+
 	    <div class="aui-content">
 	        <ul class="aui-list-view aui-in">
 	            <li class="aui-list-view-cell">
 	                商品总价
-	                <div class="aui-pull-right aui-text-FF9800" id="goodssum">￥49.90</div>
+	                <div class="aui-pull-right aui-text-FF9800" id="goodssum"></div>
 	            </li>
 	            <li class="aui-list-view-cell">
 	                运费
@@ -100,16 +47,16 @@
 	                支付方式
 	                <div class="aui-pull-right">货到付款</div>
 	            </li>
-	            <!--<li class="aui-list-view-cell">
+	            <li class="aui-list-view-cell">
 	                优惠券抵扣
 	                 <div class="aui-pull-right aui-text-default">-￥0.00</div>
 	            </li>
 	            <li class="aui-list-view-cell">
 	                积分抵扣
 	                 <div class="aui-pull-right aui-text-default">-￥0.00</div>
-	            </li>-->
+	            </li>
 	            <li class="aui-list-view-cell">
-	            	 <span class=" aui-pull-right aui-text-FF9800" style="font-size: 18px;" id="total_sum">￥49.90</span>	                
+	            	 <span class=" aui-pull-right aui-text-FF9800" style="font-size: 18px;" id="total_sum"></span>
 	                 <div class="aui-pull-right aui-text-right">总价: </div>
 	            </li>
 	        </ul>
@@ -154,46 +101,30 @@
 		
 		apiready = function() {
 			api.parseTapmode();
-			
-			
-			
-			
 			$.getJSON("http://123.206.98.49:3001/showdingdan", function(data) {
-				var sum = 0;
-				var username = data.username;
+				var index = 0;
+				var shuliang = [];
+				var zongjia = data.zongjia;
+				$.each(data.shuliang, function(idx, item) {
+					shuliang.push(item.shuliang);
+				});
 				$.each(data.shangpins, function(idx, item) {
-					
 					var diyname = item.diyname;
 					var beizhu = item.beizhu;
 					var danjia = item.danjia;
 					var img = item.img;
-					//alert(img);
-					var shuliang = item.shuliang;
-					
-					src_temp = img;
-//					alert(src_temp);
-					var li1 = "<li class=\"aui-list-view-cell aui-img aui-counter-list\" >";
-	                var img = "<img class=\"aui-img-object aui-pull-left\"";
-	                var src = "src="+ src_temp+">" ;
-	                var div1 = "<div class=\"aui-img-body\"><div class=\"aui-text-default aui-ellipsis-1\">";
-	                var   name = diyname;
-	                var div2 = "</div><div class=\"aui-counter-box\"><div class=\"aui-pull-left\">";
-	                var jine = "¥"+danjia;   
-	                    
-	                  var div3 = "</div><div class=\"aui-text-default aui-pull-right\">";
-	                  var geshu = "x"+shuliang;          
-	                  var div4 = "</div></div></div></li>";
-					
-					
-					var html = li1+img+src+div1+name+div2+jine+div3+geshu+div4;
+					var html = "<li class='aui-list-view-cell aui-img aui-counter-list'>" +
+							"<img class='aui-img-object aui-pull-left'" +
+							"src="+ img +">" +
+							"<div class='aui-img-body'><div class='aui-text-default aui-ellipsis-1'>" + diyname +
+							"</div><div class='aui-counter-box'><div class='aui-pull-left'>" + "¥" + danjia +
+							"</div><div class='aui-text-default aui-pull-right'>" + "x" + shuliang[index] +
+							"</div></div></div></li>";
 					$("ul#order").append(html);
-					sum = sum+ Number(danjia)*Number(shuliang);
-
-					
-				})
-				$("#goodssum").html("¥"+ sum+".00");
-				$("#total_sum").html("¥"+ sum+".00");
-				
+					index = index + 1;
+				});
+				$("#goodssum").html("¥"+zongjia+".00");
+				$("#total_sum").html("¥"+zongjia+".00");
 			});
 		
 		

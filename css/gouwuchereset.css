@@ -1,4 +1,4 @@
-html { 
+html {
 	font-family: "Helvetica Neue",Helvetica, sans-serif;
 	/*谷歌浏览器字体最小字体12px*/
 	-webkit-text-size-adjust: none;/*100%/none 关闭字体大小自动调整功能*/
@@ -65,5 +65,5 @@ button,input{
  	position: absolute;
  }
  .fixed{
- 	position: fixed;
+	 position: fixed;
  }

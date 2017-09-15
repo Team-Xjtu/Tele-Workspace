@@ -101,11 +101,12 @@ ul li label img,.list label img{
 /*底部结算*/
 .bottom{
 		bottom: 0;
-		width: 100%;height: 2.6rem;
+		width: 100%;
+		height: 2.6rem;
 		color: #701C17;
 		padding:.6rem;
 		background: white;
-	}
+}
 .bottom-label{
 	height: 2rem;
 	line-height: 1.4rem;
@@ -171,6 +172,5 @@ ul li label img,.list label img{
     display: -webkit-box;
      -webkit-box-pack:center;/*实现水平居中*/
     -webkit-box-align:center;/*垂直居中，不需要删除即可*/
-
 }
 /*没有数据*/
