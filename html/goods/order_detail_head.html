@@ -51,25 +51,33 @@
 	<script type="text/javascript" src="../../script/api.js"></script>
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script type="text/javascript">
-	apiready = function() {
+        var shangpins;
+        var zongjia;
+		apiready = function() {
 			api.parseTapmode();
+            shangpins = api.pageParam.shangpins;
+            zongjia = api.pageParam.zongjia;
 			var header = $api.byId('aui-header');
-	        $api.fixStatusBar(header); 
-	        var headerPos = $api.offset(header);
-    		var body_h = $api.offset($api.dom('body')).h;
-    		var footer_h = $api.offset($api.byId('aui-footer')).h;
-	        api.openFrame({
-	            name: 'order_detail_body',
-	            url: 'order_detail_body.html',
-	            reload:true,
-	            rect: {
-	                x: 0,
-	                y: headerPos.h,
-	                w: 'auto',
-	                h: body_h - headerPos.h - footer_h
-	            }
-	        });
-		}
+			$api.fixStatusBar(header);
+			var headerPos = $api.offset(header);
+			var body_h = $api.offset($api.dom('body')).h;
+			var footer_h = $api.offset($api.byId('aui-footer')).h;
+			api.openFrame({
+				name: 'order_detail_body',
+				url: 'order_detail_body.html',
+				reload:true,
+				rect: {
+					x: 0,
+					y: headerPos.h,
+					w: 'auto',
+					h: body_h - headerPos.h - footer_h
+				},
+                pageParam: {
+                    shangpins: shangpins,
+                    zongjia: zongjia
+                }
+			});
+		};
 	
 	    function goumai() {
 

@@ -48,7 +48,7 @@
                                     <span class="lzp fl red">￥{{=danjia}}</span>
                                     <span class="fr">
                                         <input type="button" value="-" class="btn1"/>
-                                        <span class="number">1</span>
+                                        <span class="number" id="shuliang{{=diybiaoshi}}">1</span>
                                         <input type="button" value="+" class="btn2"/>
                                     </span>
                                 </p>
@@ -99,6 +99,7 @@
         <div class="alert fixed"></div>
         <!--弹框2-->
         <script type="text/javascript">
+            var shangpins;
             function loadJs(url) {
                 var script = document.createElement("script");
                 script.type = "text/javascript";
@@ -109,21 +110,15 @@
                 shengchengdingdan();
                 api.openWin({
                     name: 'dingdan',
-                    url: './goods/order_detail_head.html'
-//                    pageParam : {
-//                        shangpinhao:id,
-//                        url0 : url0,
-//                        price:price,
-//                        name:name,
-//                        type:type,
-//                        jieshao:jieshao,
-//                        urlarray:urlarray
-//                    }
+                    url: './goods/order_detail_head.html',
+                    pageParam : {
+                        shangpins:shangpins,
+                        zongjia:$('.sett').prev("span").html()
+                    }
                 });
             }
             function shengchengdingdan() {
-                var shangpins = [];
-                //.attr('checked') == "checked"
+                shangpins = [];
                 $.each($('.total'), function() {
                     var index = 0;
                     var $ul_total = $(this).prev('ul').find("input[type='checkbox']");
@@ -132,7 +127,7 @@
                             index = index + 1;
                             var diyId = resultDiybiaoshi[i].toString();
                             var img = document.querySelector("#biaoshi" + diyId).innerHTML.toString();
-                            var shuliang = $(this).prev('ul').find(".number").value;
+                            var shuliang = document.querySelector("#shuliang" + diyId).innerHTML.toString();
                             var diybiaoshi= document.querySelector("#diybiaoshi" + diyId).innerHTML.toString();
                             shangpins.push({
                                 "img" : img,
@@ -146,15 +141,15 @@
                         return;
                     }
                 });
-                var shangpinsJson = JSON.stringify(shangpins);
-                if (parseInt($('.sett').prev("span").html()) > 0) {
-                    $.post("http://123.206.98.49:3001/createdingdan", {
-                        "shangpins" : shangpinsJson,
-                        "zongjia" : $('.sett').prev("span").html()
-                    }, function(result) {
-
-                    })
-                }
+//                var shangpinsJson = JSON.stringify(shangpins);
+//                if (parseInt($('.sett').prev("span").html()) > 0) {
+//                    $.post("http://123.206.98.49:3001/createdingdan", {
+//                        "shangpins" : shangpinsJson,
+//                        "zongjia" : $('.sett').prev("span").html()
+//                    }, function(result) {
+//
+//                    })
+//                }
             }
             var resultDiybiaoshi = [];
             var compiled = _.template($("#moban").html());

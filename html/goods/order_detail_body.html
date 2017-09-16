@@ -14,30 +14,27 @@
 		</style>
 	</head>
 	<body>
-		<!--<div class="aui-content">
-		    <ul class="aui-list-view">
-		        <li class="aui-list-view-cell">
-		            订单编号: 1506260445215
-		        </li>
-		    </ul>
-		</div>	-->	
-		<div class="step1">		
-			<!--<div>收货地址</div>	-->
-			<!--<b class="s1-borderT"></b>	-->
-						
+		<div class="step1">
 			<div tapmode onclick="goaddress()">
-				<div style="font-size: 16px;" ><font id="name">点击添加收货人收货电话与详细地址</font> <span class="" style="margin-left: 25px;" ><font id="phone"></font></span></div>
+				<div style="font-size: 16px;" >
+					<font id="name">点击添加收货人收货电话与详细地址</font>
+					<span class="" style="margin-left: 25px;" >
+						<font id="phone"></font>
+					</span>
+				</div>
 				<div id="address"></div>
 			</div>
 			<b class="s1-borderB"></b>
 			<span class="s-point"></span>
 		</div>
-
+		<div class="aui-content">
+			<ul id="order" class="aui-list-view"></ul>
+		</div>
 	    <div class="aui-content">
 	        <ul class="aui-list-view aui-in">
 	            <li class="aui-list-view-cell">
-	                商品总价
-	                <div class="aui-pull-right aui-text-FF9800" id="goodssum"></div>
+					商品总价
+					<span class=" aui-pull-right aui-text-FF9800" style="font-size: 18px;" id="goods_sum"></span>
 	            </li>
 	            <li class="aui-list-view-cell">
 	                运费
@@ -56,8 +53,7 @@
 	                 <div class="aui-pull-right aui-text-default">-￥0.00</div>
 	            </li>
 	            <li class="aui-list-view-cell">
-	            	 <span class=" aui-pull-right aui-text-FF9800" style="font-size: 18px;" id="total_sum"></span>
-	                 <div class="aui-pull-right aui-text-right">总价: </div>
+					总价: <span class=" aui-pull-right aui-text-FF9800" style="font-size: 18px;" id="total_sum"></span>
 	            </li>
 	        </ul>
 	    </div>
@@ -74,94 +70,46 @@
 			callback : function(element, op) {
 			}
 		});
-		
-		
-		
-				
-		
+        var shangpins;
+        var zongjia;
+        apiready = function() {
+            api.parseTapmode();
+            shangpins = api.pageParam.shangpins;
+            zongjia = api.pageParam.zongjia;
+            $.each(shangpins, function(idx, item) {
+                var html = "<li class='aui-list-view-cell aui-img aui-counter-list'>" +
+                    "<img class='aui-img-object aui-pull-left' src="+ item.img +">" +
+                    "<div class='aui-img-body'>" +
+                    "<div class='aui-text-default aui-ellipsis-1'>lzp</div>" +
+                    "<div class='aui-counter-box'>" +
+                    "<div class='aui-pull-left aui-text-FF9800'>￥"+ zongjia +"</div>" +
+                    "<div class='aui-text-default aui-pull-right'>x "+ item.shuliang +"" +
+                    "</div> </div> </div> </li>";
+                $("#order").append(html);
+            });
+            $("#goods_sum").html("¥"+zongjia+"元");
+            $("#total_sum").html("¥"+zongjia+"元");
+        };
+
 		function goaddress(){
-			
-//			alert($api.getStorage('addressFlag'));
 			$api.setStorage('addressFlag',1);
 			api.openWin({
 	            name: 'address',
 	            url: '../member/address_head.html',
 	            reload:true,
 	            pageParam:{
-	            
 	            	orderIndex:1
-	            
 	            }
-	            
             });
-		
 		}
-		
-		
-		
-		apiready = function() {
-			api.parseTapmode();
-			$.getJSON("http://123.206.98.49:3001/showdingdan", function(data) {
-				var index = 0;
-				var shuliang = [];
-				var zongjia = data.zongjia;
-				$.each(data.shuliang, function(idx, item) {
-					shuliang.push(item.shuliang);
-				});
-				$.each(data.shangpins, function(idx, item) {
-					var diyname = item.diyname;
-					var beizhu = item.beizhu;
-					var danjia = item.danjia;
-					var img = item.img;
-					var html = "<li class='aui-list-view-cell aui-img aui-counter-list'>" +
-							"<img class='aui-img-object aui-pull-left'" +
-							"src="+ img +">" +
-							"<div class='aui-img-body'><div class='aui-text-default aui-ellipsis-1'>" + diyname +
-							"</div><div class='aui-counter-box'><div class='aui-pull-left'>" + "¥" + danjia +
-							"</div><div class='aui-text-default aui-pull-right'>" + "x" + shuliang[index] +
-							"</div></div></div></li>";
-					$("ul#order").append(html);
-					index = index + 1;
-				});
-				$("#goodssum").html("¥"+zongjia+".00");
-				$("#total_sum").html("¥"+zongjia+".00");
-			});
-		
-		
-		
-		
-		
-		
 		$.getJSON("http://123.206.98.49:3001/dizhiguanli", function(data) {
-//				var sum = 0;
-//				alert(123456789);
 				$.each(data.result, function(idx, item) {
 					if(idx==1){
 						$("#name").html(item.name);
 						$("#phone").html(item.dianhua);
-						
 						$("#address").html(item.pro+item.jutidizhi);
-						
 					}
-					
-					
-					
 				})
-				
-				
 			});
-		
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		};
 	</script>
 </html>
