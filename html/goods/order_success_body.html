@@ -11,133 +11,70 @@
 		<!--<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />-->
 		<script type="text/javascript" src="../../icon/iconfont.js"></script>
 		<style type="text/css">
-		.aui-list-view-cell:active {
-		    background: #FFFFFF;
-		}
+			.aui-list-view-cell:active {
+				background: #FFFFFF;
+			}
+			.myfont{
+				color:white;
+				 text-align:center;
+				 display:block;
+				/*text-align: center;*/
+				margin-top: 2em;
+				margin-left: 1em;
+				/*line-height: 3px;*/
+
+			}
+			.icon {
+			   width: 6em; height: 6em;
+			   vertical-align: -0.15em;
+			   margin-right:2em;
+			   fill: currentColor;
+			   overflow: hidden;
+    		}
 		</style>
-		
-		
-		<style type="text/css">
-	.myfont{
-		color:white;
-		 text-align:center; 
-		 display:block;
-		/*text-align: center;*/
-		margin-top: 2em;
-		margin-left: 1em;
-		/*line-height: 3px;*/
-		
-	}
-    .icon {
-       width: 6em; height: 6em;
-       vertical-align: -0.15em;
-       margin-right:2em;
-       fill: currentColor;
-       overflow: hidden;
-    }
-</style>
-		
 	</head>
-	
-	
-	
-	
 	<body>
-       
 		<div class="aui-content" style="height: 100px;background-color:orange;">
-		    
-		    
-            
-                    <span class="myfont aui-pull-left">下单成功，等待卖家发货</span>
-        <svg class="icon aui-pull-right" aria-hidden="true">
-                        <use xlink:href="#icon-dabaxiaoba"></use>
-        </svg>
-        
-               
-		    
-		</div>		
-	
-	
+			<span class="myfont aui-pull-left">等待买家付款</span>
+			<svg class="icon aui-pull-right" aria-hidden="true">
+				<use xlink:href="#icon-dabaxiaoba"></use>
+			</svg>
+		</div>
 		<div class="aui-content">
 		    <ul class="aui-list-view">
 		        <li class="aui-list-view-cell">
-		            订单编号: <font id="orderNumber">1506260445215</font>
+		            订单编号: <p id="orderNumber"></p>
 		        </li>
 		         <li class="aui-list-view-cell">
-		           创建时间: <font id="orderTime">1506260445215</font>
+		           	创建时间: <p id="orderTime"></p>
 		        </li>
 		    </ul>
 		</div>		
-		<div class="step1">		
-			<!--<div>收货地址</div>	-->
-			<!--<b class="s1-borderT"></b>	-->
-			<!--<b class="s1-borderT"></b>-->			
+		<div class="step1">
 			<div >
-				<div style="font-size: 16px;" >收货人：<font id="name">点击添加收货人收货电话与详细地址</font> <span class="" style="margin-left: 7px;" ><font id="phone"></font><span class="" style="margin-left: 7px;" ></span><font id="address"></font></span></div>
-				
+				<div style="font-size: 13px;" >
+						收货人：<font id="name"></font>
+					<div>
+						联系方式：<font id="phone"></font>
+					</div>
+					<div>
+						收货地址：<font id="address"></font>
+					</div>
+				</div>
 			</div>
 			<!--<b class="s1-borderB"></b>-->
 			<!--<span class="s-point"></span>-->
 		</div>
-		
 		<div class="aui-content">
 			<ul class="aui-list-view" id="order">
-				<!--<li class="aui-list-view-cell aui-img aui-counter-list" >
-	                <img class="aui-img-object aui-pull-left" src="../../image/pic.jpg" >
-	                <div class="aui-img-body">
-	                    <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">12个/盒</div>
-	                        <div class="aui-text-default aui-pull-right">
-	                            x 1
-	                        </div>
-	                    </div>	                    
-	                </div>               
-	           	</li>
-	           	
-	           	<li class="aui-list-view-cell aui-img aui-counter-list" >
-	                <img class="aui-img-object aui-pull-left" src="../../image/pic.jpg" >
-	                <div class="aui-img-body">
-	                    <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">12个/盒</div>
-	                        <div class="aui-text-default aui-pull-right">
-	                            x 1
-	                        </div>
-	                    </div>	                    
-	                </div>               
-	           	</li>-->
-	           	
-	           	
+
 	        </ul>
 		</div>
-		
-		<!--<div class="aui-content">
-	        <ul class="aui-list-view aui-in">-->
-	            <!--<li class="aui-list-view-cell">
-	                支付金额
-	                <div class="aui-pull-right aui-text-danger" id="zongjia">￥49.90</div>
-	            </li>-->
-	          <!--  <li class="aui-list-view-cell">
-	                支付方式
-	                <div class="aui-pull-right">货到付款</div>
-	            </li>-->
-	           <!-- <li class="aui-list-view-cell">
-	          	      支付状态
-	                <div class="aui-pull-right">未支付</div>
-	            </li>
-	            <li class="aui-list-view-cell">
-	                下单时间
-	                <div class="aui-pull-right">2016-03-29 17:50:14</div>
-	            </li>-->
-	      <!--  </ul>
-	    </div>-->
-	    
 	    <div class="aui-content">
 	        <ul class="aui-list-view aui-in">
 	            <li class="aui-list-view-cell">
 	                商品总价
-	                <div class="aui-pull-right aui-text-FF9800" id="goodssum">￥49.90</div>
+	                <div class="aui-pull-right aui-text-FF9800" id="goods_sum">￥49.90</div>
 	            </li>
 	            <li class="aui-list-view-cell">
 	                运费
@@ -156,8 +93,7 @@
 	                 <div class="aui-pull-right aui-text-default">-￥0.00</div>
 	            </li>-->
 	            <li class="aui-list-view-cell">
-	            	 <span class=" aui-pull-right aui-text-FF9800" style="font-size: 18px;" id="total_sum">￥49.90</span>	                
-	                 <div class="aui-pull-right aui-text-right">总价: </div>
+					总价:<span class=" aui-pull-right aui-text-FF9800" style="font-size: 18px;" id="total_sum"></span>
 	            </li>
 	        </ul>
 	    </div>
@@ -174,76 +110,18 @@
 			callback : function(element, op) {
 			}
 		});
-		
-		
-		
-				
-		
-		function goaddress(){
-			
-//			alert($api.getStorage('addressFlag'));
-			$api.setStorage('addressFlag',1);
-			api.openWin({
-	            name: 'address',
-	            url: '../member/address_head.html',
-	            
-            });
-		
-		}
-		
-		
-		
 		apiready = function() {
 			api.parseTapmode();
-			
-			
-			
-			
 			$.getJSON("http://123.206.98.49:3001/getdingdaninfo", function(data) {
-				
-//					alert(data.dindanhao);
-//					alert(data.chuangjiantime);
-				
-				$("#orderNumber").html(data.dindanhao);
+				$("#orderNumber").html(data.dingdanbiaoshi);
+				alert(data.chuangjiantime);
 				$("#orderTime").html(data.chuangjiantime);
-				
-							});
-		
-		
-		
-		
-		
-		
-		$.getJSON("http://123.206.98.49:3001/dizhiguanli", function(data) {
-//				var sum = 0;
-//				alert(123456789);
-				$.each(data.result, function(idx, item) {
-					if(idx==1){
-						$("#name").html(item.name);
-						$("#phone").html(item.dianhua);
-						
-						$("#address").html(item.pro+item.jutidizhi);
-						
-					}
-					
-					
-					
-				})
-				
-				
+				$("#name").html(data.dingdandizhi.name);
+				$("#phone").html(data.dingdandizhi.dianhua);
+				$("#address").html(data.dingdandizhi.dizhi);
+				$("#goods_sum").html("￥"+data.dingdanzongjia+"元");
+				$("#total_sum").html("￥"+data.dingdanzongjia+"元");
 			});
-		
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		};
 	</script>
 </html>

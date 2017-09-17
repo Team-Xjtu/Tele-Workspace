@@ -37,26 +37,30 @@
 		<header class="aui-bar aui-bar-nav aui-bar-warning" id='aui-header'>
 			<a class="aui-pull-left" tapmode onclick="api.closeWin();"> <span class="aui-iconfont aui-icon-left"></span>返回 </a>
 			<div class="aui-title">
-				确认购买
+				确认订单
 			</div>
 			<a class="aui-pull-right" tapmode > <span class="aui-iconfont aui-icon-phone"></span></a>
 		</header>		
 		<footer class="aui-nav" id="aui-footer">
 			<div class="aui-col-xs-12 aui-text-center aui-nnav">
 				<div class="aui-col-xs-6"><button class="aui-btn aui-btn-warning" tapmode onclick="api.closeWin();">取消订单</button></div>
-				<div class="aui-col-xs-6"><button class="aui-btn aui-btn-success" tapmode onclick="goumai();">确认购买</button></div>
+				<div class="aui-col-xs-6"><button class="aui-btn aui-btn-success" tapmode onclick="goumai();">提交订单</button></div>
 			</div>
 		</footer>
 	</body>
 	<script type="text/javascript" src="../../script/api.js"></script>
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script type="text/javascript">
-        var shangpins;
-        var zongjia;
+		var dizhibiaoshi;
+		$.getJSON("http://123.206.98.49:3001/dizhiguanli", function(data) {
+			$.each(data.result, function(idx, item) {
+				if(idx==1){
+					dizhibiaoshi = item.biaoshi;
+				}
+			})
+		});
 		apiready = function() {
 			api.parseTapmode();
-            shangpins = api.pageParam.shangpins;
-            zongjia = api.pageParam.zongjia;
 			var header = $api.byId('aui-header');
 			$api.fixStatusBar(header);
 			var headerPos = $api.offset(header);
@@ -71,116 +75,35 @@
 					y: headerPos.h,
 					w: 'auto',
 					h: body_h - headerPos.h - footer_h
-				},
-                pageParam: {
-                    shangpins: shangpins,
-                    zongjia: zongjia
-                }
+				}
 			});
 		};
-	
 	    function goumai() {
-
-            var shangpins = new Array();;
-            var sum = 0;
-            var dizhibiaoshi;
             $.getJSON("http://123.206.98.49:3001/showdingdan", function(data) {
-//				 shangpins1 = data.shangpins;
-				//alert(JSON.stringify(data));	
-				sum = 0;
-				$.each(data.shangpins, function(idx, item) {
-					
-//					var diyname = item.diyname;
-//					var beizhu = item.beizhu;
-					var danjia = item.danjia;
-					var img = item.img;
-					var shuliang = item.shuliang;
-//					alert(img);
-//					alert(shuliang);
-
-
-					shangpins.push({
-                    "img": img,
-                    "shuliang": shuliang,
-                    "diybiaoshi": "20177418112353452186"
-                });
-
-
-					sum = sum+ Number(danjia)*Number(shuliang);
-
-				})
-				
-				
-           			
-		             var shangpins1 = JSON.stringify(shangpins);
-		             var sum = sum+"";
-		            
-		            
-		            $.post("http://123.206.98.49:3001/goumai", {
-                    "shangpins": shangpins1,
-                    "zongjia": sum
-                    //"dizhibiaoshi": "zhuce1201754125936754",
-                }, function (result) {
-                	//alert(result);
-                    if (result == "1") {
-                       alert("提交成功");
-                       api.openWin({
-	                       name: 'order_success_head.html',
-	                       url: './order_success_head.html'
-                       });
-                    }
-                    else {
-                        alert("购买失败"+result);
-                        
-                    }
-                })
-		            
-		            
-
+				var shangpins = data.shangpins;
+				var zongjia = data.zongjia;
+				if(shangpins == undefined || zongjia == undefined){
+					alert("数据格式错误");
+					return;
+				}else {
+					var shangpinsJson = JSON.stringify(shangpins);
+					$.post("http://123.206.98.49:3001/goumai", {
+						"shangpins": shangpinsJson,
+						"zongjia": zongjia,
+						"dizhibiaoshi": dizhibiaoshi
+					}, function (result) {
+						if (result == "1") {
+							alert("提交成功");
+							api.openWin({
+								name: 'order_success_head.html',
+								url: './order_success_head.html'
+							});
+						}else {
+							alert("购买失败:"+result);
+						}
+					});
+				}
 			});
-			
-//			alert(sum);
-//			alert(typeof sum);
-//			sum = sum+"";
-//			alert(sum);
-//			alert(typeof sum);
-			
-			
-			
-			var dizhibiaoshi = "biaoshi2017biaoshi52132949114";
-//			alert(shangpins1);
-//			alert(dizhibiaoshi);
-//			alert(sum);
-
-            
-		
-
-    			
-    			
-    
-    			
-    			
-            
-            
-//              $.post("http://123.206.98.49:3001/goumai", {
-//                  "shangpins": shangpins1,
-//                  "zongjia": sum,
-//                  "dizhibiaoshi": dizhibiaoshi,
-//              }, function (result) {
-//              	alert(result);
-//                  if (result == "1") {
-////                      window.location.href = "/views/aftersuccesspay.html";
-//						alert("购买成功");
-//                  }
-//                  
-//                  else {
-//                      alert("购买失败");
-////                      window.location.href = "/views/gouwucheindex.html";
-//                  }
-//              })
-            
-        
-        
-   }
+		}
 	</script>
 </html>

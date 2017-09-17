@@ -17,7 +17,7 @@
     <body>
         <!--主题-->
         <div class="no">
-            <p>暂无数据，快去逛逛吧！</p>
+            <p>暂无数据，刷新看看！</p>
         </div>
         <div class="con">
             <div class="content">
@@ -54,7 +54,7 @@
                                 </p>
                                 <div id="biaoshi{{=diybiaoshi}}" style="display: none">{{=img}}</div>
                                 <div id="changjingxinxi{{=diybiaoshi}}" style="display: none">{{=changjingxinxi}}</div>
-                                <div id="diybiaoshi{{=diybiaoshi}}">{{=diybiaoshi}}</div>
+                                <div id="diybiaoshi{{=diybiaoshi}}" style="display: none">{{=diybiaoshi}}</div>
                             </div>
                         </li>
                         <br>
@@ -108,14 +108,6 @@
             }
             function goOrder(){
                 shengchengdingdan();
-                api.openWin({
-                    name: 'dingdan',
-                    url: './goods/order_detail_head.html',
-                    pageParam : {
-                        shangpins:shangpins,
-                        zongjia:$('.sett').prev("span").html()
-                    }
-                });
             }
             function shengchengdingdan() {
                 shangpins = [];
@@ -141,15 +133,22 @@
                         return;
                     }
                 });
-//                var shangpinsJson = JSON.stringify(shangpins);
-//                if (parseInt($('.sett').prev("span").html()) > 0) {
-//                    $.post("http://123.206.98.49:3001/createdingdan", {
-//                        "shangpins" : shangpinsJson,
-//                        "zongjia" : $('.sett').prev("span").html()
-//                    }, function(result) {
-//
-//                    })
-//                }
+                var shangpinsJson = JSON.stringify(shangpins);
+                if (parseInt($('.sett').prev("span").html()) > 0) {
+                    $.post("http://123.206.98.49:3001/createdingdan", {
+                        "shangpins" : shangpinsJson,
+                        "zongjia" : $('.sett').prev("span").html()
+                    }, function(result) {
+                        if(result == 1){
+                            api.openWin({
+                                name: 'dingdan',
+                                url: './goods/order_detail_head.html'
+                            });
+                        }else{
+                            alert("立即下单数据错误");
+                        }
+                    })
+                }
             }
             var resultDiybiaoshi = [];
             var compiled = _.template($("#moban").html());

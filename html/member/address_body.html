@@ -106,44 +106,44 @@
 		
 	</head>
 	<body>
-		
 		<div id="rongqi" ></div>
 		<script type="text/template"id="moban">
-	<ul class="aui-user-view aui-in">
-		<li tapmode >	
-		    <div class="aui-user-view-cell aui-img drop-div" >
-			<div class="aui-img-body">
-			<span>{{=name}}</span> <span>{{=dianhua}}</span>
-			<p class='aui-ellipsis-2' style="margin-right:12px;">
-				{{=pro}}{{=city}}{{=area}}{{=jutidizhi}}
-			</p>
-			<div >
-			<div >
-			<div class="checkbox">
-			<label>
-			<input id="mr{{=i}}"  type="checkbox" onclick="morendizhi(this,this.name,'#moren{{=i}}')"  name={{=biaoshi}} id="morendizhi"><span class="morenstring" id="moren{{=i}}" color="{{=color}}"> 默认地址</span>
-			</label>
-			</div>
-			</div>
-			
-		
-			<div class="aui-col-xs-6" >
-			<a href="/views/xiugaidizhi.html?biaoshi={{=biaoshi}}">
-			<button id="xiugai"class="aui-btn aui-btn-warning xiugaibutton">修改</button>
-			</a></div>
-			
-			<div class="aui-col-xs-6" >
-			<button id="shanchu" onclick="shanchu(this)"  name={{=biaoshi}} class="aui-btn aui-btn-danger shanchubutton">删除</button>
-			</div>
-			
-			
-			</div>
-			</div>
-			<div style=" display: none;" id="biaoshi{{=i}}" role="alert">{{=biaoshi}}</div>
-			
-				</div>
-			</li>
-		</ul>	
+			<ul class="aui-user-view aui-in">
+				<li tapmode >
+		    		<div class="aui-user-view-cell aui-img drop-div" >
+						<div class="aui-img-body">
+							<p class='aui-ellipsis-2'>
+								收件人：{{=name}}
+							</p>
+							<p class='aui-ellipsis-2'>
+								电话：{{=dianhua}}
+							</p>
+							<p class='aui-ellipsis-2'>
+								详细地址：{{=pro}}{{=city}}{{=area}}{{=jutidizhi}}
+							</p>
+							<div>
+								<div>
+									<div class="checkbox">
+										<label>
+											<input id="mr{{=i}}"  type="checkbox" onclick="morendizhi(this,this.name,'#moren{{=i}}')"  name={{=biaoshi}}>
+											<span class="morenstring" id="moren{{=i}}" color="{{=color}}"> 默认地址</span>
+										</label>
+									</div>
+								</div>
+								<div class="aui-col-xs-6" >
+									<a href="/views/xiugaidizhi.html?biaoshi={{=biaoshi}}">
+										<button id="xiugai"class="aui-btn aui-btn-warning xiugaibutton">修改</button>
+									</a>
+								</div>
+								<div class="aui-col-xs-6" >
+									<button id="shanchu" onclick="shanchu(this)"  name={{=biaoshi}} class="aui-btn aui-btn-danger shanchubutton">删除</button>
+								</div>
+							</div>
+						</div>
+						<div style=" display: none;" id="biaoshi{{=i}}" role="alert">{{=biaoshi}}</div>
+					</div>
+				</li>
+			</ul>
 		</script>
 		
 		<div align="center" style=" display: none;" class="alert alert-danger" id="cuowukuang"role="alert"></div>
@@ -151,50 +151,19 @@
 			保存成功
 		</div>
 		<div align="center" style="margin-top: 30px" class="container" height="1600"></div>
-		
-		
-		
-		
-		
 	</body>
-	
-	
-	
-	
-	
 	<script>
 		var compiled = _.template($("#moban").html());
-		
 		apiready = function(){
-//			alert(124);
-//			alert($(".morenstring").html());
-//			alert($api.getStorage('addressFlag'));
-			
 			var flag = $api.getStorage('addressFlag');
-//			alert(flag)
 			if(flag==1){
-//				alert("进入：" );
-//				getpage();
-//				alert("html: " + $(".morenstring").text());
-//				alert("text: " + $(".morenstring").text());
-//				alert(123);
-//				alert(123);
-//				alert(123);
 				$(".morenstring").html("选择此地址");
-//				alert("html: " + $(".morenstring").text());
-//				alert("text: " + $(".morenstring").text());
-				$(".xiugaibutton").hide();
-				$(".shanchubutton").hide();
-			
+				//$(".xiugaibutton").hide();
+				//$(".shanchubutton").hide();
 			}
-
-			
-		
-		}
-		
+		};
 		function morendizhi(a, b, c) {
 			if (a.checked) {
-				//                $(":checkbox").not($(this)).removeAttr("checked");
 				$(":checkbox").removeAttr("checked");
 				a.checked = true;
 				$.get("http://123.206.98.49:3001/morendizhi?biaoshi=" + b, function(result) {
@@ -204,29 +173,18 @@
 						setTimeout("$('#cuowukuang').fadeOut()", 3000);
 					}
 					if (result == "1") {
-
-						
-						
 						var flag = $api.getStorage('addressFlag');
 						if(flag==1){
-							
-							
 							api.openWin({
 	                            name: 'order_detail_head.html',
 	                            url: '../goods/order_detail_head.html',
 	                            reload:true
                             });
-						
 						}else{
 							alert("默认地址设置成功");
 							getpage();
 						}
-						
-						
-
-						
-//						setTimeout("$('#chenggong').fadeOut()", 3000);
-					} else {
+					}else {
 						alert(result);
 						window.location.href = "/";
 					}
@@ -235,9 +193,7 @@
 				a.checked = true;
 			}
 		}
-
 		function shanchu(a) {
-			//          var biaoshi=document.querySelector("#biaoshi"+a).innerHTML;
 			var biaoshi = $(a).attr("name");
 			$.get("http://123.206.98.49:3001/shanchudizhi?biaoshi=" + biaoshi, function(result) {
 				if (result == "-1") {
@@ -246,11 +202,8 @@
 					setTimeout("$('#cuowukuang').fadeOut()", 3000);
 				}
 				if (result == "1") {
-//					$("#chenggong").html("删除成功");
-//					$('#chenggong').fadeIn();
 					alert("删除成功");
 					getpage();
-//					setTimeout("$('#chenggong').fadeOut()", 3000);
 				} else {
 					alert(result);
 				}
@@ -270,7 +223,6 @@
 					for (var i = 1; i < result.result.length; i++) {
 						//组装模板
 						if (i == 1) {
-							//                            result.result[i].check=checked;
 							result.result[i].i = i;
 							result.result[i].color = "red";
 						} else {
@@ -282,23 +234,11 @@
 						$("#rongqi").append($(htmlstring));
 					}
 					$("#moren1").attr("style", "color:red;");
-					//                        //    $("#mr1").checked="checked";
 					$("#mr1").attr("checked", "checked");
-					//                        document.querySelector("mr1").checked=true;
 				}
 			});
 		}
 	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<script type="text/javascript" src="../../script/api.js"></script>
 	<script type="text/javascript" src="../../script/common.js"></script>
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
@@ -372,7 +312,6 @@
 				}
 			});
 		}
-
 		Zepto(function($) {
 			$(".aui-in li").each(function() {
 				// 添加手势

@@ -77,92 +77,63 @@
 	</head>
 	<body>
 		<div class="aui-tab aui-tab-warning aui-padded-5">
-            <ul class="aui-tab-nav aui-tab-border" id="demo2">
-                <li class="active" tapmode onclick="api.openWin({
-	                name: 'my_goods_head.html',
-	                url: './my_goods_head.html',
-	                reload:true,
-	                pageParam:{
-	                	frame:1
-	                }
-                });">待发货</li>
-                <li tapmode onclick="api.openWin({
-	                name: 'my_goods_head.html',
-	                url: './my_goods_head.html',
-	                reload:true,
-	                pageParam:{
-	                	frame:2
-	                }
-                });">待收货</li>
-                <li tapmode onclick="api.openWin({
-	                name: 'my_goods_head.html',
-	                url: './my_goods_head.html',
-	                reload:true,
-	                pageParam:{
-	                	frame:3
-	                }
-                });">待评价</li>
-                <li tapmode onclick="api.openWin({
-	                name: 'my_goods_head.html',
-	                url: './my_goods_head.html',
-	                reload:true,
-	                pageParam:{
-	                	frame:4
-	                }
-                });">全部订单</li>
-            </ul>
+			<ul class="aui-tab-nav aui-tab-border" id="demo2">
+				<li tapmode onclick="redirect0()">待付款</li>
+				<li class="active" tapmode onclick="redirect1()">待发货</li>
+				<li tapmode onclick="redirect2()">待收货</li>
+				<li tapmode onclick="redirect3()">待评价</li>
+				<li tapmode onclick="redirect4()">全部订单</li>
+			</ul>
         </div>
         <div class="aui-content">
 	        <ul class="aui-list-view" id="order">
-	            <li class="aui-list-view-cell aui-img aui-counter-list" tapmode >
-	            	<h5>订单编号:150625412684</h5>
-	            	<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-	                <img class="aui-img-object aui-pull-left" src="../../image/pic7.jpg" data-echo="../../image/pic.jpg">
-	                <div class="aui-img-body" onclick="openWinto('order_detail_head','../goods/order_detail_head')">
-	                   <div class="aui-text-default aui-ellipsis-1"> 华为P7手机壳&nbsp;&nbsp;你是爷们</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">diy定制</div>
-	                        <div class="aui-text-default aui-pull-right">
-	                            x 1
-	                        </div>
-	                    </div>	                    
-	                </div>
-	                <div class="aui-clearfix"></div><!--当这里显示多个商品的时候, 必须添加此div  用于控制浮动-->
-	                
-	                <img class="aui-img-object aui-pull-left" src="../../image/pic8.jpg" data-echo="../../image/pic.jpg">
-	                <div class="aui-img-body" onclick="openWinto('order_detail_head','../goods/order_detail_head')">
-	                   <div class="aui-text-default aui-ellipsis-1"> 华为P7手机壳&nbsp;&nbsp;你是爷们</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">diy定制</div>
-	                        <div class="aui-text-default aui-pull-right">
-	                            x 1
-	                        </div>
-	                    </div>	                    
-	                </div>
-	                <div class="aui-clearfix"></div><!--当这里显示多个商品的时候, 必须添加此div  用于控制浮动-->
-	                
-	                <img class="aui-img-object aui-pull-left" src="../../image/pic8.jpg" data-echo="../../image/pic.jpg">
-	                <div class="aui-img-body" onclick="openWinto('order_detail_head','../goods/order_detail_head')">
-	                   <div class="aui-text-default aui-ellipsis-1"> 华为P7手机壳&nbsp;&nbsp;你是爷们</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">diy定制</div>
-	                        <div class="aui-text-default aui-pull-right">
-	                            x 1
-	                        </div>
-	                    </div>	                    
-	                </div>
-	                
-	                <div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-	                	<p class="aui-text-right">共一个商品 实付金额: <span class="aui-text-danger">￥50.50</span></p>
-	                <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-	                <div class="aui-text-right">
-	                	<div class="aui-btn aui-btn-outlined">取消订单</div>
-	                	<div class="aui-btn aui-btn-info" tapmode onclick="openWinto('comment_goods_head','../member/comment_goods_head');" >去评价</div>
-	                	<div class="aui-btn aui-btn-warning aui-btn-outlined" tapmode onclick="openWinto('order_status_head','../goods/order_status_head');">查看物流</div>
-	                </div>	                
-	            </li>
-	           
-	            
+	            <!--<li class="aui-list-view-cell aui-img aui-counter-list" tapmode >-->
+	            	<!--<h5>订单编号:150625412684</h5>-->
+	            	<!--<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>-->
+	                <!--<img class="aui-img-object aui-pull-left" src="../../image/pic7.jpg" data-echo="../../image/pic.jpg">-->
+	                <!--<div class="aui-img-body" onclick="openWinto('order_detail_head','../goods/order_detail_head')">-->
+	                   <!--<div class="aui-text-default aui-ellipsis-1"> 华为P7手机壳&nbsp;&nbsp;你是爷们</div>-->
+	                    <!--<div class="aui-counter-box">-->
+	                        <!--<div class="aui-pull-left">diy定制</div>-->
+	                        <!--<div class="aui-text-default aui-pull-right">-->
+	                            <!--x 1-->
+	                        <!--</div>-->
+	                    <!--</div>	                    -->
+	                <!--</div>-->
+	                <!--<div class="aui-clearfix"></div>&lt;!&ndash;当这里显示多个商品的时候, 必须添加此div  用于控制浮动&ndash;&gt;-->
+	                <!-- -->
+	                <!--<img class="aui-img-object aui-pull-left" src="../../image/pic8.jpg" data-echo="../../image/pic.jpg">-->
+	                <!--<div class="aui-img-body" onclick="openWinto('order_detail_head','../goods/order_detail_head')">-->
+	                   <!--<div class="aui-text-default aui-ellipsis-1"> 华为P7手机壳&nbsp;&nbsp;你是爷们</div>-->
+	                    <!--<div class="aui-counter-box">-->
+	                        <!--<div class="aui-pull-left">diy定制</div>-->
+	                        <!--<div class="aui-text-default aui-pull-right">-->
+	                            <!--x 1-->
+	                        <!--</div>-->
+	                    <!--</div>	                    -->
+	                <!--</div>-->
+	                <!--<div class="aui-clearfix"></div>&lt;!&ndash;当这里显示多个商品的时候, 必须添加此div  用于控制浮动&ndash;&gt;-->
+	                <!-- -->
+	                <!--<img class="aui-img-object aui-pull-left" src="../../image/pic8.jpg" data-echo="../../image/pic.jpg">-->
+	                <!--<div class="aui-img-body" onclick="openWinto('order_detail_head','../goods/order_detail_head')">-->
+	                   <!--<div class="aui-text-default aui-ellipsis-1"> 华为P7手机壳&nbsp;&nbsp;你是爷们</div>-->
+	                    <!--<div class="aui-counter-box">-->
+	                        <!--<div class="aui-pull-left">diy定制</div>-->
+	                        <!--<div class="aui-text-default aui-pull-right">-->
+	                            <!--x 1-->
+	                        <!--</div>-->
+	                    <!--</div>	                    -->
+	                <!--</div>-->
+	                <!-- -->
+	                <!--<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>-->
+	                	<!--<p class="aui-text-right">共一个商品 实付金额: <span class="aui-text-danger">￥50.50</span></p>-->
+	                <!--<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>-->
+	                <!--<div class="aui-text-right">-->
+	                	<!--<div class="aui-btn aui-btn-outlined">取消订单</div>-->
+	                	<!--<div class="aui-btn aui-btn-info" tapmode onclick="openWinto('comment_goods_head','../member/comment_goods_head');" >去评价</div>-->
+	                	<!--<div class="aui-btn aui-btn-warning aui-btn-outlined" tapmode onclick="openWinto('order_status_head','../goods/order_status_head');">查看物流</div>-->
+	                <!--</div>	                -->
+	            <!--</li>-->
 	        </ul>
 	    </div>
 	</body>
@@ -170,81 +141,97 @@
 	<script type="text/javascript" src="../../script/common.js"></script>
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script src="../script/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript">		
-	
-	
-		$.getJSON("http://123.206.98.49:3001/getdingdans?type=1", function(data) {
-				$.each(data.dingdan, function(idx, item) {
-					if(idx>=1){
-					var orderNumber = item.dingdanbiaoshi;
-					var dingdanzongjia = item.dingdanzongjia;
-					var name = new Array();
-					var beizhu = new Array();
-					var danjia = new Array();
-					var img = new Array();
-					var shuliang = new Array();
-//					alert(orderNumber);
-					for(var i = 0;i<item.dingdanshangpins.length;i++){
-//						alert(item.dingdanshangpins[i].img);
-//						alert(item.dingdanshangpins[i].diyname);
-//						alert(item.dingdanshangpins[i].beizhu);
-//						alert(item.dingdanshangpins[i].shuliang);
-						name.push(item.dingdanshangpins[i].diyname);
-						beizhu.push(item.dingdanshangpins[i].beizhu);
-						danjia.push(item.dingdanshangpins[i].danjia);
-						img.push(item.dingdanshangpins[i].img);
-						shuliang.push(item.dingdanshangpins[i].shuliang);
-					}
-//					alert(dingdanzongjia);
-
-					
-					
-					
-					
-					
-					
-					var a1 = "<li class=\"aui-list-view-cell aui-img aui-counter-list\" ><h5>订单编号:" + orderNumber;
-	            	var a2 = "</h5><div class=\"aui-line-x\" style=\"margin: 5px 0 8px 0;\"></div>";
-	            	
-	            	
-	            	var a345 ="";
-	            	for(var i=0;i<img.length;i++){
-	            	
-	            		var a3 = "<img class=\"aui-img-object aui-pull-left\" src="+ "http://123.206.98.49:3001/diyimg/"+ $api.getStorage('username')+"/"+img[i] + ">";
-		            	var a4 = "<div class=\"aui-img-body\"><div class=\"aui-text-default aui-ellipsis-1\">"+name[i]+"</div>";
-		                var a5 = "<div class=\"aui-counter-box\"><div class=\"aui-pull-left\">"+beizhu[i]+"</div><div class=\"aui-text-default aui-pull-right\">x"+ shuliang[i]+"</div></div></div>";
-	            		a345 = a345 + a3 + a4 + a5 + "<div class=\"aui-clearfix\"></div>";
-	            	}
-	            	
-	                
-	                
-	                
-	                var a6 = "<div class=\"aui-line-x\" style=\"margin: 17px 0 8px 0;\"></div><p class=\"aui-text-right\">共"+img.length+"件商品&nbsp;&nbsp;实付金额: <span class=\"aui-text-danger\">￥" + dingdanzongjia + "</span></p><div class=\"aui-line-x\" style=\"margin: 8px 0 5px 0;\"></div>";
-	                var a7 = "<div class=\"aui-text-right\"><div class=\"aui-btn aui-btn-outlined\">取消订单</div><div class=\"aui-btn aui-btn-warning aui-btn-outlined\">立即支付</div></div>";	                
-					var a8 = "</li>";
-					
-					html = a1+a2+a345+a6+a7+a8;
-					
-					
-					
-					
-
-					$("ul#order").append(html);
-					
-					
-					
-					}
-					
-					
-				})
-//				test();
-				
+	<script type="text/javascript">
+		function redirect0(){
+			api.openWin({
+				name: 'my_goods_head.html',
+				url: './my_goods_head.html',
+				reload:true,
+				pageParam:{
+					frame:0
+				}
 			});
-	
-	
-		apiready = function() {
-			api.parseTapmode();
-				
-		};
+		}
+		function redirect1(){
+			api.openWin({
+				name: 'my_goods_head.html',
+				url: './my_goods_head.html',
+				reload:true,
+				pageParam:{
+					frame:1
+				}
+			});
+		}
+		function redirect2(){
+			api.openWin({
+				name: 'my_goods_head.html',
+				url: './my_goods_head.html',
+				reload:true,
+				pageParam:{
+					frame:2
+				}
+			});
+		}
+		function redirect3(){
+			api.openWin({
+				name: 'my_goods_head.html',
+				url: './my_goods_head.html',
+				reload:true,
+				pageParam:{
+					frame:3
+				}
+			});
+		}
+		function redirect4(){
+			api.openWin({
+				name: 'my_goods_head.html',
+				url: './my_goods_head.html',
+				reload:true,
+				pageParam:{
+					frame:4
+				}
+			});
+		}
+//		$.getJSON("http://123.206.98.49:3001/getdingdans?type=1", function(data) {
+//			$.each(data.dingdan, function(idx, item) {
+//				if(idx>=1){
+//					var orderNumber = item.dingdanbiaoshi;
+//					var dingdanzongjia = item.dingdanzongjia;
+//					var name = new Array();
+//					var beizhu = new Array();
+//					var danjia = new Array();
+//					var img = new Array();
+//					var shuliang = new Array();
+//					for(var i = 0;i<item.dingdanshangpins.length;i++){
+////						alert(item.dingdanshangpins[i].img);
+////						alert(item.dingdanshangpins[i].diyname);
+////						alert(item.dingdanshangpins[i].beizhu);
+////						alert(item.dingdanshangpins[i].shuliang);
+//						name.push(item.dingdanshangpins[i].diyname);
+//						beizhu.push(item.dingdanshangpins[i].beizhu);
+//						danjia.push(item.dingdanshangpins[i].danjia);
+//						img.push(item.dingdanshangpins[i].img);
+//						shuliang.push(item.dingdanshangpins[i].shuliang);
+//					}
+//					var a1 = "<li class=\"aui-list-view-cell aui-img aui-counter-list\" ><h5>订单编号:" + orderNumber;
+//					var a2 = "</h5><div class=\"aui-line-x\" style=\"margin: 5px 0 8px 0;\"></div>";
+//					var a345 ="";
+//					for(var i=0;i<img.length;i++){
+//						var a3 = "<img class=\"aui-img-object aui-pull-left\" src="+ "http://123.206.98.49:3001/diyimg/"+ $api.getStorage('username')+"/"+img[i] + ">";
+//						var a4 = "<div class=\"aui-img-body\"><div class=\"aui-text-default aui-ellipsis-1\">"+name[i]+"</div>";
+//						var a5 = "<div class=\"aui-counter-box\"><div class=\"aui-pull-left\">"+beizhu[i]+"</div><div class=\"aui-text-default aui-pull-right\">x"+ shuliang[i]+"</div></div></div>";
+//						a345 = a345 + a3 + a4 + a5 + "<div class=\"aui-clearfix\"></div>";
+//					}
+//					var a6 = "<div class=\"aui-line-x\" style=\"margin: 17px 0 8px 0;\"></div><p class=\"aui-text-right\">共"+img.length+"件商品&nbsp;&nbsp;实付金额: <span class=\"aui-text-danger\">￥" + dingdanzongjia + "</span></p><div class=\"aui-line-x\" style=\"margin: 8px 0 5px 0;\"></div>";
+//					var a7 = "<div class=\"aui-text-right\"><div class=\"aui-btn aui-btn-outlined\">取消订单</div><div class=\"aui-btn aui-btn-warning aui-btn-outlined\">立即支付</div></div>";
+//					var a8 = "</li>";
+//					html = a1+a2+a345+a6+a7+a8;
+//					$("ul#order").append(html);
+//				}
+//			})
+//		});
+//		apiready = function() {
+//			api.parseTapmode();
+//		};
 	</script>
 </html>

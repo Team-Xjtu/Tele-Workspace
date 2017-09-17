@@ -70,25 +70,8 @@
 			callback : function(element, op) {
 			}
 		});
-        var shangpins;
-        var zongjia;
         apiready = function() {
             api.parseTapmode();
-            shangpins = api.pageParam.shangpins;
-            zongjia = api.pageParam.zongjia;
-            $.each(shangpins, function(idx, item) {
-                var html = "<li class='aui-list-view-cell aui-img aui-counter-list'>" +
-                    "<img class='aui-img-object aui-pull-left' src="+ item.img +">" +
-                    "<div class='aui-img-body'>" +
-                    "<div class='aui-text-default aui-ellipsis-1'>lzp</div>" +
-                    "<div class='aui-counter-box'>" +
-                    "<div class='aui-pull-left aui-text-FF9800'>￥"+ zongjia +"</div>" +
-                    "<div class='aui-text-default aui-pull-right'>x "+ item.shuliang +"" +
-                    "</div> </div> </div> </li>";
-                $("#order").append(html);
-            });
-            $("#goods_sum").html("¥"+zongjia+"元");
-            $("#total_sum").html("¥"+zongjia+"元");
         };
 
 		function goaddress(){
@@ -110,6 +93,28 @@
 						$("#address").html(item.pro+item.jutidizhi);
 					}
 				})
-			});
+		});
+		$.getJSON("http://123.206.98.49:3001/showdingdan", function(data) {
+			var shangpins = data.shangpins;
+			var zongjia = data.zongjia;
+			if(shangpins == undefined || zongjia == undefined){
+				alert("数据格式错误");
+				return;
+			}else{
+				$.each(shangpins, function(idx, item) {
+					var html = "<li class='aui-list-view-cell aui-img aui-counter-list'>" +
+							"<img class='aui-img-object aui-pull-left' src="+ item.img +">" +
+							"<div class='aui-img-body'>" +
+							"<div class='aui-text-default aui-ellipsis-1'>"+ item.diyname +"</div>" +
+							"<div class='aui-counter-box'>" +
+							"<div class='aui-pull-left aui-text-FF9800'>￥"+ item.danjia +"</div>" +
+							"<div class='aui-text-default aui-pull-right'>x "+ item.shuliang +"" +
+							"</div> </div> </div> </li>";
+					$("#order").append(html);
+				});
+				$("#goods_sum").html("¥"+zongjia+"元");
+				$("#total_sum").html("¥"+zongjia+"元");
+			}
+		});
 	</script>
 </html>
