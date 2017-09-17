@@ -114,7 +114,6 @@
 			api.parseTapmode();
 			$.getJSON("http://123.206.98.49:3001/getdingdaninfo", function(data) {
 				$("#orderNumber").html(data.dingdanbiaoshi);
-				alert(data.chuangjiantime);
 				$("#orderTime").html(data.chuangjiantime);
 				$("#name").html(data.dingdandizhi.name);
 				$("#phone").html(data.dingdandizhi.dianhua);

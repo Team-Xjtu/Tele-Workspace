@@ -1475,6 +1475,13 @@ input[type="time"] {
 	font-size: 16px;
 	font-weight: 400;
 }
+.no-data {
+	margin-top: 20px;
+	padding: 0.5rem 0 0.1rem;
+	font-size: 0.12rem;
+	color: #999;
+	text-align: center;
+	line-height: 1.2; }
 .aui-bar .aui-btn {
 	position: relative;
 	z-index: 20;
