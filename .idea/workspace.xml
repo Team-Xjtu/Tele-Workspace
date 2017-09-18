@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47ad1515-18f0-46c3-bbb5-90eadf2255ab" name="Default" comment="进度：完善购物车，添加编辑功能">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/gouwuche.html" afterPath="$PROJECT_DIR$/html/gouwuche.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/gouwuche.js" afterPath="$PROJECT_DIR$/js/gouwuche.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/member/my_goods_body.html" afterPath="$PROJECT_DIR$/html/member/my_goods_body.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/member/my_goods_body_getGoods.html" afterPath="$PROJECT_DIR$/html/member/my_goods_body_getGoods.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/goods/order_detail_head.html" afterPath="$PROJECT_DIR$/html/goods/order_detail_head.html" />
+    <list default="true" id="47ad1515-18f0-46c3-bbb5-90eadf2255ab" name="Default" comment="">
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\Iphone5.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\Iphone5_Screen.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\adb.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\chameleon.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\deer.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\file.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\ghost.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\iPhone5.mtl" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\iPhone5.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\misc_chair01.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\misc_chair01.json" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\misc_chair01_col.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\pika.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\suzanne.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\table2.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\teapot.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\teddy.obj" afterPath="" />
+      <change type="DELETED" beforePath="D:\WebStrom\Tele-Workspace\models\tree.obj" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Tele-Workspace.iws" />
@@ -106,6 +118,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tele-Workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tele-Workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -171,7 +193,13 @@
       <option name="project" value="LOCAL" />
       <updated>1505640076957</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="进度：完善购物车，添加编辑功能">
+      <created>1505734253266</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1505734253266</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -180,6 +208,7 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -189,7 +218,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -203,7 +231,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="进度：订单处理与显示" />
-    <option name="LAST_COMMIT_MESSAGE" value="进度：订单处理与显示" />
+    <MESSAGE value="进度：完善购物车，添加编辑功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="进度：完善购物车，添加编辑功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
