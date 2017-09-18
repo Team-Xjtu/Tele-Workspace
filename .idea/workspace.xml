@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47ad1515-18f0-46c3-bbb5-90eadf2255ab" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aui.css" afterPath="$PROJECT_DIR$/css/aui.css" />
+    <list default="true" id="47ad1515-18f0-46c3-bbb5-90eadf2255ab" name="Default" comment="进度：完善购物车，添加编辑功能">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/gouwuche.html" afterPath="$PROJECT_DIR$/html/gouwuche.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/gouwuche.js" afterPath="$PROJECT_DIR$/js/gouwuche.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/member/my_goods_body.html" afterPath="$PROJECT_DIR$/html/member/my_goods_body.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/member/my_goods_body_allGoods.html" afterPath="$PROJECT_DIR$/html/member/my_goods_body_allGoods.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/member/my_goods_body_getComments.html" afterPath="$PROJECT_DIR$/html/member/my_goods_body_getComments.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/member/my_goods_body_getGoods.html" afterPath="$PROJECT_DIR$/html/member/my_goods_body_getGoods.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/member/my_goods_nopay.html" afterPath="$PROJECT_DIR$/html/member/my_goods_nopay.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/goods/order_success_body.html" afterPath="$PROJECT_DIR$/html/goods/order_success_body.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/goods/order_detail_head.html" afterPath="$PROJECT_DIR$/html/goods/order_detail_head.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Tele-Workspace.iws" />
@@ -46,19 +44,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/html/goods/order_detail_body.html" />
-        <option value="$PROJECT_DIR$/html/gouwuche.html" />
         <option value="$PROJECT_DIR$/html/member/address_body.html" />
-        <option value="$PROJECT_DIR$/html/goods/order_detail_head.html" />
         <option value="$PROJECT_DIR$/html/goods/order_success_head.html" />
         <option value="$PROJECT_DIR$/html/member/my_goods_head.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/html/goods/order_success_body.html" />
         <option value="$PROJECT_DIR$/css/aui.css" />
         <option value="$PROJECT_DIR$/html/member/my_goods_body_allGoods.html" />
         <option value="$PROJECT_DIR$/html/member/my_goods_body_getComments.html" />
+        <option value="$PROJECT_DIR$/html/member/my_goods_nopay.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/gouwuche.js" />
         <option value="$PROJECT_DIR$/html/member/my_goods_body_getGoods.html" />
         <option value="$PROJECT_DIR$/html/member/my_goods_body.html" />
-        <option value="$PROJECT_DIR$/html/member/my_goods_nopay.html" />
+        <option value="$PROJECT_DIR$/html/goods/order_detail_head.html" />
+        <option value="$PROJECT_DIR$/html/gouwuche.html" />
       </list>
     </option>
   </component>
@@ -98,6 +97,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -106,19 +106,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tele-Workspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tele-Workspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -221,13 +210,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/gouwuche.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49510336">
-          <caret line="85" column="88" selection-start-line="85" selection-start-column="88" selection-end-line="85" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/share_body.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6526674">
@@ -256,23 +238,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/goods/goods_show_win.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6787741">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/goods/payment_head.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.8887628">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/gouwuche.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5800227">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -306,14 +274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/aui-iconfont.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33297062">
-          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33297062">
@@ -322,51 +282,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/goods/order_detail_body.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.094211">
-          <caret line="97" column="43" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/goods/order_detail_head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2179341">
-          <caret line="67" column="66" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/goods/order_success_head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1316686">
-          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/member/my_goods_head.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5448354">
           <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.1842103">
-          <caret line="203" column="15" selection-start-line="203" selection-start-column="15" selection-end-line="203" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/goods/order_success_body.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63791144">
-          <caret line="115" column="60" selection-start-line="115" selection-start-column="60" selection-end-line="115" selection-end-column="60" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#li#3;n#ul#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -374,9 +293,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.90097934">
           <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-          <folding>
-            <marker date="1505614003420" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -384,7 +300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3291714">
           <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -392,7 +307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36452666">
           <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -408,14 +322,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.210526">
           <caret line="150" column="38" selection-start-line="150" selection-start-column="38" selection-end-line="150" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1505653632580" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653632580" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653632580" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653632580" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653632580" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -423,58 +329,140 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.1578946">
           <caret line="145" column="17" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/aui-iconfont.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33297062">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56740916">
+          <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/goods/order_detail_body.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04540295">
+          <caret line="87" column="51" selection-start-line="87" selection-start-column="51" selection-end-line="87" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/goods/order_success_body.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40749148">
+          <caret line="113" column="31" selection-start-line="113" selection-start-column="31" selection-end-line="113" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/zepto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33297062">
+          <caret line="421" column="4" selection-start-line="421" selection-start-column="4" selection-end-line="421" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/member/my_goods_nopay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.4563">
+          <caret line="205" column="15" selection-start-line="205" selection-start-column="15" selection-end-line="205" selection-end-column="15" />
           <folding>
             <element signature="n#style#0;n#p#0;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1505652258504" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505652258504" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505652258504" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505652258504" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505652258504" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505715490524" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505715490524" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505715490524" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505715490524" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505715490524" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/goods/order_success_head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73666286">
+          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/member/my_goods_body_getGoods.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.651515">
-          <caret line="89" column="78" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="78" />
+        <state vertical-scroll-proportion="2.0998864">
+          <caret line="200" column="32" selection-start-line="200" selection-start-column="32" selection-end-line="200" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#p#0;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1505653641381" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653641381" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653641381" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653641381" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653641381" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505731809619" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505731809619" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505731809619" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505731809619" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505731809619" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/member/my_goods_body.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7321225">
-          <caret line="86" column="14" selection-start-line="86" selection-start-column="14" selection-end-line="86" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.9023836">
+          <caret line="205" column="15" selection-start-line="205" selection-start-column="15" selection-end-line="205" selection-end-column="15" />
           <folding>
             <element signature="n#style#0;n#p#0;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1505653682813" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653682813" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653682813" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653682813" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653682813" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505732467072" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505732467072" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505732467072" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505732467072" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1505732467072" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/member/my_goods_nopay.html">
+    <entry file="file://$PROJECT_DIR$/script/myscript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9341657">
-          <caret line="205" column="15" selection-start-line="205" selection-start-column="15" selection-end-line="205" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.08487486">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/goods/goods_show_win.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36549374">
+          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/gouwuche.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7305459">
+          <caret line="159" column="11" selection-start-line="149" selection-start-column="8" selection-end-line="159" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/goods/order_detail_head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6049943">
+          <caret line="106" column="31" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/gouwuche.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4430082">
+          <caret line="142" column="40" selection-start-line="142" selection-start-column="40" selection-end-line="142" selection-end-column="40" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1505653869636" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653869636" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653869636" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653869636" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1505653869636" expanded="true" signature="-1:-1" placeholder="..." />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

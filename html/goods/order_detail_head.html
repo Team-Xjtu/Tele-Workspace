@@ -81,6 +81,10 @@
 	    function goumai() {
             $.getJSON("http://123.206.98.49:3001/showdingdan", function(data) {
 				var shangpins = data.shangpins;
+				var diybiaoshi = [];
+				for(var i = 0; i < shangpins.length; i++){
+					diybiaoshi.push(shangpins[i].diybiaoshi);
+				}
 				var zongjia = data.zongjia;
 				if(shangpins == undefined || zongjia == undefined){
 					alert("数据格式错误");
@@ -94,6 +98,13 @@
 					}, function (result) {
 						if (result == "1") {
 							alert("提交成功");
+							$.get("http://123.206.98.49:3001/shanchudiy?diybiaoshi=" + diybiaoshi, function(result) {
+								if(result == 1){
+
+								}else{
+									alert("购物车数据删除失败");
+								}
+							});
 							api.openWin({
 								name: 'order_success_head.html',
 								url: './order_success_head.html'

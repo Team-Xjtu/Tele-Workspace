@@ -1,117 +1,107 @@
 /*计算总钱数*/
-function total(){
-	setTimeout(function(){
-		var S=0;
-	    $.each($('.total'), function() {
-	    	var $ul_total=$(this).prev('ul').find("input[type='checkbox']");
-	    	var s=0;
-	        var n1=0;
-	    	$.each($(this).prev('ul').find(".number"), function(i) {
-				if($ul_total.eq(i).attr("checked") !== undefined){
-					s=s+parseInt($(this).html())*parseInt($(this).parent().prev().html().replace("￥",""));
-					n1=n1+parseInt($(this).html());
-				}
-		});
-		$(this).children("span").html("￥"+s.toFixed(1));
-		$(this).children("number").html(n1);
-		S=S+s;
+	function total(){
+		setTimeout(function(){
+			var S=0;
+			$.each($('.total'), function() {
+				var $ul_total=$(this).prev('ul').find("input[type='checkbox']");
+				var s=0;
+				var n1=0;
+				$.each($(this).prev('ul').find(".number"), function(i) {
+					if($ul_total.eq(i).attr("checked") !== undefined){
+						s=s+parseInt($(this).html())*parseInt($(this).parent().prev().html().replace("￥",""));
+						n1=n1+parseInt($(this).html());
+					}
 			});
-		$(".bottom span").html(S.toFixed(1));
-		},100)
-}
-/*判断有无数据*/
-function hide(){
-	if ($(".content").length==0) {
-		$(".bottom").hide();
-		$(".no").css("display","-webkit-box");
-		return;
-	}else{
-		$(".bottom").eq(0).show();
-		$(".no").css("display","none");
+			$(this).children("span").html("￥"+s.toFixed(1));
+			$(this).children("number").html(n1);
+			S=S+s;
+				});
+			$(".bottom span").html(S.toFixed(1));
+			},100)
 	}
-}
-/*判断是否全选*/
-function sum(){
-	if ($("ul input[checked='checked']").length==$("li").length) {
-		$(".bottom input[type=checkbox]").attr("checked","checked");
-		$(".bottom input[type=checkbox]").next("img").attr("src","../image/c_checkbox_on.png");
-	}else{
-		$(".bottom input[type=checkbox]").removeAttr('checked');
-		$(".bottom input[type=checkbox]").next("img").attr("src","../image/c_checkbox_off.png");
+	/*判断有无数据*/
+	function hide(){
+		if ($("#moban").length !== 0) {
+			$(".bottom").eq(0).show();
+			$(".no").css("display","-webkit-box");
+			return;
+		}else{
+			//$(".total").hide();
+			$(".bottom").eq(0).show();
+			$(".no").css("display","none");
+		}
 	}
-}
-/*给单选框或复选框添加样式*/
-//function checkbox($this){
-//	if($this.attr('type')=="checkbox"){
-//		   if ($this.attr('checked') == undefined || $this.attr('checked') == "checked") {
-//			   $this.removeAttr('checked');
-//			   $this.next('img').attr("src","../image/c_checkbox_off.png");
-//		   }else{
-//			   $this.attr("checked","checked");
-//			   $this.next('img').attr("src","../image/c_checkbox_on.png");
-//		   }
-//		}
-//		total();
-//}
-	hide();
-	total();
-/*编辑*/
-$("header span").click(function(){
-       if ($(this).html()=="编辑") {
-       	$(this).html("完成");
-       	$(".bottom").eq(1).show();
-       }else{
-       	$(this).html("编辑");
-       	$(".bottom").eq(1).hide();
-       }
-       hide();   
-});
-/*底部全选*/
-$('.bottom-label input').change(function(){
-	if ($(this).attr('checked') == undefined || $(this).attr('checked') !== "checked") {
-		$(this).removeAttr('checked');
-		$(this).next('img').attr("src","../image/c_checkbox_off.png");
-		$('.checkboxList').removeAttr('checked');
-		$('.checkboxList').next('img').attr("src","../image/c_checkbox_off.png");
-	}else{
-		$(this).attr("checked","checked");
-		$(this).next('img').attr("src","../image/c_checkbox_on.png");
-		$('.checkboxList').attr("checked","checked");
-		$('.checkboxList').next('img').attr("src","../image/c_checkbox_on.png");
+	/*判断是否全选*/
+	function sum(){
+		if ($("ul input[checked='checked']").length==$("li").length) {
+			$(".bottom input[type=checkbox]").attr("checked","checked");
+			$(".bottom input[type=checkbox]").next("img").attr("src","../image/c_checkbox_on.png");
+		}else{
+			$(".bottom input[type=checkbox]").removeAttr('checked');
+			$(".bottom input[type=checkbox]").next("img").attr("src","../image/c_checkbox_off.png");
+		}
 	}
-	total();
-});
-/*单个*/
-$('.checkboxList').click(function(){
-	if ($(this).attr('checked') == undefined || $(this).attr('checked') !== "checked") {
-		$(this).removeAttr('checked');
-		$(this).next('img').attr("src","../image/c_checkbox_off.png");
-	}else{
-		$(this).attr("checked","checked");
-		$(this).next('img').attr("src","../image/c_checkbox_on.png");
-	}
-	sum();
-	total();
-});
-/*子项全选*/
-//$('.list input').change(function(){
-//	var $list_input=$(this).parents('.list').next('ul').find('input[type=checkbox]');
-//	if ($list_input.attr('checked') == undefined || $list_input.attr('checked') !== "checked") {
-//		$list_input.attr("checked","checked");
-//		$list_input.next('img').attr("src","../image/c_checkbox_on.png");
-//	}else{
-//		$list_input.removeAttr('checked');
-//		$list_input.next('img').attr("src","../image/c_checkbox_off.png");
-//	}
-//	sum();
-//	checkbox($(this));
-//});
-/*点击加一*/
-$('.btn2').click(function(){
-	$(this).prev('.number').html(parseInt($(this).prev('.number').html()) + 1);
-	/*计算总钱数*/
-	total();
-});
+	/*给单选框或复选框添加样式*/
+	//function checkbox($this){
+	//	if($this.attr('type')=="checkbox"){
+	//		   if ($this.attr('checked') == undefined || $this.attr('checked') == "checked") {
+	//			   $this.removeAttr('checked');
+	//			   $this.next('img').attr("src","../image/c_checkbox_off.png");
+	//		   }else{
+	//			   $this.attr("checked","checked");
+	//			   $this.next('img').attr("src","../image/c_checkbox_on.png");
+	//		   }
+	//		}
+	//		total();
+	//}
+		hide();
+		total();
+	/*底部全选*/
+	$('.bottom-label input').change(function(){
+		if ($(this).attr('checked') == undefined || $(this).attr('checked') !== "checked") {
+			$(this).removeAttr('checked');
+			$(this).next('img').attr("src","../image/c_checkbox_off.png");
+			$('.checkboxList').removeAttr('checked');
+			$('.checkboxList').next('img').attr("src","../image/c_checkbox_off.png");
+		}else{
+			$(this).attr("checked","checked");
+			$(this).next('img').attr("src","../image/c_checkbox_on.png");
+			$('.checkboxList').attr("checked","checked");
+			$('.checkboxList').next('img').attr("src","../image/c_checkbox_on.png");
+		}
+		total();
+	});
+	/*单个*/
+	$('.checkboxList').click(function(){
+		if ($(this).attr('checked') == undefined || $(this).attr('checked') !== "checked") {
+			$(this).removeAttr('checked');
+			$(this).next('img').attr("src","../image/c_checkbox_off.png");
+		}else{
+			$(this).attr("checked","checked");
+			$(this).next('img').attr("src","../image/c_checkbox_on.png");
+		}
+		sum();
+		total();
+	});
+	/*子项全选*/
+	//$('.list input').change(function(){
+	//	var $list_input=$(this).parents('.list').next('ul').find('input[type=checkbox]');
+	//	if ($list_input.attr('checked') == undefined || $list_input.attr('checked') !== "checked") {
+	//		$list_input.attr("checked","checked");
+	//		$list_input.next('img').attr("src","../image/c_checkbox_on.png");
+	//	}else{
+	//		$list_input.removeAttr('checked');
+	//		$list_input.next('img').attr("src","../image/c_checkbox_off.png");
+	//	}
+	//	sum();
+	//	checkbox($(this));
+	//});
+	/*点击加一*/
+	$('.btn2').click(function(){
+		$(this).prev('.number').html(parseInt($(this).prev('.number').html()) + 1);
+		/*计算总钱数*/
+		total();
+	});
 	/*点击减一*/
 	$('.btn1').click(function(){
 		if($(this).next('.number').html()==0)
@@ -140,25 +130,35 @@ $('.btn2').click(function(){
 		$('.text1').css({"display":"none","-webkit-display":"none"});
 		total();
 	})
-/*结算*/
-//$('.sett').click(function(){
-//	alert("你应付"+$(this).prev("span").html()+"元钱");
-//});
-/*删除*/
-$('.delete').click(function(){
-	$.each($('li'), function() {
-		if ($(this).find("input[type=checkbox]").attr("checked")=="checked") {
-			$(this).remove();
-		}
+	/*结算*/
+	$('.sett').click(function(){
+		$(".bottom").eq(1).show();
+		hide();
 	});
-	$('input[type=checkbox]').attr("checked","checked");
-	$('input[type=checkbox]').next("img").attr("src","c_checkbox_on.png");
-	$.each($(".content"), function() {
-		if ($(this).find("li").length==0) {
-			$(this).remove();
-		}
+	$('.back').click(function(){
+		$(".bottom").eq(1).hide();
+		hide();
 	});
-	hide();
-	total();
-});
-/*删除*/
+	/*删除*/
+	$('.delete').click(function(){
+		var index = [];
+		$.each($('li'), function(i) {
+			if ($(this).find("input[type=checkbox]").attr("checked")=="checked") {
+				index.push(resultDiybiaoshi[i]);
+			}
+		});
+		$.get("http://123.206.98.49:3001/shanchudiy?diybiaoshi=" + index, function(result) {
+			if(result == 1){
+				for(var i = 0; i < index.length; i++){
+					$("#" + index[i]).remove();
+				}
+				$(".total span").html("￥" + 0.0);
+				$(".total number").html(0);
+			}else{
+				alert("删除失败");
+			}
+		});
+		hide();
+		total();
+	});
+	/*删除*/

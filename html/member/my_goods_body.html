@@ -146,64 +146,64 @@
 				}
 			});
 		}
-		$.getJSON("http://123.206.98.49:3001/getdingdans?type=1", function(data) {
-			if(data.dingdan == -1){
-				$("#load").html("没有待发货数据");
-			}else{
-				$.each(data.dingdan, function(idx, item) {
-					if(idx>=1){
-						var orderNumber = item.dingdanbiaoshi;
-						var chuangjiantime = item.chuangjiantime;
-						var dingdanzongjia = item.dingdanzongjia;
-						var name = new Array();
-						var beizhu = new Array();
-						var danjia = new Array();
-						var img = new Array();
-						var shuliang = new Array();
-						for(var i = 0; i < item.dingdanshangpins.length; i++){
-							name.push(item.dingdanshangpins[i].diyname);
-							beizhu.push(item.dingdanshangpins[i].beizhu);
-							danjia.push(item.dingdanshangpins[i].danjia);
-							img.push(item.dingdanshangpins[i].img);
-							shuliang.push(item.dingdanshangpins[i].shuliang);
-						}
-						var html1 = "<li class='aui-list-view-cell aui-img aui-counter-list'>订单状态: " +
-								"<span style='color: red'> 未支付</span>" +
-								"<p>订单编号:"+ orderNumber +"</p>" +
-								"<p>创建时间:"+ chuangjiantime +"</p>" +
-								"<div class='aui-line-x' style='margin: 17px 0 8px 0;'></div>";
-						var content = "";
-						//+"http://123.206.98.49:3001/diyimg/"+ $api.getStorage('username') +"/"
-						for(var i = 0; i < img.length; i++){
-							content = content + "" +
-									"<img class='aui-img-object aui-pull-left' src="+ img[i] +">" +
-									"<div class='aui-img-body'>" +
-									"<div class='aui-text-default aui-ellipsis-1'>"+ name[i] +"</div>" +
-									"<div class='aui-counter-box'>" +
-									"<div class='aui-pull-left' style='color: red'>￥"+ danjia[i] +"</div>" +
-									"<div class='aui-text-default aui-pull-right'>x"+ shuliang[i] +"</div>" +
-									"<br><div class='aui-pull-left'>打印类型："+ beizhu[i] +"</div>" +
-									"</div>" +
-									"</div>";
-						}
-						var html2 = content + "" +
-								"<div class='aui-line-x' style='margin: 17px 0 8px 0;'></div>" +
-								"<p class='aui-text-right'>共"+ img.length +"件商品" +
-								"&nbsp;&nbsp;实付金额: <span class='aui-text-danger'>￥" + dingdanzongjia + "</span></p>" +
-								"<div class='aui-line-x' style='margin: 8px 0 5px 0;'></div>" +
-								"<div class='aui-text-right'>" +
-								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>更多</div>" +
-								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>删除订单</div>" +
-								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>查看物流</div>" +
-								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>评价</div></div>";
-						$("#load").hide();
-						$("#order").append(html1+html2);
-					}
-				})
-			}
-		});
 		apiready = function() {
 			api.parseTapmode();
+			$.getJSON("http://123.206.98.49:3001/getdingdans?type=1", function(data) {
+				if(data.dingdan == -1){
+					$("#load").html("没有待发货数据");
+				}else{
+					$.each(data.dingdan, function(idx, item) {
+						if(idx>=1){
+							var orderNumber = item.dingdanbiaoshi;
+							var chuangjiantime = item.chuangjiantime;
+							var dingdanzongjia = item.dingdanzongjia;
+							var name = new Array();
+							var beizhu = new Array();
+							var danjia = new Array();
+							var img = new Array();
+							var shuliang = new Array();
+							for(var i = 0; i < item.dingdanshangpins.length; i++){
+								name.push(item.dingdanshangpins[i].diyname);
+								beizhu.push(item.dingdanshangpins[i].beizhu);
+								danjia.push(item.dingdanshangpins[i].danjia);
+								img.push(item.dingdanshangpins[i].img);
+								shuliang.push(item.dingdanshangpins[i].shuliang);
+							}
+							var html1 = "<li class='aui-list-view-cell aui-img aui-counter-list'>订单状态: " +
+									"<span style='color: red'> 未支付</span>" +
+									"<p>订单编号:"+ orderNumber +"</p>" +
+									"<p>创建时间:"+ chuangjiantime +"</p>" +
+									"<div class='aui-line-x' style='margin: 17px 0 8px 0;'></div>";
+							var content = "";
+							//+"http://123.206.98.49:3001/diyimg/"+ $api.getStorage('username') +"/"
+							for(var i = 0; i < img.length; i++){
+								content = content + "" +
+										"<img class='aui-img-object aui-pull-left' src="+ img[i] +">" +
+										"<div class='aui-img-body'>" +
+										"<div class='aui-text-default aui-ellipsis-1'>"+ name[i] +"</div>" +
+										"<div class='aui-counter-box'>" +
+										"<div class='aui-pull-left' style='color: red'>￥"+ danjia[i] +"</div>" +
+										"<div class='aui-text-default aui-pull-right'>x"+ shuliang[i] +"</div>" +
+										"<br><div class='aui-pull-left'>打印类型："+ beizhu[i] +"</div>" +
+										"</div>" +
+										"</div>";
+							}
+							var html2 = content + "" +
+									"<div class='aui-line-x' style='margin: 17px 0 8px 0;'></div>" +
+									"<p class='aui-text-right'>共"+ img.length +"件商品" +
+									"&nbsp;&nbsp;实付金额: <span class='aui-text-danger'>￥" + dingdanzongjia + "</span></p>" +
+									"<div class='aui-line-x' style='margin: 8px 0 5px 0;'></div>" +
+									"<div class='aui-text-right'>" +
+									"<div class='aui-btn aui-btn-warning aui-btn-outlined'>更多</div>" +
+									"<div class='aui-btn aui-btn-warning aui-btn-outlined'>删除订单</div>" +
+									"<div class='aui-btn aui-btn-warning aui-btn-outlined'>查看物流</div>" +
+									"<div class='aui-btn aui-btn-warning aui-btn-outlined'>评价</div></div>";
+							$("#load").hide();
+							$("#order").append(html1+html2);
+						}
+					})
+				}
+			});
 		};
 	</script>
 </html>
