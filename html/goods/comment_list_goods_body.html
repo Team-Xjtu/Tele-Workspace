@@ -160,25 +160,21 @@
 	<script type="text/template"id="moban">
     <div class="grid2" style="margin-top: 0; ">
         <div class="thumbnail" style="border-top:none;border-bottom:10px; margin-top: 1px;">
-             <h2 id="yhm"><img style="border-radius: 70%" width="46" src="http://192.168.0.22:3001/avatar/{{=avatar}}" alt=""/>{{=username}}</h2>
+            <h2 id="yhm"><img style="border-radius: 70%" width="46" src="http://192.168.0.22:3001/avatar/{{=avatar}}" alt=""/>{{=username}}</h2>
             <div class="caption">
                 <p class="neirong">{{=content}}</p>
-
                 <p>{{=date}}</p>
                 <button  onclick="dianzan(this.name,this)" name="{{=_id}}" >赞
                     <span style="{{=yanse}}" id="span1">{{=zan.length-2}}</span>
                 </button>
-                
-           <span {{=flag}}>
-          <a   href="javascript:void(0)" onclick="shanchushuoshuo(this)" name="{{=_id}}" style="color:#000000">
-              <button   type="button" >
-                  	删除
-              </button>
-          </a>
-               <!--<div style="display: none">{{=_id}}</div>-->
-            </span>
-            
-             
+                <span {{=flag}}>
+                <a href="javascript:void(0)" onclick="shanchushuoshuo(this)" name="{{=_id}}" style="color:#000000">
+                    <button type="button" >
+                        删除
+                    </button>
+                </a>
+                <!--<div style="display: none">{{=_id}}</div>-->
+                </span>
             </div>
         </div>
         <hr />

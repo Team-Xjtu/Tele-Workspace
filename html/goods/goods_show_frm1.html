@@ -112,33 +112,16 @@
 </head>
 <body>
     <section class="aui-content thumb">
-        <!--<img src="#" id="pic0">-->
-        
-        
-        
         <div id="aui-slide">
 			<div class="aui-slide-wrap" id="slide_append">
 				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
 					<img  id="slider_pic1" src=""/>
-					<!--<img  onload="alert('height:'+this.offsetHeight+'\nwidth:'+this.offsetWidth)" id="slider_pic1" src="http://192.168.0.22:3001/shangpin/20175513359787/number0.jpg"/>-->
 				</div>
-				<!--<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center" style="display: none">
-					<img id="slider_pic2" src="../../image/banner3.jpg"  style="display: none"/>
-				</div>-->
-				<!--<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center" style="display: none">
-					<img id="slider_pic3" src="../../image/banner2.jpg" />
-				</div>
-				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center" style="display: none">
-					<img id="slider_pic4" src="../../image/comment.jpg" />
-				</div>-->
 			</div>
 			<div class="aui-slide-page-wrap">
 				<!--分页容器-->
 			</div>
 		</div>
-        
-        
-        
         <div class="price-info">
             <span class="price">￥<strong id="price">88.88</strong>元</span>
             <div class="aui-pull-right">
@@ -147,34 +130,31 @@
             </div>
         </div>
     </section>
-    
     <section class="aui-content goods-basic-info">
-        <div class="goods-title" id="name">你是爷们---商品ID2</div>
+        <div class="goods-title" id="name">商品ID2</div>
         <h5 class="goods-title" id="type">华为P7移动版保护壳</h5>
         <p>
-            <label class="aui-label aui-label-danger">快递包邮</label> 
-            <!--<label class="aui-label aui-label-success">你猜</label>-->
+            <label class="aui-label aui-label-danger">快递包邮</label>
         </p>
     </section>
     <div class="aui-content aui-col-xs-12 aui-guige">
        	<p class="aui-col-xs-4 aui-text-center" style="padding:8px 5px;">选择打印类型</p>
-       	<div class="aui-col-xs-8">
+       	<div id="buttonChoose" class="aui-col-xs-8">
 			<button class="aui-btn aui-btn-success aui-btn-outlined">热转印</button>
 			<button class="aui-btn aui-btn-success aui-btn-outlined">水帖</button>
 			<button class="aui-btn aui-btn-success aui-btn-outlined">浮雕打印</button>
 			<button class="aui-btn aui-btn-success aui-btn-outlined">平面打印</button>
-			
 		</div>
     </div>
     <section class="aui-tab">
         <ul class="aui-tab-nav" id="demo1">
             <li class="active" >产品详情</li>
-            <li>用户评价(199)</li>
+            <li>用户评价</li>
         </ul>
     </section>
     <!--这个是商品描述-->
     <section class="aui-content info con-pl ">
-        <p id="jieshao">商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述沙拉汁不够的，可联系客服购买~新鲜非洲冰草3斤装顺丰包邮，偏远地区除外。亲们：现在发货会加冰袋的哦 保证新鲜的哦。</p>
+        <p id="jieshao">可联系客服购买~新鲜非洲冰草3斤装顺丰包邮，偏远地区除外。亲们：现在发货会加冰袋的哦 保证新鲜的哦。</p>
         <img class="aui-img-object aui-pull-left" src="#" id="pic1">
     </section>
     <!--这个是评价-->
@@ -240,9 +220,6 @@
 <script type="text/javascript" src="../../script/echo.min.js"></script>
 <script type="text/javascript" src="../../script/zepto.min.js"></script>
 <script type="text/javascript">
-
-
-	
 	echo.init({
 			offset : 100,
 			throttle : 250,
@@ -250,53 +227,37 @@
 			callback : function(element, op) {
 			}
 		});
-		
-		
 		$(document).ready(function(){
-			
 			urlarrayshow = $api.getStorage('urlarray');
 			var width = Number($api.getStorage('width'));
-//			alert("width:" + width);
-			
-//			var url0show = "../../image/pic2.jpg";
 			var url0show = "http://192.168.0.22:3001" + urlarrayshow[0];
-			
 			$("#slider_pic1").attr("src",url0show);
 			$("#slider_pic1").css("width",width);
 			if(urlarrayshow.length > 1){
 				var div1 ="<div class=\"aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center\">";
 				var div2 = "</div>"
-				for(var i=1;i<urlarrayshow.length;i++){
-					
-				urlshow = "http://192.168.0.22:3001" + urlarrayshow[i];
+				for(var i = 1; i < urlarrayshow.length; i++){
+				    urlshow = "http://192.168.0.22:3001" + urlarrayshow[i];
 				var img = "<img class=\"slidershow\" src=\"" + urlshow + "\">";
 				var html = div1 + img + div2;
-//				alert(html);
 				$("div#slide_append").append(html);
-			
-			}
-			
-			}
-			
+			    }
+            }
 			$(".slidershow").css("width",width);
-			var slide = new auiSlide({
-			container : document.getElementById("aui-slide"),
-//			 "width":350,
-			"height" : 280,
-			"speed" : 300,
-			"autoPlay" : false, //自动播放
-			"pageShow" : true,
-			"pageStyle" : 'dot',
-			"loop" : true,
-			'dotPosition' : 'center'
+                var slide = new auiSlide({
+                container : document.getElementById("aui-slide"),
+//                "width":350,
+                "height" : 280,
+                "speed" : 300,
+                "autoPlay" : false, //自动播放
+                "pageShow" : true,
+                "pageStyle" : 'dot',
+                "loop" : true,
+                'dotPosition' : 'center'
+		    });
 		});
-			
-			
-		});
-		
-		
 		Zepto(function() {
-			$(".aui-tab-nav").on("tap", "li", function() {			
+			$(".aui-tab-nav").on("click", "li", function() {
 				 $('.aui-tab-nav li').removeClass('active');
 				 $(this).addClass('active');
 				 var $ul = $('.con-pl');                 
@@ -305,12 +266,7 @@
 				 $ul.eq($t).css('display','block');					
 			});
 		});
-		
-		
-		
-		
 		function openWin(){
-		
 			api.openWin({
 	            name: 'commetHead',
 	            url: './comment_list_goods_head.html',
@@ -319,29 +275,20 @@
 	            }
             });
 		}
-    apiready = function(){
-		api.parseTapmode();
-		var url0 = api.pageParam.url0;
-		var price = api.pageParam.price;
-		var name = api.pageParam.name;
-		var type = api.pageParam.type;
-		var jieshao = api.pageParam.jieshao;
-		var urlarray = api.pageParam.urlarray;
-		//alert("urlarray");
-		//alert(urlarray);
-		$("#pic0").attr("src",url0);
-		$("#pic1").attr("src",url0);
-		$("#price").html(price);
-		$("#name").html(name);
-		$("#type").html(type);
-		$("#jieshao").html(jieshao);
-//		alert(url0 + "---" + price  + "---" + name + "---" + type + "---" + jieshao);
-		
-		
-
-		
-
-
-    }
+        apiready = function(){
+            api.parseTapmode();
+            var url0 = api.pageParam.url0;
+            var price = api.pageParam.price;
+            var name = api.pageParam.name;
+            var type = api.pageParam.type;
+            var jieshao = api.pageParam.jieshao;
+            var urlarray = api.pageParam.urlarray;
+            $("#pic0").attr("src",url0);
+            $("#pic1").attr("src",url0);
+            $("#price").html(price);
+            $("#name").html(name);
+            $("#type").html(type);
+            $("#jieshao").html(jieshao);
+        }
 </script>
 </html>

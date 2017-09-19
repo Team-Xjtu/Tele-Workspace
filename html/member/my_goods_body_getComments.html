@@ -168,7 +168,7 @@
 							shuliang.push(item.dingdanshangpins[i].shuliang);
 						}
 						var html1 = "<li class='aui-list-view-cell aui-img aui-counter-list'>订单状态: " +
-								"<span style='color: red'> 未支付</span>" +
+								"<span style='color: red'> </span>" +
 								"<p>订单编号:"+ orderNumber +"</p>" +
 								"<p>创建时间:"+ chuangjiantime +"</p>" +
 								"<div class='aui-line-x' style='margin: 17px 0 8px 0;'></div>";
@@ -195,13 +195,23 @@
 								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>更多</div>" +
 								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>删除订单</div>" +
 								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>查看物流</div>" +
-								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>评价</div></div>";
+								"<div id='" +orderNumber+ "' class='aui-btn aui-btn-warning aui-btn-outlined' onclick='addComment(this.id)'>评价</div></div>";
 						$("#load").hide();
 						$("#order").append(html1+html2);
 					}
 				})
 			}
 		});
+		function addComment(id){
+			//id为订单编号
+			api.openFrame({
+				name : 'comment_goods_head',
+				url : 'comment_goods_head.html',
+				pageParam : {
+
+				}
+			});
+		}
 		apiready = function() {
 			api.parseTapmode();
 

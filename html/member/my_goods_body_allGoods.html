@@ -146,7 +146,7 @@
 				}
 			});
 		}
-		$.getJSON("http://192.168.0.22:3001/getdingdans?type=4", function(data) {
+		$.getJSON("http://192.168.0.22:3001/getdingdans?type=0", function(data) {
 			if(data.dingdan == -1){
 				$("#load").html("没有数据");
 			}else{
@@ -168,7 +168,7 @@
 							shuliang.push(item.dingdanshangpins[i].shuliang);
 						}
 						var html1 = "<li class='aui-list-view-cell aui-img aui-counter-list'>订单状态: " +
-								"<span style='color: red'> 未支付</span>" +
+								"<span style='color: red'> </span>" +
 								"<p>订单编号:"+ orderNumber +"</p>" +
 								"<p>创建时间:"+ chuangjiantime +"</p>" +
 								"<div class='aui-line-x' style='margin: 17px 0 8px 0;'></div>";
