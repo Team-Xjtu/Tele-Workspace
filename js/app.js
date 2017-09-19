@@ -1,3 +1,20 @@
+(function(win, doc) {
+
+    'use strict';
+
+    window.getQuerystring = function(name) {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = location.search.substr(1).match(reg);
+
+        if(r !== null){
+            return r[2];
+        }
+    };
+
+    Vue.http.options.emulateJSON = true;
+    Vue.http.options.timeout = 4000;
+
+})(window, document);
 /**
  * components
  */
@@ -20,22 +37,27 @@
             template:
             "<ul class='shell-list clearfix' :class='{load:isload}' v-show='isload || items.length > 0'>"+
             "<li class='index-class' v-for='item in items'>"+
+            "<p onclick=\"openWinto('indexDiy','./indexDiy')\">模型名称：{{ item.title }}</p>" +
             "<a :href='item.href'>"+
-            "<div class='pic' :style='getBackground(item.img)'></div>"+
-            "<p>{{ item.title }}</p>"+
-            "</a>"+
-            "</li>"+
+            "<img class='pic' :src='item.imgb' style='width: 60px;height: 60px'>" +
+            "<img class='pic' :src='item.imgf' style='width: 60px;height: 60px; margin-left: 10px'>"+
+            "</a>" +
+            "<hr>"+
+            "<div class='ui-label-s'>类型" +
+            "</div ><span><font> 手机模型</font></span>" +
+            "<hr>"+
+            "</li>" +
             "</ul>"
         },
         // 图片库
         material: {
             props: ["items", "getmaterial", "tabindex"],
             methods: {
-                getBackground: function(url) {
-                    return {
-                        backgroundImage: "url("+ url +")"
-                    }
-                }
+                //getBackground: function(url) {
+                //    return {
+                //        backgroundImage: "url("+ url +")"
+                //    }
+                //}
             },
             template:
             "<dl class='edit-material-dl'>"+

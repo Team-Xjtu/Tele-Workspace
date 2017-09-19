@@ -246,7 +246,7 @@ function sendDiyMsg(base64Data,sence){
     //alert(base64Data);
 	$.ajax({
 		type: "POST", // 上传文件要用POST
-        url: "http://123.206.98.49:3001/adddiy",
+        url: "http://192.168.0.22:3001/adddiy",
 		dataType : "json",
 		crossDomain: true, // 如果用到跨域，需要后台开启CORS
 		processData: false,  // 注意：不要 process data

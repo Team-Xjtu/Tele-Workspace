@@ -222,7 +222,7 @@
 			var imgObj=document.getElementById("image");
 			if(LoginState == 1){
 				$(".unames").text($api.getStorage('username2'));
-				 $.get("http://123.206.98.49:3001/getavatar", function(result) {
+				 $.get("http://192.168.0.22:3001/getavatar", function(result) {
 				 	 //alert("geting avatar");
 	 			//alert(JSON.stringify(result));
 	 			if(result.avatar.length>20)

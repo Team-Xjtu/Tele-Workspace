@@ -146,7 +146,7 @@
 				}
 			});
 		}
-		$.getJSON("http://123.206.98.49:3001/getdingdans?type=4", function(data) {
+		$.getJSON("http://192.168.0.22:3001/getdingdans?type=4", function(data) {
 			if(data.dingdan == -1){
 				$("#load").html("没有数据");
 			}else{
@@ -173,7 +173,7 @@
 								"<p>创建时间:"+ chuangjiantime +"</p>" +
 								"<div class='aui-line-x' style='margin: 17px 0 8px 0;'></div>";
 						var content = "";
-						//+"http://123.206.98.49:3001/diyimg/"+ $api.getStorage('username') +"/"
+						//+"http://192.168.0.22:3001/diyimg/"+ $api.getStorage('username') +"/"
 						for(var i = 0; i < img.length; i++){
 							content = content + "" +
 									"<img class='aui-img-object aui-pull-left' src="+ img[i] +">" +

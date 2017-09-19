@@ -4,7 +4,23 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: flex; }
-
+.index-class{
+    padding: 10px;
+    margin: 20px;
+    border: inset;
+    border-color: #F3AD2F;
+}
+.ui-label-s{
+    font-size: 11px;
+    line-height: 13px;
+    display: inline-block;
+    position: relative;
+    padding: 0 1px;
+    color: #fff;
+    background:#ff7f0d;
+    border: 1px solid #ff7f0d;
+    border-radius: 2px;
+}
 /* 首页整体布局 */
 .content {
     position: absolute;

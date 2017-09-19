@@ -85,7 +85,7 @@
 	            }
             });
 		}
-		$.getJSON("http://123.206.98.49:3001/dizhiguanli", function(data) {
+		$.getJSON("http://192.168.0.22:3001/dizhiguanli", function(data) {
 				$.each(data.result, function(idx, item) {
 					if(idx==1){
 						$("#name").html(item.name);
@@ -94,11 +94,11 @@
 					}
 				})
 		});
-		$.getJSON("http://123.206.98.49:3001/showdingdan", function(data) {
+		$.getJSON("http://192.168.0.22:3001/showdingdan", function(data) {
 			var shangpins = data.shangpins;
 			var zongjia = data.zongjia;
 			if(shangpins == undefined || zongjia == undefined){
-				alert("数据格式错误");
+				alert("数据格式错误：商品或总价为空");
 				return;
 			}else{
 				$.each(shangpins, function(idx, item) {

@@ -312,7 +312,7 @@
 //			var index = Number(id.substring(1,id.length))-1;
 //			alert("index:"+index);
 //			alert("length:" + patharray.length);
-//			var url0 = "http://123.206.98.49:3001" + patharray[index].split("\"")[1];
+//			var url0 = "http://192.168.0.22:3001" + patharray[index].split("\"")[1];
 //			var price = shangpindanjia[index].substring(1,shangpindanjia[index].length-1);
 //			var name = shangpinname[index].substring(1,shangpinname[index].length-1);
 //			var type = shangpintype[index].substring(1,shangpintype[index].length-1);
@@ -365,7 +365,7 @@
 		function test() {
 			for(var i=0;i<tuijianji.length;i++){
 				var indexlevel = tuijianji[i].split("\"")[1];
-				var url = "http://123.206.98.49:3001" + patharray[i].split("\"")[1];
+				var url = "http://192.168.0.22:3001" + patharray[i].split("\"")[1];
 				$('#recommend'+ indexlevel).html(shangpinname[i].substring(1,shangpinname[i].length-1));
 				$('#recommend' + indexlevel + '_price').html("¥" + shangpindanjia[i].substring(1,shangpindanjia[i].length-1));
 				$('#recommend' + indexlevel + '_type').html(shangpintype[i].substring(1,shangpintype[i].length-1));
@@ -404,7 +404,7 @@
 //			alert(urlarray.length);
 //			alert(patharray[index].split("\"").length);
 //			alert(tuijianji.lastIndexof(""+index+""));
-			var url0 = "http://123.206.98.49:3001" + patharray[index].split("\"")[1];
+			var url0 = "http://192.168.0.22:3001" + patharray[index].split("\"")[1];
 			var price = shangpindanjia[index].substring(1,shangpindanjia[index].length-1);
 			var name = shangpinname[index].substring(1,shangpinname[index].length-1);
 			var type = shangpintype[index].substring(1,shangpintype[index].length-1);
@@ -440,7 +440,7 @@
 
 		function detail() {
 		}
-		$.getJSON("http://123.206.98.49:3001/getshangpins", function(data) {
+		$.getJSON("http://192.168.0.22:3001/getshangpins", function(data) {
 				$.each(data.result, function(idx, item) {
 //					alert(idx);
 					var idString = JSON.stringify(item.shangpinhao);

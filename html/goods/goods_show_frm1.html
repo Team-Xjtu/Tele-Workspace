@@ -120,7 +120,7 @@
 			<div class="aui-slide-wrap" id="slide_append">
 				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
 					<img  id="slider_pic1" src=""/>
-					<!--<img  onload="alert('height:'+this.offsetHeight+'\nwidth:'+this.offsetWidth)" id="slider_pic1" src="http://123.206.98.49:3001/shangpin/20175513359787/number0.jpg"/>-->
+					<!--<img  onload="alert('height:'+this.offsetHeight+'\nwidth:'+this.offsetWidth)" id="slider_pic1" src="http://192.168.0.22:3001/shangpin/20175513359787/number0.jpg"/>-->
 				</div>
 				<!--<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center" style="display: none">
 					<img id="slider_pic2" src="../../image/banner3.jpg"  style="display: none"/>
@@ -259,7 +259,7 @@
 //			alert("width:" + width);
 			
 //			var url0show = "../../image/pic2.jpg";
-			var url0show = "http://123.206.98.49:3001" + urlarrayshow[0];
+			var url0show = "http://192.168.0.22:3001" + urlarrayshow[0];
 			
 			$("#slider_pic1").attr("src",url0show);
 			$("#slider_pic1").css("width",width);
@@ -268,7 +268,7 @@
 				var div2 = "</div>"
 				for(var i=1;i<urlarrayshow.length;i++){
 					
-				urlshow = "http://123.206.98.49:3001" + urlarrayshow[i];
+				urlshow = "http://192.168.0.22:3001" + urlarrayshow[i];
 				var img = "<img class=\"slidershow\" src=\"" + urlshow + "\">";
 				var html = div1 + img + div2;
 //				alert(html);

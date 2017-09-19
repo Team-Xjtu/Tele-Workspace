@@ -199,6 +199,7 @@
 	<script src="../../script/jquery-1.11.3.min.js"></script>
     <script src="../../script/bootstrap.min.js"></script>
     <script src="../../script/underscore.js"></script>
+    <script src="../../script/url.js"></script>
 	</head>
 	<body>
 		<div class="top-area">
@@ -225,7 +226,7 @@
 								<div class="form-group" >
 									<span id="yzmspan">
 										<input  class="input-box" type="text"  id="yanzhengma" placeholder="验证码"/>
-										<a href="javascript:void(0)"><img id="yanzhengmaimg" onclick="changeyzm(this)" style="height:30px;width:86px"src="http://123.206.98.49:3001/scyanzhengma"/></a> </span>
+										<a href="javascript:void(0)"><img id="yanzhengmaimg" onclick="changeyzm(this)" style="height:30px;width:86px" src="http://192.168.0.22:3001/scyanzhengma"/></a> </span>
 								</div>
 							</div>
 						</form>
@@ -308,7 +309,7 @@
 			if(islogin == 1){
 //			alert(deviceid);
 //			alert(username);
-				$.get("http://123.206.98.49:3001/autologin?username="+username+"&uuid="+deviceid,function(result){
+				$.get("http://192.168.0.22:3001/autologin?username="+username+"&uuid="+deviceid,function(result){
 					if(result=="1"){
 						api.openWin({
 							name : 'index',
@@ -323,7 +324,7 @@
 		
 		
 		function changeyzm(a){
-       a.src="http://123.206.98.49:3001/scyanzhengma";
+       a.src="http://192.168.0.22:3001/scyanzhengma";
    }
     function dianzan(a,b){
         $.get("/dianzan?id="+a,function(result){
@@ -349,7 +350,7 @@
             $("#cuowukuang4").fadeIn();
         }
         else {
-            $.post("http://123.206.98.49:3001/postshuoshuo", {"content": $("#shuoshuo").val(),"huati":document.querySelector("#spselect").innerHTML}, function (result) {
+            $.post("http://192.168.0.22:3001/postshuoshuo", {"content": $("#shuoshuo").val(),"huati":document.querySelector("#spselect").innerHTML}, function (result) {
              if(result=="1"){
 
                  $("#chenggong1").fadeIn();
@@ -402,7 +403,7 @@
             $("#cuowukuang2").fadeIn();
         }
         else {
-            $.post("http://123.206.98.49:3001/dologin", {
+            $.post("http://192.168.0.22:3001/dologin", {
                 "username": $("#username").val(),
                 "password": $("#password").val(),
                 "yanzhengma":$("#yanzhengma").val().toString(),
@@ -412,7 +413,7 @@
                 //alert(result);
                 if (result == "-1") {
 
-                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                    document.querySelector("#yanzhengmaimg").src="http://192.168.0.22:3001/scyanzhengma";
                     $("#cuowukuang").fadeIn();
                     $("#cuowukuang").html("用户名不存在");
 
@@ -421,10 +422,10 @@
                 if (result == "-3") {
                     $("#cuowukuang").fadeIn();
                     $("#cuowukuang").html("服务器错误");
-                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                    document.querySelector("#yanzhengmaimg").src="http://192.168.0.22:3001/scyanzhengma";
                 }
                 if (result == "-2") {
-                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                    document.querySelector("#yanzhengmaimg").src="http://192.168.0.22:3001/scyanzhengma";
                     $("#cuowukuang").fadeIn();
 
                     $("#cuowukuang").html("密码错误");
@@ -435,7 +436,7 @@
                     $("#cuowukuang").html("验证码错误");
 
 
-                    document.querySelector("#yanzhengmaimg").src="http://123.206.98.49:3001/scyanzhengma";
+                    document.querySelector("#yanzhengmaimg").src="http://192.168.0.22:3001/scyanzhengma";
 
 
                 }
