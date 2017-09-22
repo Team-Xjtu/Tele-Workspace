@@ -123,7 +123,7 @@
 			</div>
 		</div>
         <div class="price-info">
-            <span class="price">￥<strong id="price">88.88</strong>元</span>
+            <span class="price">￥<strong id="price"></strong>元</span>
             <div class="aui-pull-right">
                 <p style="text-decoration:line-through">原价：66.66 元</p>
                 <p>2016件已售</p>
@@ -131,94 +131,67 @@
         </div>
     </section>
     <section class="aui-content goods-basic-info">
-        <div class="goods-title" id="name">商品ID2</div>
-        <h5 class="goods-title" id="type">华为P7移动版保护壳</h5>
+        <div class="goods-title" id="name"></div>
+        <h5 class="goods-title" id="type"></h5>
         <p>
             <label class="aui-label aui-label-danger">快递包邮</label>
         </p>
     </section>
     <div class="aui-content aui-col-xs-12 aui-guige">
        	<p class="aui-col-xs-4 aui-text-center" style="padding:8px 5px;">选择打印类型</p>
-       	<div id="buttonChoose" class="aui-col-xs-8">
-			<button class="aui-btn aui-btn-success aui-btn-outlined">热转印</button>
-			<button class="aui-btn aui-btn-success aui-btn-outlined">水帖</button>
-			<button class="aui-btn aui-btn-success aui-btn-outlined">浮雕打印</button>
-			<button class="aui-btn aui-btn-success aui-btn-outlined">平面打印</button>
+       	<div id="a" class="aui-col-xs-8">
+			<button class="aui-btn" onClick="doAct(this)">热转印</button>
+			<button class="aui-btn" onClick="doAct(this)">水帖</button>
+			<button class="aui-btn" onClick="doAct(this)">浮雕</button>
+			<button class="aui-btn" onClick="doAct(this)">平面</button>
+            <!--aui-btn-success aui-btn-outlined-->
 		</div>
     </div>
     <section class="aui-tab">
         <ul class="aui-tab-nav" id="demo1">
             <li class="active" >产品详情</li>
-            <li>用户评价</li>
+            <li>
+                用户评价
+                <span id="count">100</span>
+            </li>
         </ul>
     </section>
     <!--这个是商品描述-->
     <section class="aui-content info con-pl ">
-        <p id="jieshao">可联系客服购买~新鲜非洲冰草3斤装顺丰包邮，偏远地区除外。亲们：现在发货会加冰袋的哦 保证新鲜的哦。</p>
+        <p id="jieshao"></p>
         <img class="aui-img-object aui-pull-left" src="#" id="pic1">
     </section>
     <!--这个是评价-->
     <section class="aui-content info con-pl display-none">
-        <ul class="aui-list-view">
-            <li class="aui-list-view-cell aui-img">
-                <img class="aui-img-object aui-pull-left aui-avatar" src="../../image/pic2.jpg">
-                <div class="aui-img-body">
-                    <div class="name">
-                    		<span class="" style="width:120px;display:inline-block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">wo的名字wo的名字wo的名字</span>
-                    		<span class="name-icon" style="float: right">
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    		</span>
-                    	<p class="aui-ellipsis-2">图文列表缩略图在左边的样式，默认大小为80PX，文字介绍内容可以为一行也可以为两行，超出部分自动省略</p>	
-                    	</div>
-                    
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img">
-                <img class="aui-img-object aui-pull-left aui-avatar" src="../../image/pic2.jpg" >
-                <div class="aui-img-body">
-                    <div class="name">
-                    		<span class="" style="width:120px;display:inline-block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">wo的名字wo的名字wo的名字</span>
-                    		<span class="name-icon" style="float: right">
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    		</span>
-                    	<p class="aui-ellipsis-2">图文列表缩略图在左边的样式，默认大小为80PX，文字介绍内容可以为一行也可以为两行，超出部分自动省略</p>	
-                    	</div>
-                    
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img">
-                <img class="aui-img-object aui-pull-left aui-avatar" src="../../image/pic2.jpg" data-echo="../../image/pic2.jpg">
-                <div class="aui-img-body">
-                    <div class="name">
-                    		<span class="" style="width:120px;display:inline-block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">wo的名字wo的名字wo的名字</span>
-                    		<span class="name-icon" style="float: right">
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    			<i class="aui-iconfont aui-icon-favorfill"></i>
-                    		</span>
-                    	<p class="aui-ellipsis-2">图文列表缩略图在左边的样式，默认大小为80PX，文字介绍内容可以为一行也可以为两行，超出部分自动省略</p>	
-                    	</div>
-                    
-                </div>
-            </li>
-            <p class="aui-text-center aui-padded-10" tapmode onclick="openWin()">查看更多</p>
-        </ul>
+        <div class="container">
+            <div class="row" id="quanbushuoshuo"></div>
+        </div>
+        <p class="aui-text-center aui-padded-10" tapmode onclick="openWin()">查看更多</p>
     </section>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/underscore.js"></script>
 <script type="text/javascript" src="../../script/echo.min.js"></script>
 <script type="text/javascript" src="../../script/zepto.min.js"></script>
+<script type="text/template"id="moban">
+    <div class="grid2" style="margin-top: 0; ">
+        <div class="thumbnail" style="border-top:none;border-bottom:10px; margin-top: 1px;">
+            <div class="caption">
+                <!--<img style="border-radius: 70%" width="20px" src="http://192.168.0.22:3001/avatar/{{=avatar}}" alt=""/>-->
+                {{=username}}
+                <p class="neirong">{{=content}}</p>
+                <p>{{=date}}</p>
+                <!--dianzan(this.name,this)-->
+                <button  onclick="" name="{{=_id}}">赞
+                    <span style="{{=yanse}}" id="span1">{{=zan.length-2}}</span>
+                </button>
+                <span name="{{=flag}}"></span>
+            </div>
+        </div>
+        <hr>
+    </div>
+</script>
 <script type="text/javascript">
 	echo.init({
 			offset : 100,
@@ -235,12 +208,12 @@
 			$("#slider_pic1").css("width",width);
 			if(urlarrayshow.length > 1){
 				var div1 ="<div class=\"aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center\">";
-				var div2 = "</div>"
+				var div2 = "</div>";
 				for(var i = 1; i < urlarrayshow.length; i++){
 				    urlshow = "http://192.168.0.22:3001" + urlarrayshow[i];
-				var img = "<img class=\"slidershow\" src=\"" + urlshow + "\">";
-				var html = div1 + img + div2;
-				$("div#slide_append").append(html);
+                    var img = "<img class=\"slidershow\" src=\"" + urlshow + "\">";
+                    var html = div1 + img + div2;
+                    $("div#slide_append").append(html);
 			    }
             }
 			$(".slidershow").css("width",width);
@@ -255,6 +228,43 @@
                 "loop" : true,
                 'dotPosition' : 'center'
 		    });
+            $.get("http://192.168.0.22:3001/getshuoshuoamount?huati=日常心情", function (result) {
+                if(result == -1){
+                    $("#count").html("");
+                }else{
+                    $("#count").html("("+result+")");
+                }
+            });
+            var page = 0;
+            var compiled = _.template($("#moban").html());
+            $.get("http://192.168.0.22:3001/getallshuoshuo?page="+page+"&huati=日常心情", function (result) {
+                if(result=="-1"){
+                    return;
+                }
+                var dataObj;
+                $.get("http://192.168.0.22:3001/getinfo",function(data){
+                    dataObj = eval("("+data+")");
+                });
+                iterator(0);
+                function iterator(i) {
+                    if (i == result.length) {
+                        return;
+                    }
+                    $.get("http://192.168.0.22:3001/getuserinfo?username="+result[i].username, function (result1) {
+                        result[i].avatar = result1.avatar;
+                        var user = dataObj.username;
+                        if(result[i].username != user) {
+                            result[i].flag='hidden';
+                        }else{
+                            result[i].flag='';
+                        }
+                        //组装模板
+                        var htmlstring = compiled(result[i]);
+                        $("#quanbushuoshuo").append($(htmlstring));
+                        iterator(i + 1);
+                    });
+                }
+            });
 		});
 		Zepto(function() {
 			$(".aui-tab-nav").on("click", "li", function() {
@@ -275,6 +285,13 @@
 	            }
             });
 		}
+        function doAct(s){
+            var $ul_total = $("#a").find("button");
+            for(var i = 0; i < $ul_total.length; i++){
+                $ul_total[i].className = "aui-btn";
+            }
+            s.className ="aui-btn aui-btn-success aui-btn-outlined";
+        }
         apiready = function(){
             api.parseTapmode();
             var url0 = api.pageParam.url0;

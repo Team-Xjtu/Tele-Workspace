@@ -476,7 +476,6 @@ h4 small,h5 small,h6 small {
 button, .aui-btn {
 	position: relative;
 	display: inline-block;
-	padding: 6px 12px;
 	margin-bottom: 0;
 	font-size: 14px;
 	font-weight: 400;

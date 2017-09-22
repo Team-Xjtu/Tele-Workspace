@@ -11,13 +11,13 @@
 						s=s+parseInt($(this).html())*parseInt($(this).parent().prev().html().replace("￥",""));
 						n1=n1+parseInt($(this).html());
 					}
-			});
-			$(this).children("span").html("￥"+s.toFixed(1));
-			$(this).children("number").html(n1);
-			S=S+s;
 				});
+				$(this).children("span").html("￥"+s.toFixed(1));
+				$(this).children("number").html(n1);
+				S=S+s;
+			});
 			$(".bottom span").html(S.toFixed(1));
-			},100)
+		},100)
 	}
 	/*判断有无数据*/
 	function hide(){

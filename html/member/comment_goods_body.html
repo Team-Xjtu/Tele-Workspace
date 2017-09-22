@@ -131,63 +131,49 @@
                     </ul>
                 </div>
             </div>
-
-
         </div>
 
         </div>
 
     </div>
 
-<div class="container">
-    <!-- 分页条-->
-    
+    <div class="container">
+        <!-- 分页条-->
 
-    <script >
 
-    </script>
+        <script >
 
-    <!-- Example row of columns -->
-    <div class="row" id="quanbushuoshuo" style="display: none;">
+        </script>
 
-    </div>
-    
-</div> <!-- /container -->
-	 	
-	 	
-	 	
+        <!-- Example row of columns -->
+        <div class="row" id="quanbushuoshuo" style="display: none;"></div>
+    </div> <!-- /container -->
+
 	</body>
 	
 	
 	<script type="text/template"id="moban">
-    <div class="grid2" style="margin-top: 0;">
-        <div class="thumbnail" style="border-top:none;border-bottom:10px; margin-top: 1px;">
-            <h2 id="yhm"><img style="border-radius: 70%" width="46" src="http://192.168.0.22:3001/avatar/{{=avatar}}" alt=""/></h2>
-            <div class="caption">
-                <p class="neirong">{{=content}}</p>
-
-                <p>{{=date}}</p>
-                <button  onclick="dianzan(this.name,this)" name="{{=_id}}" >赞
-                    <span style="{{=yanse}}" id="span1">{{=zan.length-2}}</span>
-                </button>
-                
-           <span {{=flag}}>
-          <a   href="javascript:void(0)" onclick="shanchushuoshuo(this)" name="{{=_id}}" style="color:#000000">
-              <button   type="button" >
-                  	删除
-              </button>
-          </a>
-               <!--<div style="display: none">{{=_id}}</div>-->
-            </span>
-            
-             
+        <div class="grid2" style="margin-top: 0;">
+            <div class="thumbnail" style="border-top:none;border-bottom:10px; margin-top: 1px;">
+                <h2 id="yhm"><img style="border-radius: 70%" width="46" src="http://192.168.0.22:3001/avatar/{{=avatar}}" alt=""/></h2>
+                <div class="caption">
+                    <p class="neirong">{{=content}}</p>
+                    <p>{{=date}}</p>
+                    <button  onclick="dianzan(this.name,this)" name="{{=_id}}" >赞
+                        <span style="{{=yanse}}" id="span1">{{=zan.length-2}}</span>
+                    </button>
+                <span {{=flag}}>
+                    <a href="javascript:void(0)" onclick="shanchushuoshuo(this)" name="{{=_id}}" style="color:#000000">
+                        <button type="button" >删除</button>
+                    </a>
+                   <!--<div style="display: none">{{=_id}}</div>-->
+                </span>
+                </div>
             </div>
+            <hr>
+            <!--<p><a class="btn btn-default btn-sm" href="#" role="button">查看个人</a></p>-->
         </div>
-        <hr />
-        <!--<p><a class="btn btn-default btn-sm" href="#" role="button">查看个人</a></p>-->
-    </div>
-
-</script>
+    </script>
 
 <script type="text/javascript">
     //    var $quanbushuoshuo = $("#quanbushuoshuo");
@@ -260,33 +246,30 @@
 //      document.querySelector("#xingming").innerHTML="欢迎您，"+dataObj.username;
         document.querySelector("#panduan").innerHTML=dataObj.username;
 
-    //分页条的Ajax
-    $.get("http://192.168.0.22:3001/getshuoshuoamount?huati="+document.querySelector("#spselect").innerHTML, function (result1) {
-//            alert(result);
-        if(result1=="-1"){
-            return;
-        }
-        var amount = parseInt(result1);
-        //总页数
-        pageamount = Math.ceil(amount / 10);
-//            alert(amount);
-        for (var i = 1; i <=pageamount; i++) {
-            $(".pagination").append("<li><a href='javascript:void(0);'>" + i + "</a></li>");
-        }
-        $(".pagination li:first").addClass("active");
-        //监听
-        $(".pagination li").click(function () {
-            var page = parseInt($(this).index());
-//                alert(page);
-            $(this).addClass("active").siblings().removeClass("active");
-            getpage(page);
-//                $(this).addClass("active").siblings().removeClass("active");
+        //分页条的Ajax
+        $.get("http://192.168.0.22:3001/getshuoshuoamount?huati="+document.querySelector("#spselect").innerHTML, function (result1) {
+            if(result1=="-1"){
+                return;
+            }
+            var amount = parseInt(result1);
+            //总页数
+            pageamount = Math.ceil(amount / 10);
+    //            alert(amount);
+            for (var i = 1; i <=pageamount; i++) {
+                $(".pagination").append("<li><a href='javascript:void(0);'>" + i + "</a></li>");
+            }
+            $(".pagination li:first").addClass("active");
+            //监听
+            $(".pagination li").click(function () {
+                var page = parseInt($(this).index());
+    //                alert(page);
+                $(this).addClass("active").siblings().removeClass("active");
+                getpage(page);
+    //                $(this).addClass("active").siblings().removeClass("active");
+            });
         });
+        getpage(0);
     })
-    getpage(0);
-
-    })
-
 </script>
 
 <script>

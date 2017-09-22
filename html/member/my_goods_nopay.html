@@ -149,7 +149,7 @@
         apiready = function() {
             api.parseTapmode();
             $.getJSON("http://192.168.0.22:3001/getdingdans?type=1", function(data) {
-                if(data.dingdan == -1){
+                if(data == -1){
                     $("#load").html("没有待付款数据");
                 }else{
                     $.each(data.dingdan, function(idx, item) {
@@ -194,10 +194,10 @@
                                     "&nbsp;&nbsp;实付金额: <span class='aui-text-danger'>￥" + dingdanzongjia + "</span></p>" +
                                     "<div class='aui-line-x' style='margin: 8px 0 5px 0;'></div>" +
                                     "<div class='aui-text-right'>" +
-                                    "<div class='aui-btn aui-btn-warning aui-btn-outlined'>更多</div>" +
-                                    "<div class='aui-btn aui-btn-warning aui-btn-outlined'>删除订单</div>" +
-                                    "<div class='aui-btn aui-btn-warning aui-btn-outlined'>查看物流</div>" +
-                                    "<div class='aui-btn aui-btn-warning aui-btn-outlined'>评价</div></div>";
+                                    "<div class='aui-btn aui-btn-warning aui-btn-outlined'>联系客服</div>" +
+                                    "<div id='" +orderNumber+
+                                    "' class='aui-btn aui-btn-warning aui-btn-outlined' onclick='deleteOrder(this.id)'>取消订单</div>" +
+                                    "<div class='aui-btn aui-btn-warning aui-btn-outlined'>继续支付</div>";
                             $("#load").hide();
                             $("#order").append(html1+html2);
                         }
@@ -205,5 +205,15 @@
                 }
             });
         };
+        function deleteOrder(id){
+            $.getJSON("http://192.168.0.22:3001/deleteOrder?dingdanbiaoshi="+ id, function(data) {
+                if(data == 1){
+                    alert("取消成功");
+                    $("#order").append("");
+                }else{
+                    alert("取消失败");
+                }
+            });
+        }
     </script>
 </html>

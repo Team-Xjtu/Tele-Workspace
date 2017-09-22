@@ -147,7 +147,7 @@
 			});
 		}
 		$.getJSON("http://192.168.0.22:3001/getdingdans?type=0", function(data) {
-			if(data.dingdan == -1){
+			if(data == -1){
 				$("#load").html("没有数据");
 			}else{
 				$.each(data.dingdan, function(idx, item) {
@@ -194,14 +194,23 @@
 								"<div class='aui-text-right'>" +
 								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>更多</div>" +
 								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>删除订单</div>" +
-								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>查看物流</div>" +
-								"<div class='aui-btn aui-btn-warning aui-btn-outlined'>评价</div></div>";
+								"<div id='" +orderNumber+ "' class='aui-btn aui-btn-warning aui-btn-outlined' onclick='addComment(this.id)'>追加评价</div></div>";
 						$("#load").hide();
 						$("#order").append(html1+html2);
 					}
 				})
 			}
 		});
+		function addComment(id){
+			//id为订单编号
+			api.openFrame({
+				name : 'comment_goods_head',
+				url : 'comment_goods_head.html',
+				pageParam : {
+
+				}
+			});
+		}
 		apiready = function() {
 			api.parseTapmode();
 		};
