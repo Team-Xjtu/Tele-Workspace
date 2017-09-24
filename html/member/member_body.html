@@ -193,7 +193,7 @@
 					</div>
 	            </li>
 	            
-	            <li class="aui-col-xs-4 aui-text-center" onclick="call('10010')">
+	            <li class="aui-col-xs-4 aui-text-center" onclick="getKefu()">
 	                <div class="content-area">
 						<p class="aui-bg-fd6e90">
 							<i class="aui-iconfont aui-icon-servicefill"></i>
@@ -216,22 +216,22 @@
 //				}
 //			});
 //		});
+		var username = $api.getStorage('username2');
 		apiready = function() {
 			api.parseTapmode();
 			var LoginState = $api.getStorage('LoginState');
 			var imgObj=document.getElementById("image");
 			if(LoginState == 1){
-				$(".unames").text($api.getStorage('username2'));
+				$(".unames").text(username);
 				 $.get("http://192.168.0.22:3001/getavatar", function(result) {
-				 	 //alert("geting avatar");
-	 			//alert(JSON.stringify(result));
 	 			if(result.avatar.length>20)
 	 			imgObj.src=result.avatar;
-	 });
+				 });
 			}
-			
-			
-				
+		}
+
+		function getKefu(){
+			window.location.href="http://192.168.0.22:3000";
 		}
 		
 		function openMyprofile(){
