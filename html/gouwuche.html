@@ -136,7 +136,7 @@
                 });
                 var shangpinsJson = JSON.stringify(shangpins);
                 if (parseInt($('.settt').prev("span").html()) > 0) {
-                    $.post("http://192.168.0.22:3001/createdingdan", {
+                    $.post("http://47.95.209.24:3001/createdingdan", {
                         "shangpins" : shangpinsJson,
                         "zongjia" : $('.settt').prev("span").html()
                     }, function(result) {
@@ -165,7 +165,7 @@
                     showTime: true
                 }, function(ret, err) {
                     $api.html($api.byId('contentList'),"");
-                    $.get("http://192.168.0.22:3001/getgouwuche", function(result) {
+                    $.get("http://47.95.209.24:3001/getgouwuche", function(result) {
                         resultDiybiaoshi = [];
                         if (result == "-1") {
                             alert("出错了");

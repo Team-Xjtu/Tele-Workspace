@@ -19,7 +19,7 @@ function sendDiyMsg(base64Data, sence, jieshao, shangpinhao, name){
     form_data.append("diyname", name);
     $.ajax({
 		type: "POST", // 上传文件要用POST
-        url: "http://192.168.0.22:3001/adddiy",
+        url: "http://47.95.209.24:3001/adddiy",
 		dataType : "json",
 		crossDomain: true, // 如果用到跨域，需要后台开启CORS
 		processData: false,  // 注意：不要 process data

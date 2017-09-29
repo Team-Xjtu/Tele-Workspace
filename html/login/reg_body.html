@@ -223,7 +223,7 @@
 		}
 		function regist() {
 			alert("registing");
-			$.post("http://192.168.0.22:3001/doregist", {
+			$.post("http://47.95.209.24:3001/doregist", {
 				"username" : $("#username").val(),
 				"password" : $("#password").val(),
 				"email" : $("#email").val()
@@ -390,7 +390,7 @@
     function submit(){
 
       if(flag[0]==1&&flag[1]==1&&flag[2]==1&&flag[3]==1){
-        $.post("http://192.168.0.22:3001/doregist",{
+        $.post("http://47.95.209.24:3001/doregist",{
                 "username":$("#username").val(),
                 "password":$("#password").val(),
                 "email":$("#email").val()

@@ -112,7 +112,7 @@
 		});
 		apiready = function() {
 			api.parseTapmode();
-			$.getJSON("http://192.168.0.22:3001/getdingdaninfo", function(data) {
+			$.getJSON("http://47.95.209.24:3001/getdingdaninfo", function(data) {
 				$("#orderNumber").html(data.dingdanbiaoshi);
 				$("#orderTime").html(data.chuangjiantime);
 				$("#name").html(data.dingdandizhi.name);

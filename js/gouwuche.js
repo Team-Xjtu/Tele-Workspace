@@ -147,7 +147,7 @@
 				index.push(resultDiybiaoshi[i]);
 			}
 		});
-		$.get("http://192.168.0.22:3001/shanchudiy?diybiaoshi=" + index, function(result) {
+		$.get("http://47.95.209.24:3001/shanchudiy?diybiaoshi=" + index, function(result) {
 			if(result == 1){
 				for(var i = 0; i < index.length; i++){
 					$("#" + index[i]).remove();

@@ -166,7 +166,7 @@
 			if (a.checked) {
 				$(":checkbox").removeAttr("checked");
 				a.checked = true;
-				$.get("http://192.168.0.22:3001/morendizhi?biaoshi=" + b, function(result) {
+				$.get("http://47.95.209.24:3001/morendizhi?biaoshi=" + b, function(result) {
 					if (result == "-1") {
 						$("#cuowukuang").html("设置失败");
 						$('#cuowukuang').fadeIn();
@@ -195,7 +195,7 @@
 		}
 		function shanchu(a) {
 			var biaoshi = $(a).attr("name");
-			$.get("http://192.168.0.22:3001/shanchudizhi?biaoshi=" + biaoshi, function(result) {
+			$.get("http://47.95.209.24:3001/shanchudizhi?biaoshi=" + biaoshi, function(result) {
 				if (result == "-1") {
 					$("#cuowukuang").html("删除失败");
 					$('#cuowukuang').fadeIn();
@@ -214,7 +214,7 @@
 		function getpage() {
 			$("#rongqi").html("");
 			$.ajax({
-				"url" : "http://192.168.0.22:3001/dizhiguanli",
+				"url" : "http://47.95.209.24:3001/dizhiguanli",
 				"type" : "get",
 				"success" : function(result) {
 					if (result == "-1") {

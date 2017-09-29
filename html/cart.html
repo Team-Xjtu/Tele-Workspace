@@ -179,7 +179,7 @@
 		<script>
 			var resultDiybiaoshi = [];
 			var getgouwucheInfo;
-			$.get("http://192.168.0.22:3001/getgouwuche", function(result) {
+			$.get("http://47.95.209.24:3001/getgouwuche", function(result) {
 				if (result == "-1") {
 					alert("出错了");
 					return;
@@ -212,7 +212,7 @@
 				}
 				var shangpins1 = JSON.stringify(shangpins);
 				if (parseInt(document.querySelector("#zongjia").innerHTML) > 0) {
-					$.post("http://192.168.0.22:3001/createdingdan", {
+					$.post("http://47.95.209.24:3001/createdingdan", {
 						"shangpins" : shangpins1,
 						"zongjia" : document.querySelector("#zongjia").innerHTML
 					}, function(result) {
@@ -510,7 +510,7 @@
                     showTime: true
                 }, function(ret, err) {
                 
-                $.get("http://192.168.0.22:3001/getgouwuche", function(result) {
+                $.get("http://47.95.209.24:3001/getgouwuche", function(result) {
 				if (result == "-1") {
 					alert("出错了");
 					return;

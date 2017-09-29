@@ -204,7 +204,7 @@
     
     
     var flag=[0,0];
-    $.get("http://192.168.0.22:3001/getinfo",function(result) {
+    $.get("http://47.95.209.24:3001/getinfo",function(result) {
 //        alert(result);
         var dataObj = eval("(" + result + ")");
 //        alert(dataObj.avatar);
@@ -223,7 +223,7 @@
             flag[0]=1;
         }
         if(flag[0]==1){
-            $.get("http://192.168.0.22:3001/testusername?username="+$("#username").val(),function(result){
+            $.get("http://47.95.209.24:3001/testusername?username="+$("#username").val(),function(result){
                 if(result!="-1"){
                     document.querySelector("#nameMessage").innerHTML="未注册的用户名";
                     flag[0]=0;
@@ -265,7 +265,7 @@
             }
         }
         if(flag[1]==1&&flag[0]==1){
-            $.get("http://192.168.0.22:3001/testemail?username="+$("#username").val()+"&email="+$("#email").val(),function(result){
+            $.get("http://47.95.209.24:3001/testemail?username="+$("#username").val()+"&email="+$("#email").val(),function(result){
                 if(result=="-1"){
                     document.querySelector("#emailMessage").innerHTML="邮箱与用户名不匹配";
                     flag[1]=0;
@@ -281,7 +281,7 @@
     function submit(){
 
         if(flag[0]==1&&flag[1]==1){
-            $.get("http://192.168.0.22:3001/mimazhaohui?username="+$("#username").val()+"&email="+$("#email").val(),function(result){
+            $.get("http://47.95.209.24:3001/mimazhaohui?username="+$("#username").val()+"&email="+$("#email").val(),function(result){
                 //alert(result);
                 if(result=="-1"){
                     $("#cuowukuang").fadeIn();

@@ -178,7 +178,7 @@
     <div class="grid2" style="margin-top: 0; ">
         <div class="thumbnail" style="border-top:none;border-bottom:10px; margin-top: 1px;">
             <div class="caption">
-                <!--<img style="border-radius: 70%" width="20px" src="http://192.168.0.22:3001/avatar/{{=avatar}}" alt=""/>-->
+                <!--<img style="border-radius: 70%" width="20px" src="http://47.95.209.24:3001/avatar/{{=avatar}}" alt=""/>-->
                 {{=username}}
                 <p class="neirong">{{=content}}</p>
                 <p>{{=date}}</p>
@@ -203,14 +203,14 @@
 		$(document).ready(function(){
 			urlarrayshow = $api.getStorage('urlarray');
 			var width = Number($api.getStorage('width'));
-			var url0show = "http://192.168.0.22:3001" + urlarrayshow[0];
+			var url0show = "http://47.95.209.24:3001" + urlarrayshow[0];
 			$("#slider_pic1").attr("src",url0show);
 			$("#slider_pic1").css("width",width);
 			if(urlarrayshow.length > 1){
 				var div1 ="<div class=\"aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center\">";
 				var div2 = "</div>";
 				for(var i = 1; i < urlarrayshow.length; i++){
-				    urlshow = "http://192.168.0.22:3001" + urlarrayshow[i];
+				    urlshow = "http://47.95.209.24:3001" + urlarrayshow[i];
                     var img = "<img class=\"slidershow\" src=\"" + urlshow + "\">";
                     var html = div1 + img + div2;
                     $("div#slide_append").append(html);
@@ -228,7 +228,7 @@
                 "loop" : true,
                 'dotPosition' : 'center'
 		    });
-            $.get("http://192.168.0.22:3001/getshuoshuoamount?huati=日常心情", function (result) {
+            $.get("http://47.95.209.24:3001/getshuoshuoamount?huati=日常心情", function (result) {
                 if(result == -1){
                     $("#count").html("");
                 }else{
@@ -237,12 +237,12 @@
             });
             var page = 0;
             var compiled = _.template($("#moban").html());
-            $.get("http://192.168.0.22:3001/getallshuoshuo?page="+page+"&huati=日常心情", function (result) {
+            $.get("http://47.95.209.24:3001/getallshuoshuo?page="+page+"&huati=日常心情", function (result) {
                 if(result=="-1"){
                     return;
                 }
                 var dataObj;
-                $.get("http://192.168.0.22:3001/getinfo",function(data){
+                $.get("http://47.95.209.24:3001/getinfo",function(data){
                     dataObj = eval("("+data+")");
                 });
                 iterator(0);
@@ -250,7 +250,7 @@
                     if (i == result.length) {
                         return;
                     }
-                    $.get("http://192.168.0.22:3001/getuserinfo?username="+result[i].username, function (result1) {
+                    $.get("http://47.95.209.24:3001/getuserinfo?username="+result[i].username, function (result1) {
                         result[i].avatar = result1.avatar;
                         var user = dataObj.username;
                         if(result[i].username != user) {

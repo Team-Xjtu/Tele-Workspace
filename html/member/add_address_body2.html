@@ -166,7 +166,7 @@
             setTimeout("$('#cuowukuang').fadeOut()",3000);
         }
         else{
-        $.post("http://192.168.0.22:3001/adddizhi", {"name":$("#name").val(),"dianhua":$("#dianhua").val(),"pro": $("#pro option:selected" ).val(),"city":$("#city option:selected" ).val(),"area":$("#area option:selected" ).val(),"jutidizhi":$("#jutidizhi").val()},function(result){
+        $.post("http://47.95.209.24:3001/adddizhi", {"name":$("#name").val(),"dianhua":$("#dianhua").val(),"pro": $("#pro option:selected" ).val(),"city":$("#city option:selected" ).val(),"area":$("#area option:selected" ).val(),"jutidizhi":$("#jutidizhi").val()},function(result){
         if(result=="-1"){
             $("#cuowukuang").html("保存失败");
             $('#cuowukuang').fadeIn();

@@ -223,7 +223,7 @@
 			var imgObj=document.getElementById("image");
 			if(LoginState == 1){
 				$(".unames").text(username);
-				 $.get("http://192.168.0.22:3001/getavatar", function(result) {
+				 $.get("http://47.95.209.24:3001/getavatar", function(result) {
 	 			if(result.avatar.length>20)
 	 			imgObj.src=result.avatar;
 				 });
@@ -231,7 +231,7 @@
 		}
 
 		function getKefu(){
-			window.location.href="http://192.168.0.22:3000";
+			window.location.href="http://47.95.209.24:3000";
 		}
 		
 		function openMyprofile(){

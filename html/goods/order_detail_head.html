@@ -52,7 +52,7 @@
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script type="text/javascript">
 		var dizhibiaoshi;
-		$.getJSON("http://192.168.0.22:3001/dizhiguanli", function(data) {
+		$.getJSON("http://47.95.209.24:3001/dizhiguanli", function(data) {
 			$.each(data.result, function(idx, item) {
 				if(idx==1){
 					dizhibiaoshi = item.biaoshi;
@@ -79,7 +79,7 @@
 			});
 		};
 	    function goumai() {
-            $.getJSON("http://192.168.0.22:3001/showdingdan", function(data) {
+            $.getJSON("http://47.95.209.24:3001/showdingdan", function(data) {
 				var shangpins = data.shangpins;
 				var diybiaoshi = [];
 				for(var i = 0; i < shangpins.length; i++){
@@ -91,14 +91,14 @@
 					return;
 				}else {
 					var shangpinsJson = JSON.stringify(shangpins);
-					$.post("http://192.168.0.22:3001/goumai", {
+					$.post("http://47.95.209.24:3001/goumai", {
 						"shangpins": shangpinsJson,
 						"zongjia": zongjia,
 						"dizhibiaoshi": dizhibiaoshi
 					}, function (result) {
 						if (result == "1") {
 							alert("提交成功");
-							$.get("http://192.168.0.22:3001/shanchudiy?diybiaoshi=" + diybiaoshi, function(result) {
+							$.get("http://47.95.209.24:3001/shanchudiy?diybiaoshi=" + diybiaoshi, function(result) {
 								if(result == 1){
 
 								}else{

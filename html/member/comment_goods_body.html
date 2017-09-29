@@ -155,7 +155,7 @@
 	<script type="text/template"id="moban">
         <div class="grid2" style="margin-top: 0;">
             <div class="thumbnail" style="border-top:none;border-bottom:10px; margin-top: 1px;">
-                <h2 id="yhm"><img style="border-radius: 70%" width="46" src="http://192.168.0.22:3001/avatar/{{=avatar}}" alt=""/></h2>
+                <h2 id="yhm"><img style="border-radius: 70%" width="46" src="http://47.95.209.24:3001/avatar/{{=avatar}}" alt=""/></h2>
                 <div class="caption">
                     <p class="neirong">{{=content}}</p>
                     <p>{{=date}}</p>
@@ -192,7 +192,7 @@
 //          var compiled = _.template($("#moban").html());
 
         $.ajax({
-                    "url": "http://192.168.0.22:3001/getallshuoshuo?page=" + page+"&huati="+document.querySelector("#spselect").innerHTML,
+                    "url": "http://47.95.209.24:3001/getallshuoshuo?page=" + page+"&huati="+document.querySelector("#spselect").innerHTML,
                     "type": "get",
                     "success": function (result2) {
 //                          alert(result.length);
@@ -207,7 +207,7 @@
                                 return;
                             }
 
-                            $.get("http://192.168.0.22:3001/getuserinfo?username=" + result2[i].username, function (result3) {
+                            $.get("http://47.95.209.24:3001/getuserinfo?username=" + result2[i].username, function (result3) {
                                 result2[i].avatar = result3.avatar;
                                 var user=document.querySelector("#panduan").innerHTML;
                                 if(result2[i].username!=user) {
@@ -228,7 +228,7 @@
 
     }
     function shanchushuoshuo(a){
-        $.get("http://192.168.0.22:3001/shanchushuoshuo?id="+ a.name,function(result){
+        $.get("http://47.95.209.24:3001/shanchushuoshuo?id="+ a.name,function(result){
             if(result=="1")
             {
 
@@ -237,7 +237,7 @@
         });
     }
     var compiled = _.template($("#moban").html());
-    $.get("http://192.168.0.22:3001/getinfo",function(result){
+    $.get("http://47.95.209.24:3001/getinfo",function(result){
 //        alert(result);
         var dataObj=eval("("+result+")");
 //        alert(dataObj.avatar);
@@ -247,7 +247,7 @@
         document.querySelector("#panduan").innerHTML=dataObj.username;
 
         //分页条的Ajax
-        $.get("http://192.168.0.22:3001/getshuoshuoamount?huati="+document.querySelector("#spselect").innerHTML, function (result1) {
+        $.get("http://47.95.209.24:3001/getshuoshuoamount?huati="+document.querySelector("#spselect").innerHTML, function (result1) {
             if(result1=="-1"){
                 return;
             }
@@ -275,10 +275,10 @@
 <script>
 
     function changeyzm(a){
-        a.src="http://192.168.0.22:3001/scyanzhengma";
+        a.src="http://47.95.209.24:3001/scyanzhengma";
     }
     function dianzan(a,b){
-        $.get("http://192.168.0.22:3001/dianzan?id="+a,function(result){
+        $.get("http://47.95.209.24:3001/dianzan?id="+a,function(result){
 //            alert(b.childNodes[0].innerHTML);
 //                 alert(result);
             b.querySelector("#span1").innerHTML=result.dianzanshu-2;
@@ -301,7 +301,7 @@
             $("#cuowukuang4").fadeIn();
         }
         else {
-            $.post("http://192.168.0.22:3001/postshuoshuo", {"content": $("#shuoshuo").val(),"huati":document.querySelector("#spselect").innerHTML}, function (result) {
+            $.post("http://47.95.209.24:3001/postshuoshuo", {"content": $("#shuoshuo").val(),"huati":document.querySelector("#spselect").innerHTML}, function (result) {
                 if(result=="1"){
 
                     $("#chenggong1").fadeIn();
@@ -355,7 +355,7 @@
             $("#cuowukuang2").fadeIn();
         }
         else {
-            $.post("http://192.168.0.22:3001/dologin", {
+            $.post("http://47.95.209.24:3001/dologin", {
                 "username": $("#username").val(),
                 "password": $("#password").val(),
                 "yanzhengma":$("#yanzhengma").val().toString()
@@ -363,7 +363,7 @@
                 //alert(result);
                 if (result == "-1") {
 
-                    document.querySelector("#yanzhengmaimg").src="http://192.168.0.22:3001/scyanzhengma";
+                    document.querySelector("#yanzhengmaimg").src="http://47.95.209.24:3001/scyanzhengma";
                     $("#cuowukuang").fadeIn();
                     $("#cuowukuang").html("用户名不存在");
 
