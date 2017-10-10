@@ -242,7 +242,11 @@
 			else{
 			api.openWin({
 	            name: 'myProfile_head',
-	            url: './myProfile_head.html'
+	            url: './myProfile_head.html',
+                reload:true,
+                pageParam:{
+                    username:username
+                }
             });
 		}
 		}

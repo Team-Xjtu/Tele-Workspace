@@ -26,14 +26,15 @@
 	                <div class="aui-arrow-right">
 	                		<i class="aui-iconfont aui-icon-mobilefill aui-bg-FC9700"></i>
 	                		手机号
-	                		<span class="aui-pull-right">18663766666</span>
+	                		<span id="tele" class="aui-pull-right"></span>
 	                		</div>
 	            </li>
-	            <li class="aui-list-view-cell" onclick="editPrompt('nickname','昵称','text')">
+	            <!--<li class="aui-list-view-cell" onclick="editPrompt('nickname','昵称','text')">-->
+	            <li class="aui-list-view-cell">
 	                <div class="aui-arrow-right">
 	                		<i class="aui-iconfont aui-icon-profile aui-bg-67d2f8"></i>
 	                		昵称
-	                		<span class="aui-pull-right">安静的美男子</span>
+	                		<span id="username" class="aui-pull-right"></span>
 	                </div>
 	            </li>
 	            <li class="aui-list-view-cell" onclick="editsex()">
@@ -47,10 +48,10 @@
 	                <div class="aui-arrow-right">
 	                		<i class="aui-iconfont aui-icon-crownfill aui-bg-warning"></i>
 	                		生日
-	                		<span class="aui-pull-right">1991-05-05</span>
+	                		<span class="aui-pull-right"></span>
 	                 </div>
 	            </li>
-	            <li class="aui-list-view-cell" tapmode onclick="openWinto('editPwd_head','../login/editPwd_head')">
+	            <li class="aui-list-view-cell" tapmode onclick="openWintoLzp('editPwd_head','../login/editPwd_head')">
 	                <div class="aui-arrow-right">
 	                		<i class="aui-iconfont aui-icon-safe aui-bg-FF6665"></i>
 	                		修改密码
@@ -74,6 +75,44 @@
 	<script type="text/javascript" src="../../script/common.js"></script>
 	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script type="text/javascript">
+		var telephone;
+        apiready = function() {
+            var imgObj=document.getElementById("img");
+            $.get("http://47.95.209.24:3001/getavatar", function(result) {
+                //alert("geting avatar");
+                //alert(JSON.stringify(result));
+                if(result.avatar.length>20)
+                    imgObj.src=result.avatar;
+            });
+            api.parseTapmode();
+            var username = api.pageParam.username;
+            $.getJSON("http://47.95.209.24:3001/getuserinfo?username="+username, function(data) {
+                if(data == ""){
+                    alert("信息错误");
+				}else{
+                    var result = data;
+                    $("#username").text(result.username);
+                    if(result.dizhi.length > 1){
+                        $("#tele").text(result.dizhi[1].dianhua);
+                        telephone = result.dizhi[1].dianhua;
+					}else{
+                        $("#tele").text("");
+					}
+				}
+            });
+        };
+
+        function openWintoLzp(name,url){//打开新窗口
+            api.openWin({
+                name: name,
+                url: url+'.html',
+                pageParam:{
+                    telephone:telephone
+                },
+                slidBackType:'edge'
+            });
+        }
+
 		function editPrompt(name,title,type){//修改昵称  生日
 			api.prompt({
 				title:'修改'+title,
@@ -101,16 +140,16 @@
 			});
 		}
 		
-function getBase64Image(img) {
-        var canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-        var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();
-        var dataURL = canvas.toDataURL("image/"+ext);
-        return dataURL;
-}
+		function getBase64Image(img) {
+			var canvas = document.createElement("canvas");
+			canvas.width = img.width;
+			canvas.height = img.height;
+			var ctx = canvas.getContext("2d");
+			ctx.drawImage(img, 0, 0, img.width, img.height);
+			var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();
+			var dataURL = canvas.toDataURL("image/"+ext);
+			return dataURL;
+		}
 //var img = SavedCilp;
 
 
@@ -236,16 +275,6 @@ function sendCip(base64Data){
 					}
 				});
 			});
-		}
-		apiready = function() {
-		var imgObj=document.getElementById("img");
-		$.get("http://47.95.209.24:3001/getavatar", function(result) {
-				 	 //alert("geting avatar");
-	 			//alert(JSON.stringify(result));
-	 			if(result.avatar.length>20)
-	 			imgObj.src=result.avatar;
-	 });
-			api.parseTapmode();
 		}
 	</script>
 </html>

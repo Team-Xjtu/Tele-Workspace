@@ -128,7 +128,7 @@
 					<div class="form-row">
 						<span class="aui-iconfont aui-icon-mobilefill">&nbsp;|</span>
 						<div class="input-box">
-							<input type="number" name="phone" value="1855656565" placeholder="请输入手机号" readonly="" />
+							<input type="number" id="phone" name="phone" value="" placeholder="请输入手机号"/>
 						</div>
 						<div class="aui-input-addon">
 		                    <div class="aui-btn aui-btn-default" id="sendVerify" status="1" tapmode onclick="getVerify()">获取验证码</div>
@@ -162,8 +162,10 @@
 	<script type="text/javascript">
 	var isinerval,times;
     apiready = function () {
+        var telephone = api.pageParam.telephone;
         api.parseTapmode();
-    }
+        $("#phone").val(telephone);
+    };
 	function showPassword(){
         $api.attr($api.byId('password'),'type','text');
         $api.removeCls($api.byId('showpass-btn'),'aui-icon-attention');

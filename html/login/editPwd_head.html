@@ -35,6 +35,7 @@
 <script type="text/javascript" src="../../script/zepto.min.js"></script>
 <script type="text/javascript">
     apiready = function() {
+        var telephone = api.pageParam.telephone;
         api.parseTapmode();
         var header = $api.byId('aui-header');
         $api.fixStatusBar(header);
@@ -48,6 +49,9 @@
                 y: headerPos.h,
                 w: 'auto',
                 h: 'auto'
+            },
+            pageParam:{
+                telephone:telephone
             }
         });
     }
