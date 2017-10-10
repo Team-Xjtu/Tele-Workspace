@@ -14,11 +14,11 @@
 
         var controls = new function () {
 
-            this.x = -10;
+            this.x = 0;
             this.y = 0;
-            this.z = 2;
-            this.size = size;
-            this.height = height;
+            this.z = 30;
+            this.size = size*10;
+            this.height = height*10;
             this.font = font;
             this.weight = "bold";
 
@@ -43,10 +43,10 @@
                 });
 
             };
-
+            //参数x，y
             this.initMove = function() {
                 plane = new THREE.Mesh(
-                    new THREE.PlaneGeometry( 30, 60, 1, 1 ),
+                    new THREE.PlaneGeometry( 450, 950, 1, 1 ),
                     new THREE.MeshBasicMaterial(
                         {   color: 0x000000,
                             opacity: 0,
@@ -55,7 +55,8 @@
                         }
                     )
                 );
-                plane.position.z = 2;
+                //参数z
+                plane.position.z = 30;
                 plane.visible = true;
                 scene.add( plane );
             };
@@ -113,5 +114,7 @@
             if(intersects.length > 0){
                 SELECTED.position.copy( intersects[ 0 ].point.sub( offset ) );
             }
+        }else{
+            return;
         }
     }

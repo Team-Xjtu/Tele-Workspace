@@ -43,8 +43,6 @@ function initCamera(width,height) {
     camera.position.y = 0;
     camera.position.z = 1000;
     camera.lookAt(scene.position);
-    var axes = new THREE.AxisHelper(1000);
-    scene.add(axes);
     orbitControls = new THREE.OrbitControls(camera);
     clock = new THREE.Clock();
 }
