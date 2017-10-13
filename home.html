@@ -27,7 +27,7 @@
                         <!--</a>-->
                     <!--</li>-->
                 <!--</ul>-->
-                <com-null :items="items" :isload="isload"></com-null>
+                <!--<com-null :items="items" :isload="isload"></com-null>-->
             </div>
         </div>
         <script src="js/vue.js"></script>
@@ -105,8 +105,8 @@
 
                                 var id = value.shangpinhao;
                                 var title = value.shangpinname;
-                                var imgb = "." + value.patharray[0];
-                                var imgf = "." + value.patharray[1];
+                                var imgb = "." + value.patharray[1];
+                                var imgf = "." + value.patharray[2];
                                 var href = "indexDiy.html?id=" + id;
                                 return  {
                                     id : id,
@@ -121,6 +121,9 @@
                     components: {
                         "com-shell": components.shell,
                         "com-null": components.null
+                    },
+                    created: function() {
+                        this.tabChange(0);
                     }
                 });
             })();

@@ -81,7 +81,7 @@ function loadModel(fileUrl,imageUrl) {
     var loader = new THREE.JSONLoader();
     loader.load(fileUrl, function (geometry, material) {
         var mats = [];
-        for(var i = 0; i < imageUrl.length; i++){
+        for(var i = 1; i < imageUrl.length; i++){
             var texture = THREE.ImageUtils.loadTexture(imageUrl[i].replace("/",""));
             var side = new THREE.MeshPhongMaterial();
             side.map = texture;

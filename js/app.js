@@ -40,7 +40,8 @@
             "<p onclick=\"openWinto('indexDiy','./indexDiy')\">模型名称：{{ item.title }}</p>" +
             "<a :href='item.href'>"+
             "<img class='pic' :src='item.imgb' style='width: 60px;height: 60px'>" +
-            "<img class='pic' :src='item.imgf' style='width: 60px;height: 60px; margin-left: 10px'>"+
+            "<img class='pic' :src='item.imgf' style='width: 60px;height: 60px; margin-left: 10px'>" +
+            // "<img class='pic' :src='item.imgm' style='width: 60px;height: 60px; margin-left: 10px'>"+
             "</a>" +
             "<hr>"+
             "<div class='ui-label-s'>类型" +
