@@ -17,7 +17,7 @@
     <body>
         <!--主题-->
         <div class="no">
-            <p>暂无数据，刷新看看！</p>
+            <p>刷新看看</p>
         </div>
         <div class="con">
             <div class="content">
@@ -165,24 +165,27 @@
                     showTime: true
                 }, function(ret, err) {
                     $api.html($api.byId('contentList'),"");
-                    $.get("http://47.95.209.24:3001/getgouwuche", function(result) {
-                        resultDiybiaoshi = [];
-                        if (result == "-1") {
-                            alert("出错了");
-                            return;
-                        }
-                        if (result.length > 1) {
-                            for(var i = 1; i < result.length; i++) {
-                                resultDiybiaoshi.push(result[i].diybiaoshi);
-                                var htmlstring = compiled(result[i]);
-                                $("#contentList").append($(htmlstring));
-                            }
-                        }
-                        loadJs("../js/gouwuche.js");
-                    });
+                    loadingData();
                     api.refreshHeaderLoadDone();
                 });
             };
+            function loadingData() {
+                $.get("http://47.95.209.24:3001/getgouwuche", function(result) {
+                    resultDiybiaoshi = [];
+                    if (result == "-1") {
+                        alert("出错了");
+                        return;
+                    }
+                    if (result.length > 1) {
+                        for(var i = 1; i < result.length; i++) {
+                            resultDiybiaoshi.push(result[i].diybiaoshi);
+                            var htmlstring = compiled(result[i]);
+                            $("#contentList").append($(htmlstring));
+                        }
+                    }
+                    loadJs("../js/gouwuche.js");
+                });
+            }
         </script>
     </body>
 </html>

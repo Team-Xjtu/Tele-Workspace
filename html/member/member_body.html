@@ -169,7 +169,12 @@
 			<div class=" aui-tree aui-text-center aui-text-686868">
 				<div class="aui-col-xs-4">积分<span class="aui-text-FF9800">100</span></div>
 				<div class="aui-col-xs-4" >余额<span class="aui-text-FF9800">￥100</span></div>
-				<div class="aui-col-xs-4" >优惠券<span class="aui-text-FF9800">2</span></div>
+				<div class="aui-col-xs-4" tapmode onclick="openWin('coupon_head','coupon_head',true)">
+					优惠券
+					<span class="aui-text-FF9800">
+						4
+					</span>
+				</div>
 			</div>
 		</div>
 		<div class="aui-content">
@@ -193,7 +198,7 @@
 					</div>
 	            </li>
 	            
-	            <li class="aui-col-xs-4 aui-text-center" onclick="getKefu()">
+	            <li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('kefu_head','kefu_head',true)">
 	                <div class="content-area">
 						<p class="aui-bg-fd6e90">
 							<i class="aui-iconfont aui-icon-servicefill"></i>
@@ -228,11 +233,7 @@
 	 			imgObj.src=result.avatar;
 				 });
 			}
-		}
-
-		function getKefu(){
-			window.location.href="http://47.95.209.24:3000";
-		}
+		};
 		
 		function openMyprofile(){
 			var LoginState = $api.getStorage('LoginState');

@@ -19,29 +19,29 @@
 <!-- 额外编辑按钮 -->
 <div class="edit-list-text">
     <button id="edit-text" class="edit-btn">
-        <i>T</i>
+        <i>编辑文字</i>
     </button>
 </div>
 <div class="edit-list-scale-look">
     <button id="showModel" class="edit-btn">
-        <i>L</i>
-    </button>
-</div>
-<div class="edit-list-scale-small">
-    <button id="small" class="edit-btn">
-        <i>-</i>
-    </button>
-</div>
-<div class="edit-list-scale-big">
-    <button id="big" class="edit-btn">
-        <i>+</i>
+        <i>操作图片</i>
     </button>
 </div>
 <div class="edit-list-scale-text">
     <button id="move" class="edit-btn">
-        <i>M</i>
+        <i>移动文字</i>
     </button>
 </div>
+<!--<div class="edit-list-scale-big">-->
+    <!--<button id="big" class="edit-btn">-->
+        <!--<i>+</i>-->
+    <!--</button>-->
+<!--</div>-->
+<!--<div class="edit-list-scale-small">-->
+    <!--<button id="small" class="edit-btn">-->
+        <!--<i>-</i>-->
+    <!--</button>-->
+<!--</div>-->
 <!-- 文字编辑 -->
 <div id="edit-text-box" class="edit-text-box">
     <div id="edit-text-content" class="edit-text-content">
@@ -92,7 +92,7 @@
 <!-- 编辑底部 -->
 <div class="edit-bottom">
     <div id="edit-option" class="edit-option">
-        <span v-for="(tab, index) in tabs" :class="{active:tab.active}" @click="changeTab(index)">{{ tab.text }}</span>
+        <span id="span_up" v-for="(tab, index) in tabs" :class="{active:tab.active}" @click="changeTab(index)">{{ tab.text }}</span>
         <input type="file" id="imgFile" class="imgFile" style="display: none">
     </div>
     <div class="edit-material-box">
@@ -115,12 +115,12 @@
     </div>
 </div>
 <!-- 指引 -->
-<div id="guide-box" class="guide-box">
-    <div class="guide-text">编辑文字</div>
-    <div class="guide-photo">操作图片</div>
-    <div class="guide-mark">+-功能待开放</div>
-    <div class="guide-move">移动文字</div>
-</div>
+<!--<div id="guide-box" class="guide-box">-->
+    <!--<div class="guide-text">编辑文字</div>-->
+    <!--<div class="guide-photo">操作图片</div>-->
+    <!--<div class="guide-move">移动文字</div>-->
+    <!--<div class="guide-mark">+-功能待开放</div>-->
+<!--</div>-->
 <!-- 图片库 -->
 <link rel="stylesheet" type="text/css" href="./css/headerDiy.css" />
 <script type="text/javascript" src="./js/jquery.js"></script>
@@ -223,9 +223,6 @@
                     {
                         text: "上传图片",
                         active: false
-                    }, {
-                        text: "图库素材",
-                        active: false
                     }
                 ]
             },
@@ -236,7 +233,7 @@
                             if(index == 0){
                                 $('#imgFile').click();
                             }
-                            value.active = true;
+//                            value.active = true;
                         } else {
                             value.active = false;
                         }
@@ -422,13 +419,13 @@
         save();
     });
 
-    $("#guide-box").on("click", function() {
-        var guideBox = document.getElementById("guide-box");
-        guideBox.classList.add("hide");
-        setTimeout(function() {
-            document.body.removeChild(guideBox);
-        }, 600);
-    });
+//    $("#guide-box").on("click", function() {
+//        var guideBox = document.getElementById("guide-box");
+//        guideBox.classList.add("hide");
+//        setTimeout(function() {
+//            document.body.removeChild(guideBox);
+//        }, 600);
+//    });
 
 </script>
 </body>

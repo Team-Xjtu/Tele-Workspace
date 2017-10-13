@@ -6,9 +6,7 @@
     display: flex; }
 .index-class{
     padding: 10px;
-    margin: 20px;
-    border: inset;
-    border-color: #F3AD2F;
+    margin-left: 50px;
 }
 .ui-label-s{
     font-size: 11px;
@@ -134,9 +132,9 @@
 }
 /* 按钮菜单 */
 .edit-btn {
-    width: 2em;
+    width: 4em;
     height: 2em;
-    font-size: .15rem;
+    font-size: .1rem;
     color: #EEEEEE;
     text-align: center;
     line-height: 2;
@@ -154,7 +152,7 @@
     right: .05rem;
     top: 1rem;
     z-index: 200; }
-.edit-list-scale-small{
+.edit-list-scale-text{
     position: absolute;
     right: .05rem;
     top: 1.5rem;
@@ -165,7 +163,7 @@
     top: 2rem;
     z-index: 200;
 }
-.edit-list-scale-text{
+.edit-list-scale-small{
     position: absolute;
     right: .05rem;
     top: 2.5rem;
@@ -328,7 +326,7 @@
     background-color: #F3AD2F;
     border-radius: 4px;
 }
-.guide-mark{
+.guide-move{
      position: absolute;
      right: 0.4rem;
      top: 1.5rem;
@@ -338,7 +336,7 @@
      background-color: #F3AD2F;
      border-radius: 4px;
 }
-.guide-move{
+.guide-mark{
     position: absolute;
     right: 0.4rem;
     top: 2.5rem;

@@ -37,18 +37,15 @@
             template:
             "<ul class='shell-list clearfix' :class='{load:isload}' v-show='isload || items.length > 0'>"+
             "<li class='index-class' v-for='item in items'>"+
-            "<p onclick=\"openWinto('indexDiy','./indexDiy')\">模型名称：{{ item.title }}</p>" +
             "<a :href='item.href'>"+
-            "<img class='pic' :src='item.imgb' style='width: 60px;height: 60px'>" +
-            "<img class='pic' :src='item.imgf' style='width: 60px;height: 60px; margin-left: 10px'>" +
+            "<img class='pic' :src='item.imgb' style='width: 100px;height: 100px'>" +
+            "<img class='pic' :src='item.imgf' style='width: 100px;height: 100px; margin-left: 40px'>" +
             // "<img class='pic' :src='item.imgm' style='width: 60px;height: 60px; margin-left: 10px'>"+
             "</a>" +
-            "<hr>"+
+            "<p onclick=\"openWinto('indexDiy','./indexDiy')\">{{ item.title }}</p>" +
             "<div class='ui-label-s'>类型" +
             "</div ><span><font> 手机模型</font></span>" +
-            "<hr>"+
-            "</li>" +
-            "</ul>"
+            "</li></ul>"
         },
         // 图片库
         material: {
