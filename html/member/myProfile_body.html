@@ -15,7 +15,7 @@
 	<body>
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
-	            <li class="aui-list-view-cell" style="line-height: 38px;">	                
+	            <li class="aui-list-view-cell" style="line-height: 38px;">
 	                <div class="aui-arrow-right" tapmode onclick="loadAvatar()">
 	                		<i class="aui-iconfont aui-icon-camerafill aui-bg-33CB9A"></i>
 	                		头像
@@ -38,38 +38,38 @@
 	                </div>
 	            </li>
 	            <li class="aui-list-view-cell" onclick="editsex()">
-	               <div class="aui-arrow-right"> 
+	               <div class="aui-arrow-right">
 	               		<i class="aui-iconfont aui-icon-male aui-bg-fd6e90"></i>
 	               		性别
 	               		<span class="aui-pull-right">男</span>
 	               	</div>
 	            </li>
-	            <li class="aui-list-view-cell" onclick="editPrompt('bothday','生日','number')">
+	            <!-- <li class="aui-list-view-cell" onclick="editPrompt('bothday','生日','number')">
 	                <div class="aui-arrow-right">
 	                		<i class="aui-iconfont aui-icon-crownfill aui-bg-warning"></i>
 	                		生日
 	                		<span class="aui-pull-right"></span>
 	                 </div>
-	            </li>
+	            </li> -->
 	            <li class="aui-list-view-cell" tapmode onclick="openWintoLzp('editPwd_head','../login/editPwd_head')">
 	                <div class="aui-arrow-right">
 	                		<i class="aui-iconfont aui-icon-safe aui-bg-FF6665"></i>
 	                		修改密码
-	                	</div>	                
+	                	</div>
 	            </li>
 	            <li class="aui-list-view-cell" tapmode onclick="openWinto('editPwd_head','../member/address_head')">
 	                <div class="aui-arrow-right">
 	                		<i class="aui-iconfont aui-icon-activityfill aui-bg-33CB9A"></i>
 	                		收货地址
-	                	</div>	                
+	                	</div>
 	            </li>
-	        </ul>			
+	        </ul>
 		</div>
 		<div class="aui-text-right" id ="clip" style="display: none">
 <!--	                	<div class="aui-btn aui-btn-outlined" tapmode onclick="saveClip()">保存</div>
 	                	<div class="aui-btn aui-btn-info" tapmode onclick="" >重置</div>-->
 	                	<div class="aui-btn aui-btn-warning aui-btn-outlined" tapmode onclick="closeClip()">使用</div>
-	    </div>	
+	    </div>
 	</body>
 	<script type="text/javascript" src="../../script/api.js"></script>
 	<script type="text/javascript" src="../../script/common.js"></script>
@@ -139,7 +139,7 @@
 			    }
 			});
 		}
-		
+
 		function getBase64Image(img) {
 			var canvas = document.createElement("canvas");
 			canvas.width = img.width;
@@ -155,17 +155,17 @@
 
 	var FNImageClip;
 	var SavedCilp="";
-	
+
 	function saveClip(){
 	FNImageClip.save({
             destPath: api.wgtRootDir+'/',
             copyToAlbum: false,
             quality: 1
-        },function(ret, err){ 
-//      alert(JSON.stringify(ret)); 
-//      alert(JSON.stringify(err)); 
+        },function(ret, err){
+//      alert(JSON.stringify(ret));
+//      alert(JSON.stringify(err));
         SavedCilp=ret.destPath;
-//      alert("saveing "+SavedCilp);  
+//      alert("saveing "+SavedCilp);
         var image = new Image();
 		image.src = SavedCilp;
 		//alert("got to load")
@@ -174,7 +174,7 @@
     	var base64 = getBase64Image(image);
     	sendCip(base64);
 //  	alert(base64);
-}   
+}
             if(ret) {
                // alert(JSON.stringify(ret));
             } else{
@@ -182,7 +182,7 @@
             }
         });
 	}
-	
+
 	function closeClip(){
 	var clip=document.getElementById("clip");
 	//var img=document.getElementById("img");

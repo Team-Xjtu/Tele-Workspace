@@ -12,8 +12,8 @@
 		#aui-footer .aui-iconfont {
 			font-size: 25px;
 		}
-		
-		
+
+
 		.aui-bar-1d9dd5 {
 				background: #4385f6;
 			}
@@ -22,7 +22,7 @@
 			    -webkit-box-align: center;
 			    /*height: 50px;*/
 			}
-			
+
 		.aui-bar-navs {
 		display:-webkit-box;
 			    -webkit-box-pack: center;
@@ -37,7 +37,7 @@
 			    margin-right: 5px;
 			    font-size: 16px;
 			}
-			
+
 		.chat {
 			background: #FF9800;
 			width: 45px;
@@ -57,43 +57,39 @@
 			background: #FF9800;
 		}
 		.aui-left{font-size:14px;algin:center;text-align: center;font-size: larger;}
-		
+
 		.display-none{display:none;}
 	</style>
 	</head>
 	<body>
-		<header class="aui-bar aui-bar-nav aui-bar-warning header" id="index-header">
-			<div class="aui-bar-navs">
-			        手机壳定制
-			</div>
+		<header class="aui-bar aui-bar-nav aui-bar-warning header" id="index-header" style="height:20px>
+			<div class="aui-bar-navs"></div>
+
 		</header>
 
 		<header class="aui-bar  aui-bar-nav aui-bar-warning header display-none" id="sort-header">
-			<!--<a id="edit-return" class="left" title="返回" href="home.html">返回</a>-->
-			<!--<h1 id="header-title">手机模型</h1>-->
-			<!--<a id="edit-submit" class="right" title="提交">提交</a>-->
 		    <div class="aui-title">DIY</div>
 		    <a class="aui-pull-right">
-		        <span class="aui-iconfont aui-icon-search"></span>
+
 		    </a>
 		</header>
 
 		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="cart-header">
 			<div class="aui-title">购物车</div>
 			<a class="aui-pull-right">
-				<span class="aui-iconfont aui-icon-search"></span>
+				<!-- <span class="aui-iconfont aui-icon-search"></span> -->
 			</a>
 		</header>
-		<!--<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="order-header">-->
-			<!--<div class="aui-title">我的订单</div>-->
-			<!--<a class=" aui-pull-right" tapmode onclick="">&nbsp;</a>-->
-		<!--</header>-->
+		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="order-header">
+			<div class="aui-title">我的订单</div>
+			<a class=" aui-pull-right" tapmode onclick="">&nbsp;</a>
+		</header>
 		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="member-header">
-			<div class="aui-title">个人中心</div>	
+			<div class="aui-title">个人中心</div>
 			<a class="aui-iconfont aui-icon-settings aui-pull-right" tapmode onclick="openWinto('ucenter_setting_head','./html/member/ucenter_setting_head')"></a>
 		</header>
 
-    
+
 		<footer class="aui-nav" id="aui-footer">
 			<ul class="aui-bar-tab">
 				<li class="active-warning" data-header="index" tapmode="" onclick="randomSwitchBtn(this,'首页',0)">
@@ -133,39 +129,39 @@
 	<script type="text/javascript" src="./script/zepto.min.js"></script>
 	<script type="text/javascript">
 		apiready = function() {
-		
+
 			api.parseTapmode();
 			// 设置ios7的标题栏字体变亮，全局用一个就行了
-			
-			
+
+
 			api.addEventListener({
             name: "keyback"
         }, function(ret, err){
             if(ret)
             {
               api.confirm({
-              
+
              	 msg:'确定要退出应用吗',
               	 buttons:['确定','取消'],
-              
+
               },function(ret,err){
               	if(ret.buttonIndex==1){
               		api.closeWidget({
-	                     
+
                       });
               	}
-              	
+
               });
             }
-            
+
         });
-			
+
 	       api.setStatusBarStyle({
 			    style: 'light'
-			});		
+			});
 			var header = $api.dom('.aui-bar');
 			var headers = $api.byId('index-header');
-			$api.fixStatusBar(headers);		
+			$api.fixStatusBar(headers);
 			var headerPos = $api.offset(header);
 			var body_h = $api.offset($api.dom('body')).h;
 			var footer_h = $api.offset($api.byId('aui-footer')).h;
@@ -222,7 +218,7 @@
 			var headerId = that.attr("data-header");
 			// 对应的dom头部
 			var headerDOM = headerId + "-header";
-			//$api.fixStatusBar(headerDOM);	
+			//$api.fixStatusBar(headerDOM);
 			//alert(headerId);
 			$("#" + headerDOM).removeClass("display-none").siblings(".header").addClass("display-none");
 		}
