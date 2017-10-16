@@ -41,10 +41,10 @@
             "<img class='pic' :src='item.imgb' style='width: 100px;height: 100px'>" +
             "<img class='pic' :src='item.imgf' style='width: 100px;height: 100px; margin-left: 40px'>" +
             // "<img class='pic' :src='item.imgm' style='width: 60px;height: 60px; margin-left: 10px'>"+
-            "</a>" +
             "<p onclick=\"openWinto('indexDiy','./indexDiy')\">{{ item.title }}</p>" +
             "<div class='ui-label-s'>类型" +
             "</div ><span><font> 手机模型</font></span>" +
+            "</a>" +
             "</li></ul>"
         },
         // 图片库
