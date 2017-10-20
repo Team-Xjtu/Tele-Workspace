@@ -50,6 +50,19 @@ function isIOS() {
             slidBackType:'edge'
         });
 	}
+	function openWintoById(name,id){//打开新窗口
+        if (api.systemType == "ios") {
+            var times = 0;
+        }else{
+            var times = 300;
+        }
+        api.openWin({
+			name: name,
+            url: './indexDiy.html?id=' + id,
+            delay:times,
+            slidBackType:'edge'
+        });
+	}
 	function openWin(name,url,islogin){//打开新窗口并且需要验证登录
 		 if (api.systemType == "ios") {
 			 var times = 0;
