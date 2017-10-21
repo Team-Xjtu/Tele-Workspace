@@ -242,7 +242,12 @@ var Canvas = window.Canvas || {};
 	 * @param e {Event} Event object fired on mousedown
 	 */
 	Canvas.Element.prototype.onMouseDown = function(e) {
-		
+        // hammertime.on("pan",function(ev){
+        //     isrotate = false;
+        // });
+        hammertime.on("pinch",function(ev){
+            isrotate = true;
+        });
 		var mp = this.findMousePosition(e);
 		e.preventDefault();
 		// ignore if something else is already going on
@@ -257,21 +262,18 @@ var Canvas = window.Canvas || {};
 				 					top: 0, left: 0 };
 		}
 		else {
-			
 			// determine if it's a drag or rotate case
 			// rotate and scale will happen at the same time
-			action = 'drag';
-			
-			hammertime.on("pinch",function(ev){
-                action = "rotate";
-		 	});
-            hammertime.on("rotate",function(ev){
-                action = "rotate";
-            });
+			// action = (!this.findTargetCorner(mp, oImg)) ? 'drag' : 'rotate';
+            // hammertime.on("pan",function(ev){
+            //     isrotate = false;
+		 	// });
+			if(isrotate){
+				action = "rotate";
+			}else{
+                action = "drag";
+			}
 
-			// if(isrotate){
-			// 	action = "rotate";
-			// }
 			if (action == "rotate") {
 				// fire custom rotate event handler
 				this.onRotateMove.fire(e);
@@ -292,6 +294,7 @@ var Canvas = window.Canvas || {};
 			};
 			// we must render all so the active image is placed in the canvastop
 			this.renderAll(false);
+            isrotate = false;
 		}
 	};
 	
