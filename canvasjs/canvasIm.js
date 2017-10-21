@@ -61,7 +61,7 @@ var Canvas = window.Canvas || {};
 		},
 		"CORNERSIZE": { 
 		    key: "cornersize", 
-		    value: 10
+		    value: 0
 		},
 		"BORDERWIDTH": { 
 		    key: "borderwidth", 
