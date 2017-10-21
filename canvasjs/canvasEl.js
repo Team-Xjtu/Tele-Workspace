@@ -260,12 +260,15 @@ var Canvas = window.Canvas || {};
 			
 			// determine if it's a drag or rotate case
 			// rotate and scale will happen at the same time
-			action = (!this.findTargetCorner(mp, oImg)) ? 'drag' : 'rotate';
+			action = 'drag';
 			
-			// hammertime.on("pinch",function(ev){
-			// 	isrotate  = "rotate";
-		 	// });
-            //
+			hammertime.on("pinch",function(ev){
+                action = "rotate";
+		 	});
+            hammertime.on("rotate",function(ev){
+                action = "rotate";
+            });
+
 			// if(isrotate){
 			// 	action = "rotate";
 			// }

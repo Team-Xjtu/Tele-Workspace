@@ -235,6 +235,8 @@ THREE.OrbitControls = function ( object, domElement ) {
                 }else if(event.touches.length == 2 && !isMove){
 
                     startX = Math.abs(event.touches[0].clientX - event.touches[1].clientX);
+                    startY = Math.abs(event.touches[0].clientY - event.touches[1].clientY);
+                    startDis = Math.pow((startX * startX + startY * startY), 0.5);
 
                 }else{
                     if(isMove && text){
@@ -280,19 +282,20 @@ THREE.OrbitControls = function ( object, domElement ) {
                     event.preventDefault();
 
                     endX = Math.abs(event.touches[0].clientX - event.touches[1].clientX);
+                    endY = Math.abs(event.touches[0].clientY - event.touches[1].clientY);
+                    endDis = Math.pow((endX * endX + endY * endY), 0.5);
                     // moveEndX1 = event.changedTouches[0].pageX;
                     // moveEndY1 = event.changedTouches[0].pageY;
-
                     if ( scope.enabled === false ) return;
                     if ( scope.userZoom === false ) return;
 
                     var delta = 0;
 
-                    if ( endX > startX ) { // WebKit / Opera / Explorer 9
+                    if ( endDis > startDis ) { // WebKit / Opera / Explorer 9
 
                         scope.zoomOut();
 
-                    } else if ( endX < startX ) { // Firefox
+                    } else if ( endDis < startDis ) { // Firefox
 
                         scope.zoomIn();
 
