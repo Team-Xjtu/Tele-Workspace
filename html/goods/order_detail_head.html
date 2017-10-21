@@ -79,6 +79,18 @@
 			});
 		};
 	    function goumai() {
+	    
+	    	    alert("提交订单了 ");
+            	api.sendEvent({
+			    name: 'myEvent2',
+			    extra: {
+			        key1: '提交value',
+			        
+			    }
+			    
+				});
+				alert("提交订单了2");
+	    
             $.getJSON("http://47.95.209.24:3001/showdingdan", function(data) {
 				var shangpins = data.shangpins;
 				var diybiaoshi = [];

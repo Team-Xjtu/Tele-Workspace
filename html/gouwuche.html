@@ -15,21 +15,8 @@
     <!--<script type="text/javascript" src="../js/gouwuche.js"></script>-->
 </head>
     <body>
-        <!--主题-->
-        <div class="no">
-            <p>刷新看看</p>
-        </div>
-        <div class="con">
-            <div class="content">
-                <!--<div class="list">-->
-                    <!--<div class="fl">-->
-                        <!--<label>-->
-                            <!--<input type="checkbox" checked=""/>-->
-                            <!--<img src="../image/c_checkbox_off.png"/>-->
-                        <!--</label>-->
-                    <!--</div>-->
-                    <!--<p class="a">手机模型</p>-->
-                <!--</div>-->
+        <div class="content">
+            <div >
                 <ul id="contentList" ind="0">
                     <script type="text/template" id="moban">
                         <li id="{{=diybiaoshi}}" class="clearfix">
@@ -108,6 +95,10 @@
                 document.body.appendChild(script);
             }
             function goOrder(){
+            //下单之后给购物车发送监听刷新数据
+
+            
+            
                 shengchengdingdan();
             }
             function shengchengdingdan() {
@@ -155,20 +146,44 @@
             var compiled = _.template($("#moban").html());
             apiready = function() {
                 api.parseTapmode();
-                api.setRefreshHeaderInfo({
-                    visible: true,
-                    loadingImg: 'widget://image/coupon_bg_yellow.png',
-                    bgColor: '#ccc',
-                    textColor: '#fff',
-                    textDown: '下拉刷新...',
-                    textUp: '松开刷新...',
-                    showTime: true
-                }, function(ret, err) {
-                    $api.html($api.byId('contentList'),"");
-                    loadingData();
-                    api.refreshHeaderLoadDone();
-                });
+                
+                
+//              api.addEventListener({
+//				    name:'viewappear'
+//				}, function(ret, err){        
+//				   alert('window显示');
+////				   loadingData();
+//				});
+                
+                
+                api.addEventListener({
+			    name: 'myEvent'
+			}, function(ret, err) {
+				alert(JSON.stringify(ret.value));
+				alert("保存成功！");
+				loadingData();
+			});
+			
+			
+			api.addEventListener({
+			    name: 'myEvent2'
+			}, function(ret, err) {
+//				alert("监听1");
+				alert(JSON.stringify(ret.value));
+//				alert("保存成功！");
+				loadingData();
+//				alert("监听2");
+			});
+			
+                
+                loadingData();
+
             };
+            
+            
+			
+			
+			
             function loadingData() {
                 $.get("http://47.95.209.24:3001/getgouwuche", function(result) {
                     resultDiybiaoshi = [];
@@ -177,9 +192,12 @@
                         return;
                     }
                     if (result.length > 1) {
+//                  	alert(result.length);
+						$("#contentList").find("li").remove(); 
                         for(var i = 1; i < result.length; i++) {
                             resultDiybiaoshi.push(result[i].diybiaoshi);
                             var htmlstring = compiled(result[i]);
+                             
                             $("#contentList").append($(htmlstring));
                         }
                     }

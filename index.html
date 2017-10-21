@@ -64,26 +64,25 @@
 	<body>
 		<header class="aui-bar aui-bar-nav aui-bar-warning header" id="index-header" style="height:20px">
 			<div class="aui-bar-navs">
-				手机壳定制
 			</div>
 		</header>
 
 		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="sort-header">
 		    <div class="aui-title">DIY</div>
 			<a class="aui-pull-right">
-				<span class="aui-icon-search"></span>
+				<!--<span class="aui-icon-search"></span>-->
 			</a>
 		</header>
 
 		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="cart-header">
 			<div class="aui-title">购物车</div>
 			<a class="aui-pull-right">
-				 <span class="aui-icon-search"></span>
+				 <!--<span class="aui-icon-search"></span>-->
 			</a>
 		</header>
 		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="order-header">
 			<div class="aui-title">我的订单</div>
-			<a class=" aui-pull-right" tapmode onclick="">&nbsp;</a>
+			<a class=" aui-pull-right" tapmode onclick=""></a>
 		</header>
 		<header class="aui-bar aui-bar-nav aui-bar-warning header display-none" id="member-header">
 			<div class="aui-title">个人中心</div>
@@ -129,11 +128,25 @@
 	<script type="text/javascript" src="./script/common.js"></script>
 	<script type="text/javascript" src="./script/zepto.min.js"></script>
 	<script type="text/javascript">
+	
+//		api.addEventListener({
+//			    name: 'myEvent'
+//			}, function(ret, err) {
+//				alert("Listener");
+//			    alert(JSON.stringify(ret.value));
+//			});
+//	
+	
 		apiready = function() {
 
 			api.parseTapmode();
 			// 设置ios7的标题栏字体变亮，全局用一个就行了
+//			alert(api.winName);
+//			alert(api.frameName);
 
+				
+	
+				
 
 			api.addEventListener({
             name: "keyback"

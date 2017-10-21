@@ -89,14 +89,61 @@
     var urlarray;
 	function cart_add(){
 	//sendDiyMsg(base64Data,"sence");
-	var image = new Image();
+		var image = new Image();
 		image.src = "http://47.95.209.24:3001" + urlarray[0];
 		image.onload = function(){
     	var base64 = getBase64Image(image);
     	//alert(base64);
     	sendDiyMsg(base64, "sence", jieshao, shangpinhao, name);
+    	
+//  	alert("send1");
+    	api.sendEvent({
+	    name: 'myEvent',
+	    extra: {
+	        key1: 'value1',
+	        key2: 'value2'
+	    }
+	    
+		});
+	
+//  	alert("send2");
+//  	alert("jinru1");
+    	
+    	//刷新指定窗口数据
+    	
+    	
     	};
 	}
+	
+
+	
+	
+	
+	
+//	function loadingData() {
+//              $.get("http://47.95.209.24:3001/getgouwuche", function(result) {
+//                  resultDiybiaoshi = [];
+//                  if (result == "-1") {
+//                      alert("出错了");
+//                      return;
+//                  }
+//                  if (result.length > 1) {
+//                      for(var i = 1; i < result.length; i++) {
+//                          resultDiybiaoshi.push(result[i].diybiaoshi);
+//                          var htmlstring = compiled(result[i]);
+//                          $("#contentList").append($(htmlstring));
+//                      }
+//                  }
+//                  loadJs("../js/gouwuche.js");
+//              });
+//          }
+	
+	
+	
+	
+	
+	
+	
 	//openWin('enter_order_detail_head','enter_order_detail_head',true)
 
 	function openFrameSharebody(){
@@ -138,6 +185,10 @@
 
     apiready = function(){
 		api.parseTapmode();
+		
+		
+		
+		
 		url0 = api.pageParam.url0;
 		price = api.pageParam.price;
 		name = api.pageParam.name;
