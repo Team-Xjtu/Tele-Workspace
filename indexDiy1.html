@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!--<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'/>-->
+
+<title></title>
+	<!--图片库-->
+	<link rel="stylesheet" type="text/css" href="css/headerDiy.css" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/jquery.easing.js" type="text/javascript"></script>
+	<script src="js/scroller.js" type="text/javascript"></script>
+	<script src="js/initHeaderDiy.js" type="text/javascript"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+	<!--font-->
+	<link rel="stylesheet" href="css/jquery.range.css" />
+	<script type="text/javascript" src="js/jquery.range.js"></script>
+	<!--canvas-->
+	<script type="text/javascript" src="canvasjs/utilitie.js"></script>
+	<script type="text/javascript" src="canvasjs/canvasEl.js"></script>
+	<script type="text/javascript" src="canvasjs/canvasIm.js"></script>
+	<script src="js/hammer.js"></script>
+
+	<!--color-->
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/colorpicker.js"></script>
+	<script src="threejs/three86.js"></script>
+	<script src="threejs/OrbitControls.js"></script>
+	<script src="threejs/SceneExporter.js"></script>
+	<script src="threejs/SceneLoader.js"></script>
+		<!--pan.zhou add-->
+	<script type="text/javascript" src="script/api.js"></script>
+	<script src="script/myscript.js"></script>
+	<!--pan.zhou-->
+
+</head>
+<body>
+
+	<nav id="headerDiy">
+
+		<div id="photoList" class="scroller demo2">
+
+			<div id="addImage" class="inside">
+
+				<a href="#"><img src="images/assets/img1.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img2.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img3.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img4.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img5.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img6.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img7.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img8.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img9.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img10.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img11.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img12.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img13.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img14.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/assets/img15.jpg" alt="" /></a>
+
+				<a href="#"><img src="images/2.jpg" alt="" /></a>
+
+			</div>
+
+		</div>
+
+	</nav>
+
+	<div id="fontSet" class="headerFontDiy">
+		<div id="addFontContent">
+			<ul>
+				<li id="text"><input class="fontText" type="text" name="text"></li>
+				<li id="font">文字字体
+					<select name="font">
+						<option>FangSong_Regular</option>
+						<option>FZLiShu-S01S_Regular</option>
+					</select>
+				</li>
+				<li id="size">文字大小</li>
+				<input type="text" name="sizeVal" id="sizeVal" style="display: none">
+				<li id="height">文字厚度</li>
+				<input type="text" name="heightVal" id="heightVal" style="display: none">
+			</ul>
+		</div>
+		<div id="setsize">
+			<div class="font_set">
+				<input type="hidden" class="single-slider" value="1"/>
+			</div>
+		</div>
+	</div>
+	<!--$(a).css('position','fixed');-->
+	<!--$(b).css('position','');-->
+
+	<!--<label for="amount">滑块范围：</label>-->
+	<!--<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">-->
+	<div id="content"></div>
+	<canvas id="canvid1"></canvas>
+	<img id = "img1" src="images/2.jpg" width="64" height="64">
+	<!--<img id = "img2" src="images/2.jpg" width="64" height="64">-->
+	<!--自定义文字大小-->
+
+	<!--&lt;!&ndash;自定义衣服&ndash;&gt;-->
+	<div id="clothes">
+		<div id="font_set">
+			<ul>
+				<li id="setFont">编辑文字</li>
+				<li id="moveFont">移动文字</li>
+				<li id="clearFont">文字重置</li>
+				<li id="save">保存</li>
+			</ul>
+		</div>
+	</div>
+	<!--自定义颜色-->
+	<div id="color">
+		<div id="examples" style="width: 100%">
+			<div id="js-example-change-value">
+				<input type="range" min="0" max="100" value="50" data-rangeslider>
+				<output></output>
+				<canvas id="myCanvas"></canvas>
+			</div>
+		</div>
+	</div>
+	<!--底部菜单-->
+	<div id="menu">
+		<ul>
+			<li>
+				<div id="uploadImg" class="menu_li" onclick="$('#imgFile').click();"><img src="images/home.png" width="20" />&nbsp;上传图片</div>
+				<input type="file" id="imgFile" style="display: none">
+				<img class="line" src="images/line.png" width="1">
+			</li>
+			<li>
+				<div id="diy" class="menu_li"><img src="images/home.png" width="20" />&nbsp;Diy</div>
+				<img class="line" src="images/line.png" width="1" />
+			</li>
+			<li>
+				<div id="preview" class="menu_li"><img src="images/home.png" width="20" />&nbsp;预览</div>
+				<img class="line" src="images/line.png" width="1" />
+			</li>
+			<li>
+				<div id="reset" class="menu_li"><img src="images/home.png" width="20" />&nbsp;重置</div>
+			</li>
+		</ul>
+	</div>
+
+	<script>
+        //创建CanvasDemo组件
+		var canvid1 = document.getElementById("canvid1");
+        canvid1.style.display = "none";
+
+        var headerDiy = document.getElementById("headerDiy");
+
+        var YD = YAHOO.util.Dom;
+        var canvas1;
+        var img = [];
+        function CanvasDemo() {
+            canvas1 = new Canvas.Element();
+            canvas1.init('canvid1',  { width: YD.getViewportWidth() - 5, height: YD.getViewportHeight() - 5 });
+            img[img.length] = new Canvas.Img('img1', {});
+//            img[img.length] = new Canvas.Img('img2', {});
+            canvas1.addImage(img[0]);
+//            canvas1.addImage(img[1]);
+        }
+
+        window.onload = function(){
+            //initSlider();
+            createThree("models/Iphone5.js","content","");
+            myCanvas();
+            getTheValue();
+        };
+	</script>
+	<script>
+        function initSlider() {
+            $('.single-slider').jRange({
+                from: 0,
+                to: 10,
+                step: 1,
+                scale: [1, 2, 3, 4, 5],
+                format: '%s',
+                width: window.innerWidth,
+                showLabels: true,
+                showScale: false
+            });
+        }
+        $('#font_set ul li ').on('click',function(){
+            if($('#font_set ul li ').hasClass('current')){
+                $('#font_set ul li ').removeClass('current');
+			}else{
+                $(this).addClass('current');
+			}
+        });
+        $('#fontSet ul li ').on('click',function(){
+            index = 0;
+            if($('#fontSet ul li ').hasClass('cur')){
+                $('#fontSet ul li ').removeClass('cur');
+            }else{
+                $(this).addClass('cur');
+            }
+        });
+        $("#size").on("click onchange", function() {
+            if($('#fontSet ul li ').hasClass('cur')){
+                index = 1;
+                initSlider();
+                $('.single-slider').jRange('setValue', $("#sizeVal").val());
+            }
+        });
+        $("#height").on("click onchange", function() {
+            index = 2;
+            if($('#fontSet ul li ').hasClass('cur')){
+                initSlider();
+                $('.single-slider').jRange('setValue', $("#heightVal").val());
+            }
+        });
+        $("#setFont").on("click", function() {
+            if($('#font_set ul li ').hasClass('current')){
+                isPhotoDiy = false;
+                isMove = false;
+                canvid1.style.display = "none";
+				document.getElementById("headerDiy").style.display = "none";
+				document.getElementById("fontSet").style.display = "block";
+            }
+        });
+        $("#moveFont").on("click", function() {
+            if($('#font_set ul li ').hasClass('current')){
+                isPhotoDiy = false;
+                isMove = true;
+            }
+        });
+        $("#clearFont").on("click", function() {
+            if($('#font_set ul li ').hasClass('current')){
+                clearFont();
+			}
+        });
+        $("#save").on("click", function() {
+			save();
+        });
+        $("#diy").on("click", function() {
+            CanvasDemo();
+            isPhotoDiy = true;
+            canvid1.style.display = "block";
+            headerDiy.style.display = "block";
+            document.getElementById("fontSet").style.display = "none";
+        });
+        $("#preview").on("click", function() {
+            if($('#font_set ul li ').hasClass('current')){
+                $('#font_set ul li ').removeClass('current');
+            }
+            isPhotoDiy = false;
+            isMove = false;
+            canvid1.style.display = "none";
+            headerDiy.style.display = "none";
+            document.getElementById("fontSet").style.display = "none";
+        });
+        $("#reset").on("click", function() {
+            canvid1.getContext("2d").clearRect(0, 0, canvid1.width, canvid1.height);
+            isPhotoDiy = false;
+            isMove = false;
+            canvid1.style.display = "none";
+            $('#img1').attr('src', 'images/2.jpg');
+        });
+        $('#imgFile').change(function () {
+            var file=$('#imgFile')[0].files[0];
+            var reader=new FileReader();
+            reader.onload= function (e) {
+                $('#img1').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+            CanvasDemo();
+        });
+        $("#examples").on("touchmove", function() {
+            canvid1.style.display = "none";
+            if(isPhotoDiy){
+                myCanvas();
+			}else{
+                isPhotoDiy = true;
+			}
+        });
+        $("#setsize").on("touchend", function() {
+            if(index == 1){
+                getTheValue("sizeVal");
+                addFont();
+			}else if(index == 2) {
+                getTheValue("heightVal");
+                addFont();
+			}else{
+                alert("请选择文字大小或厚度");
+			}
+        });
+        function getTheValue(id) {
+            var rangeValue = $(".single-slider").val();
+            $("#"+id).val(rangeValue);
+        }
+        function myCanvas(){
+            var width = 300;
+            var l=parseInt($('.rangeslider__handle').css('left'));
+            var c=document.getElementById("myCanvas");
+            var ctx=c.getContext("2d");
+            var grd=ctx.createLinearGradient(0,0,width,0);
+            grd.addColorStop(0,"#ff0000");
+            grd.addColorStop(0.2,"#ffff00");
+            grd.addColorStop(0.4,"#00ff00");
+            grd.addColorStop(0.6,"#00ffff");
+            grd.addColorStop(0.8,"#ff00ff");
+            grd.addColorStop(1,"#ffffff");
+            ctx.fillStyle=grd;
+            ctx.fillRect(0,0,width,20);
+            var imgData=ctx.getImageData(l,0,5,5);
+            red=imgData.data[0];
+            green=imgData.data[1];
+            blue=imgData.data[2];
+            alpha=imgData.data[3];
+            backgroundBG=red + "," + green + "," + blue;
+            canvid1.getContext("2d").fillStyle = 'rgb('+backgroundBG+')';
+            canvid1.getContext("2d").fillRect(0,0,window.innerWidth,window.innerHeight);
+        }
+//        动态添加图标库
+        function addElementImg(obj) {
+            var div = document.getElementById(obj);
+            //添加 a
+            var a = document.createElement("a");
+            //添加 img
+            var img = document.createElement("img");
+            //设置 img 属性，如 id
+            //img.setAttribute("id", "newImg");
+            //设置 img 图片地址
+            img.src = "images/assets/img1.jpg";
+            a.appendChild(img);
+            div.appendChild(a);
+        }
+	</script>
+	<!--<script src="font/helvetiker_bold.typeface.js"></script>-->
+	<script src="threejs/addFont.js"></script>
+	<script src="threejs/initSence.js"></script>
+</body>
+</html>
