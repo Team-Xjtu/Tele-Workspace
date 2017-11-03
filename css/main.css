@@ -74,7 +74,7 @@
     z-index: 10;
     height: .45rem;
     background-color: #FFF; }
-.bar-header {
+    .bar-header {
     top: 0;
     line-height: .45rem; }
 .bar-header a {
@@ -130,9 +130,29 @@
 #img1{
     display: none;
 }
+.shell-list.col2 li {
+    width: 50%; }
+.shell-list li {
+    float: left;
+    width: 50%;
+    padding: 0.1rem 0.1rem 0 0.1rem;
+    text-align: center;
+    box-sizing: border-box; }
+.shell-list li:active {
+    opacity: .9; }
+.shell-list a {
+    display: block;
+    color: inherit; }
+/*.shell-list .pic {*/
+    /*padding-top: 100%; }*/
+.shell-list p {
+    padding-top: 0.05rem;
+    height: 2.8em;
+    font-size: 0.12rem;
+    line-height: 1.4; }
 /* 按钮菜单 */
 .edit-btn {
-    width: 4em;
+    width: 4.5em;
     height: 2em;
     font-size: .1rem;
     color: #EEEEEE;
@@ -142,6 +162,16 @@
     border-radius: .02rem; }
 .edit-btn:active {
     opacity: .8; }
+.edit-btn-editor{
+    width: 4.5em;
+    height: 2em;
+    font-size: .1rem;
+    color: #EEEEEE;
+    text-align: center;
+    line-height: 2;
+    background-color: blue;
+    border-radius: .02rem;
+}
 .edit-list-text {
     position: absolute;
     right: .05rem;

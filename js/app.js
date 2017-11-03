@@ -36,10 +36,10 @@
             },
             template:
             "<ul class='shell-list clearfix' :class='{load:isload}' v-show='isload || items.length > 0'>"+
-            "<li class='index-class' v-for='item in items'>"+
+            "<li v-for='item in items'>"+
             //"<a :id='item.href' onclick=\"openWintoById('indexDiy',this.id)\">"+
             "<a :href='item.href'>"+
-            "<img class='pic' :src='item.imgb' style='width: 100px;height: 100px'>" +
+            "<img class='pic' :src='item.imga' style='width: 100px;height: 100px'>" +
             //"<img class='pic' :src='item.imgf' style='width: 100px;height: 100px; margin-left: 40px'>" +
             // "<img class='pic' :src='item.imgm' style='width: 60px;height: 60px; margin-left: 10px'>"+
             "<p>{{ item.title }}</p>" +

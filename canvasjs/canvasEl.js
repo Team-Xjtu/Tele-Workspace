@@ -231,6 +231,7 @@ var Canvas = window.Canvas || {};
 		this._groupSelector = null;
 		// this is to clear the selector box
 		this.renderTop();
+        // isrotate = false;
 	};
 
 	/**
@@ -245,9 +246,9 @@ var Canvas = window.Canvas || {};
         // hammertime.on("pan",function(ev){
         //     isrotate = false;
         // });
-        hammertime.on("pinch",function(ev){
-            isrotate = true;
-        });
+        // hammertime.on("pinch",function(ev){
+        //     isrotate = true;
+        // });
 		var mp = this.findMousePosition(e);
 		e.preventDefault();
 		// ignore if something else is already going on
@@ -294,7 +295,6 @@ var Canvas = window.Canvas || {};
 			};
 			// we must render all so the active image is placed in the canvastop
 			this.renderAll(false);
-            isrotate = false;
 		}
 	};
 	

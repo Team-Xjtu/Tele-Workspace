@@ -23,8 +23,8 @@
     </button>
 </div>
 <div class="edit-list-scale-look">
-    <button id="showModel" class="edit-btn">
-        <i>操作图片</i>
+    <button id="showModel" class="edit-btn-editor">
+        <i>编辑图片</i>
     </button>
 </div>
 <div class="edit-list-scale-text">
@@ -32,11 +32,11 @@
         <i>移动文字</i>
     </button>
 </div>
-<!--<div class="edit-list-scale-big">-->
-    <!--<button id="big" class="edit-btn">-->
-        <!--<i>+</i>-->
-    <!--</button>-->
-<!--</div>-->
+<div class="edit-list-scale-big">
+    <button id="rotate" class="edit-btn">
+        <i>旋转图片</i>
+    </button>
+</div>
 <!--<div class="edit-list-scale-small">-->
     <!--<button id="small" class="edit-btn">-->
         <!--<i>-</i>-->
@@ -189,7 +189,7 @@
     })();
 
     CanvasDemo();
-    var hammertime = new Hammer(document.querySelector("#canvid1"));
+    var hammertime = new Hammer(document.querySelector("#img1"));
     hammertime.get('pinch').set({ enable: true });
     isrotate = false;
     function CanvasDemo() {
@@ -329,18 +329,25 @@
                 var showModel = document.getElementById("showModel");
                 showModel.addEventListener("click", function() {
                     if(isPhotoDiy){
+                        showModel.style.background = "blue";
                         canvid1.style.display = "block";
                         isPhotoDiy = !isPhotoDiy;
                     }else{
+                        showModel.style.background = "darkorange";
                         canvid1.style.display = "none";
                         isPhotoDiy = !isPhotoDiy;
                     }
                 });
-//                    var small = document.getElementById("small");
-//                    small.addEventListener("click", function() {
-//                        index = index - 1;
-//                        createThree("models/Iphone5.js","content","");
-//                    });
+                var rotate = document.getElementById("rotate");
+                rotate.addEventListener("click", function() {
+                    if(rotate.style.background == "blue"){
+                        rotate.style.background = "darkorange";
+                        isrotate = false;
+                    }else{
+                        rotate.style.background = "blue";
+                        isrotate = true;
+                    }
+                });
                 var move = document.getElementById("move");
                 move.addEventListener("click", function() {
                     if(!noText){
@@ -348,9 +355,11 @@
                     }else{
                         isMove = !isMove;
                         if(!isMove){
+                            move.style.background = "darkorange";
                             webGLRenderer.domElement.removeEventListener( 'touchmove', onDocumentMouseMove, false );
                         }else{
                             webGLRenderer.domElement.addEventListener( 'touchmove', onDocumentMouseMove, false );
+                            move.style.background = "blue";
                         }
                     }
                 });
